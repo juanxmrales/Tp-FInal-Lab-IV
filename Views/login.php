@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH ?>bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH ?>estilos.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <div id="login">
+        <h3 class="text-center display-4" >Bienvenidos!</h3>
+
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-col" class="col-md-6">
+
+                    <div id="login-box" class="col-md-12 bg-light text-dark">
+
+                        <form id="login-form" class="login-form" action="" method="POST">
+
+                            <h3 class="text-center">Iniciar sesión</h3>
+
+                            <div class="form-group">
+                                <label>Usuario</label>
+                                <input type="email" name="username" id="username" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Contraseña</label>
+                                <input type="password" name="password" id="password" class="form-control">
+                            </div>
+
+                            <div class="form-group text-center"></div>
+                            <input type="submit" name="submit" class="btn btn-dark btn-lg btn-block" value="Conectar">
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
