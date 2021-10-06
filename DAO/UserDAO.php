@@ -54,7 +54,7 @@
 
                 foreach($arrayToDecode as $valuesArray)
                 {
-                    $user = new User($valuesArray["recordId"],$valuesArray["firstName"],$valuesArray["lastName"]);
+                    $user = new User($valuesArray["email"],$valuesArray["password"],$valuesArray["type"]);
 
                     array_push($this->userList, $user);
                 }
@@ -68,7 +68,7 @@
 
             foreach($this->userList as $value)
             {
-                if($value['email'] == $email && $value['password'] == $password)
+                if($value->getEmail() == $email && $value->getPassword() == $password)
                 {
                     $flag = true;
                 }

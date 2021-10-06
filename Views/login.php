@@ -27,7 +27,7 @@
 
                             <div class="form-group">
                                 <label>Usuario</label>
-                                <input type="email" name="username" id="username" class="form-control">
+                                <input type="email" name="email" id="email" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Contraseña</label>
@@ -35,7 +35,7 @@
                             </div>
 
                             <div class="form-group text-center"></div>
-                            <input type="submit" name="submit" class="btn btn-dark btn-lg btn-block" value="Conectar">
+                            <input type="submit" class="btn btn-dark btn-lg btn-block" value="Conectar">
 
                         </form>
                     </div>
