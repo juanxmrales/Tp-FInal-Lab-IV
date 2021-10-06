@@ -6,7 +6,7 @@
 
 		private $email;
 		private $password;
-		private $type;
+		private $type; /* 0 -> Student // 1 -> Admin // 2 -> Empresa */
 
 
 		/**
