@@ -1,3 +1,23 @@
+<?php
+    /*
+    
+    if(isset($_SESSION['type']))
+    {
+        if($_SESSION['type']==0)
+        {
+            header("location: " . FRONT_ROOT . "Student/ShowAddView");
+        }
+        if($_SESSION['type']==1)
+        {
+            header("location: " . FRONT_ROOT . "Student/ShowAddView");
+        }
+        if($_SESSION['type']==2)
+        {
+            header("location: " . FRONT_ROOT . "Student/ShowAddView");
+        }
+    }
+    */
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +43,7 @@
 
                         <form id="login-form" class="login-form" action="<?php echo FRONT_ROOT ?>Login/Verify" method="POST">
 
-                            <h3 class="text-center">Iniciar sesión</h3>
+                            <h3 class="text-center" style="padding-top:10px">Iniciar sesión</h3>
 
                             <div class="form-group">
                                 <label>Usuario</label>
@@ -34,8 +54,10 @@
                                 <input type="password" name="password" id="password" class="form-control">
                             </div>
 
-                            <div class="form-group text-center"></div>
+                            <div class="form-group text-center">
                             <input type="submit" class="btn btn-dark btn-lg btn-block" value="Conectar">
+                            </div>
+                            <p style="color: red"><?php echo $message?></p>
 
                         </form>
                     </div>

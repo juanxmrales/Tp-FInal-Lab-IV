@@ -76,5 +76,21 @@
 
             return $flag;
         }
+
+        public function searchUser($email)
+        {
+            $this->RetrieveData();
+            $user = null;
+
+            foreach($this->userList as $value)
+            {
+                if($value->getEmail() == $email)
+                {
+                    $user = $value;
+                }
+            }
+
+            return $user;
+        }
     }
 ?>
