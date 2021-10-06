@@ -1,10 +1,10 @@
 <?php
     namespace DAO;
 
-use JetBrains\PhpStorm\Internal\ReturnTypeContract;
-use Models\User as User;
+    use JetBrains\PhpStorm\Internal\ReturnTypeContract;
+    use Models\User as User;
 
-    class StudentDAO
+    class UserDAO
     {
         private $userList = array();
 
