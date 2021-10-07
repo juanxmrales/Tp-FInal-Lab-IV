@@ -1,18 +1,10 @@
 <?php
-     session_start();
-     
-     if(isset($_SESSION["usuario"]))
-     {
-          header("location:add-form.php");
-     }
-     
-     if(isset($_GET["error"])&&$_GET["error"]==true)
-     {
-          echo "<div style='color:red'>Debe iniciar sesion primero</div>";
-     }
-?>
 
-<?php
+    if(isset($_SESSION['logueado']))
+    {
+        header("location: " . FRONT_ROOT . "Student/ShowAddView");
+    }
+    
     /*
     
     if(isset($_SESSION['type']))

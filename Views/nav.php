@@ -8,9 +8,9 @@
           </li>
           <li class="nav-item">
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>Student/ShowListView">Listar Alumnos</a>
-          </li>
+          </li>     
           <li class="nav-item">
-               <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/ShowAddView">Agregar User</a>
-          </li>            
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/LogOut">Log out</a>
+          </li>        
      </ul>
 </nav>

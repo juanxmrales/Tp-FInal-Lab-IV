@@ -19,6 +19,8 @@
                     $_SESSION['email'] = $email;
                     $_SESSION['type'] = $user->getType();
 
+                    $_SESSION['logueado'] = 1;
+
                     require_once(VIEWS_PATH."student-add.php");
                 }
                 else
