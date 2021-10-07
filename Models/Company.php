@@ -3,60 +3,87 @@
 
     class Company
     {
-        private $Id;
-        private $Name;
-        private $Street;
-        private $Nacionality;
-        private $Description;
+        private $id;
+        private $name;
+        private $street;
+        private $nacionality;
+        private $description;
+        
+        /**
+		 * Class Constructor
+		 * @param    $id   
+		 * @param    $name   
+		 * @param    $street
+                 * @param    $nacionality
+                 * @param    $description
+		 */
+        public function __construct($id, $name, $street, $nacionality, $description)
+        {
+                $this->id = $id;
+                $this->name = $name;
+                $this->street = $street;
+                $this->nacionality = $nacionality;
+                $this->description = $description;
+        }
 
         public function getId()
         {
-                return $this->Id;
+                return $this->id;
         }
 
-        public function setId($Id)
+        public function setId($id)
         {
-                $this->Id = $Id;
+                $this->id = $id;
+
+                return $this;
         }
 
         public function getName()
         {
-                return $this->Name;
+                return $this->name;
         }
 
-        public function setName($Name)
+        public function setName($name)
         {
-                $this->Name = $Name;
+                $this->name = $name;
+
+                return $this;
         }
 
         public function getStreet()
         {
-                return $this->Street;
+                return $this->street;
         }
 
-        public function setStreet($Street)
+        public function setStreet($street)
         {
-                $this->Street = $Street;
+                $this->street = $street;
+
+                return $this;
         }
 
         public function getNacionality()
         {
-                return $this->Nacionality;
+                return $this->nacionality;
         }
 
-        public function setNacionality($Nacionality)
+        public function setNacionality($nacionality)
         {
-                $this->Nacionality = $Nacionality;
+                $this->nacionality = $nacionality;
+
+                return $this;
         }
 
         public function getDescription()
         {
-                return $this->Description;
+                return $this->description;
         }
 
-        public function setDescription($Description)
+        public function setDescription($description)
         {
-                $this->Description = $Description;
+                $this->description = $description;
+
+                return $this;
         }
     }
 ?>
