@@ -1,4 +1,18 @@
 <?php
+     session_start();
+     
+     if(isset($_SESSION["usuario"]))
+     {
+          header("location:add-form.php");
+     }
+     
+     if(isset($_GET["error"])&&$_GET["error"]==true)
+     {
+          echo "<div style='color:red'>Debe iniciar sesion primero</div>";
+     }
+?>
+
+<?php
     /*
     
     if(isset($_SESSION['type']))
@@ -56,10 +70,12 @@
 
                             <div class="form-group text-center">
                             <input type="submit" class="btn btn-dark btn-lg btn-block" value="Conectar">
-                            <input type="submit" class="btn btn-dark btn-lg btn-block" value="Registrarse">
                             </div>
-                            <p style="color: red"><?php echo $message?></p>
+                                <form id="register-form" action="" method="POST">
+                                    <input type="submit" class="btn btn-dark btn-lg btn-block" value="Registrarse">
+                                </form>    
 
+                            <p style="color: red"><?php echo $message?></p>
                         </form>
                     </div>
                 </div>
