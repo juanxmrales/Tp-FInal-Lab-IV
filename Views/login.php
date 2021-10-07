@@ -56,6 +56,7 @@
 
                             <div class="form-group text-center">
                             <input type="submit" class="btn btn-dark btn-lg btn-block" value="Conectar">
+                            <input type="submit" class="btn btn-dark btn-lg btn-block" value="Registrarse">
                             </div>
                             <p style="color: red"><?php echo $message?></p>
 

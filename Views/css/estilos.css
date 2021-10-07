@@ -28,15 +28,19 @@ body {
 #login .container #login-row #login-col #login-box {
     margin-top: 70px;
     max-width: 600px;
-    height: 300px;
+    height: 370px;
     box-shadow: 2px 2px 2px 2px #343a40;
     border-radius: 5px;
 }
 
-.login-userAdd-box {
-    margin-top: 70px;
+.userAdd-box {
+    margin-top: 50px;
     max-width: 600px;
-    height: 300px;
+    height: 365px;
     box-shadow: 2px 2px 2px 2px #343a40;
     border-radius: 5px;
+}
+
+.carga-usuario {
+    margin-top: 70px;
 }

@@ -11,13 +11,22 @@
 
     <title>Carga de usuario</title>
 </head>
+
+<?php require_once("nav.php")?>
+
 <body>
     <div id="carga-usuario"></div>
         <div class="container">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-md-6">
-                    <div class="login-userAdd-box col-md-12 bg-light text-dark">
+
+            <div id="add-user-row" class="row justify-content-center align-items-center">
+                
+                <div id="add-user-col" class="col-md-6">
+
+                    <div id="add-user-box" class="userAdd-box col-md-12 bg-light text-dark">
                         <form>
+
+                            <h3 class="text-center" style="padding-top:10px">Regristrar usuario</h3>
+
                             <div class="form-group">
                                 <label>E-mail</label>
                                 <input type="email" name="email" id="email" class="form-control">
@@ -38,7 +47,7 @@
                             </div>
                                 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Registrar</button>
+                                <button type="submit" class="btn btn-dark btn-lg btn-block">Registrar</button>
                             </div>     
                         </form>
                     </div>
