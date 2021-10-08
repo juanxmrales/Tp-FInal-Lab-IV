@@ -10,7 +10,7 @@
 
         public function __construct()
         {
-            $this->studentDAO = new UserDAO();
+            $this->userDAO = new UserDAO();
         }
 
         public function ShowAddView()
