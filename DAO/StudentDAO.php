@@ -3,6 +3,7 @@
 
     use DAO\IStudentDAO as IStudentDAO;
     use Models\Student as Student;
+    use Dao\ApiDAO as ApiDAO;
 
     class StudentDAO implements IStudentDAO
     {
@@ -19,7 +20,7 @@
 
         public function GetAll()
         {
-            $this->RetrieveData();
+            $this->RetrieveDataStudentsAPI();
 
             return $this->studentList;
         }
@@ -40,6 +41,22 @@
             $jsonContent = json_encode($arrayToEncode, JSON_PRETTY_PRINT);
             
             file_put_contents('Data/students.json', $jsonContent);
+        }
+
+        private function RetrieveDataStudentsAPI()
+        {
+            $newArray = ApiDAO::retrieveStudents();
+
+            foreach($newArray as $valuesArray)
+            {
+                $student = new Student();
+
+                $student->setStudentId($valuesArray["recordId"]);
+                $student->setFirstName($valuesArray["firstName"]);
+                $student->setLastName($valuesArray["lastName"]);
+
+                array_push($this->studentList, $student);
+            }
         }
 
         private function RetrieveData()
