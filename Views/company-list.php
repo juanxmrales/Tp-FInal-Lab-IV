@@ -24,7 +24,7 @@
                     <tbody>
                          <?php
 
-                         if(!isset($_GET["filter"])){
+                         if(!isset($_GET["filter"]) || $_GET['filter'] == ""){
 
 
                               foreach($companyList as $company)
