@@ -34,7 +34,7 @@
                 else
                 {
                     $message = "Usuario o contraseña inválida";
-                    require_once(FRONT_ROOT."login.php");
+                    require_once(VIEWS_PATH."login.php");
                 }
             }
         }
