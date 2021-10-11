@@ -40,6 +40,8 @@
                 $valuesArray["gender"] = $student->getGender();
                 $valuesArray["birthDate"] = $student->getBirthDate();
                 $valuesArray["email"] = $student->getEmail();
+                $valuesArray["fileNumber"] = $student->getGender();
+                $valuesArray["birthDate"] = $student->getEmail();
                 $valuesArray["phoneNumber"] = $student->getPhoneNumber();
                 $valuesArray["active"] = $student->getActive();
 
