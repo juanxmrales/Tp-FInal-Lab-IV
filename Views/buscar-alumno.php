@@ -8,7 +8,7 @@
                <h2 class="mb-4">Buscar alumno por DNI</h2>
                <form>
                     <input type="text" name="filter" placeholder="DNI">
-                    <button type="submit" value="Filtrar"></button>
+                    <button type="submit" value="Filtrar" class="btn btn-outline-dark">Filtrar</button>
                </form>
                <table class="table bg-light-alpha">
                     <thead>
