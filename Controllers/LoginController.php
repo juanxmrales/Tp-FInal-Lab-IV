@@ -27,7 +27,7 @@
                     }
                     else if($_SESSION['type'] == 1)
                     {
-                        header("location:". FRONT_ROOT . "Student/ShowListView");
+                        header("location:". FRONT_ROOT . "Student/SearchStudent");
                     }
                     
                 }
