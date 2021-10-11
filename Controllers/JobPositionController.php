@@ -32,9 +32,9 @@
 			$this->ShowListView();
 		}
 
-		public function ApplyJobPosition(){
+		public function ApplyJobPosition($idJob){
 
-				
+			$this->jobPositionDAO->applyById($idJob, "Lanzilota");
 		}
 	}
 

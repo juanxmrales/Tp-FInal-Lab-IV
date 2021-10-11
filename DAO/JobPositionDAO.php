@@ -62,6 +62,22 @@
             }
         }
 
+        public function applyById($idJob, $idStudent){
+
+            $this->RetrieveData();
+            $jobPosition = null;
+
+            foreach($this->jobPositionList as $value)
+            {
+                if($value->getId() == $idJob)
+                {
+                    array_push($value->getProposedStudents(), $idStudent);
+                }
+            }
+            
+            $this->SaveData();
+        }
+
 
     }
 ?>
