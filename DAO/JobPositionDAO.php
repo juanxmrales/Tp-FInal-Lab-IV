@@ -29,6 +29,7 @@
 
             foreach($this->jobPositionList as $jobPosition)
             {
+                $valuesArray["id"] = $jobPosition->getId();
                 $valuesArray["name"] = $jobPosition->getName();
                 $valuesArray["companyId"] = $jobPosition->getCompanyId();
                 $valuesArray["description"] = $jobPosition->getDescription();
@@ -54,7 +55,7 @@
 
                 foreach($arrayToDecode as $valuesArray)
                 {
-                    $jobPosition = new JobPosition($valuesArray["name"],$valuesArray["companyId"],$valuesArray["description"],$valuesArray["proposedStudents"]);
+                    $jobPosition = new JobPosition($valuesArray["id"],$valuesArray["name"],$valuesArray["companyId"],$valuesArray["description"],$valuesArray["proposedStudents"]);
 
                     array_push($this->jobPositionList, $jobPosition);
                 }
