@@ -8,7 +8,7 @@
                <h2 class="mb-4">Listado de Empresas</h2>
                <form>
                     <input type="text" name="filter" placeholder="Nombre">
-                    <button type="submit" value="Filtrar"></button>
+                    <button type="submit" value="Filtrar" class="btn btn-outline-dark">Filtrar</button>
                </form>
                <table class="table bg-light-alpha">
                     <thead>
