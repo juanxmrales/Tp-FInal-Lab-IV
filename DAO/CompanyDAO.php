@@ -16,6 +16,24 @@
             $this->SaveData();
         }
 
+        /** 
+        public function Remove()
+        {
+            $jsonContent= file_get_contents('Data/companies.json');
+
+            $json = json_decode($jsonContent, true);
+
+            foreach($json as $userJson=>$val)
+            {
+                if($val['UserId']==$usuario)
+                {
+                    unset($json[$userJson]);
+                }
+            }
+            file_put_contents("_Notifications.json", json_encode($json, JSON_FORCE_OBJECT)); 
+        }
+        */
+
         public function GetAll()
         {
             $this->RetrieveData();
@@ -62,7 +80,7 @@
             }
         }
 
-        public function searchCompany($name)
+        public function SearchCompany($name)
         {
             $this->RetrieveData();
             $company = null;
