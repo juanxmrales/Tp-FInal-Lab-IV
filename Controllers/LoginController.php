@@ -21,7 +21,15 @@
 
                     $_SESSION['logueado'] = 1;
 
-                    require_once(VIEWS_PATH."student-add.php");
+                    if($_SESSION['type'] == 0)
+                    {
+                        require_once(VIEWS_PATH . "Student/ShowStudentProfile");
+                    }
+                    else if($_SESSION['type'] == 1)
+                    {
+                        require_once(VIEWS_PATH . "Student/ShowListView.php");
+                    }
+                    
                 }
                 else
                 {

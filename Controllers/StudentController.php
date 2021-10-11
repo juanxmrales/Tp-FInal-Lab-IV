@@ -31,5 +31,12 @@
 
             require_once(VIEWS_PATH."buscar-alumno.php");
         }
+
+        public function ShowStudentProfile()
+        {
+            $studentList = $this->studentDAO->GetAll();
+
+            require_once(VIEWS_PATH."student-profile.php");
+        }
     }
 ?>

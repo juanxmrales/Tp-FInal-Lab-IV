@@ -5,24 +5,6 @@
         header("location: " . FRONT_ROOT . "Student/ShowAddView");
     }
     
-    /*
-    
-    if(isset($_SESSION['type']))
-    {
-        if($_SESSION['type']==0)
-        {
-            header("location: " . FRONT_ROOT . "Student/ShowAddView");
-        }
-        if($_SESSION['type']==1)
-        {
-            header("location: " . FRONT_ROOT . "Student/ShowAddView");
-        }
-        if($_SESSION['type']==2)
-        {
-            header("location: " . FRONT_ROOT . "Student/ShowAddView");
-        }
-    }
-    */
 ?>
 <!DOCTYPE html>
 <html lang="en">
