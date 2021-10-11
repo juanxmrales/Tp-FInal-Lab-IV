@@ -24,5 +24,12 @@
 
             require_once(VIEWS_PATH."student-list.php");
         }
+
+        public function SearchStudent()
+        {
+            $studentList = $this->studentDAO->GetAll();
+
+            require_once(VIEWS_PATH."buscar-alumno.php");
+        }
     }
 ?>

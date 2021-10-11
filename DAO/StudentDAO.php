@@ -31,16 +31,23 @@
 
             foreach($this->studentList as $student)
             {
-                $valuesArray["recordId"] = $student->getRecordId();
+                $valuesArray["studentId"] = $student->getRecordId();
                 $valuesArray["firstName"] = $student->getFirstName();
                 $valuesArray["lastName"] = $student->getLastName();
                 $valuesArray["careerId"] = $student->getCareer();
+                $valuesArray["dni"] = $student->getDni();
+                $valuesArray["fileNumber"] = $student->getFileNumber();
+                $valuesArray["gender"] = $student->getGender();
+                $valuesArray["birthDate"] = $student->getBirthDate();
+                $valuesArray["email"] = $student->getEmail();
+                $valuesArray["phoneNumber"] = $student->getPhoneNumber();
+                $valuesArray["active"] = $student->getActive();
 
                 array_push($arrayToEncode, $valuesArray);
             }
 
             $jsonContent = json_encode($arrayToEncode, JSON_PRETTY_PRINT);
-            
+
             file_put_contents('Data/students.json', $jsonContent);
         }
 
@@ -95,7 +102,25 @@
 
                     array_push($this->studentList, $student);
                 }
+
+                
             }
+        }
+
+        public function searchStudent($dni)
+        {
+            $this->RetrieveData();
+            $student = null;
+
+            foreach($this->studentList as $value)
+            {
+                if($value->getName() == $dni)
+                {
+                    $student = $value;
+                }
+            }
+
+            return $student;
         }
     }
 ?>

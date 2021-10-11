@@ -4,6 +4,9 @@
      </span>
      <ul class="navbar-nav ml-auto">
           <li class="nav-item">
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Student/SearchStudent">Buscar Alumno</a>
+          </li>   
+          <li class="nav-item">
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>Student/ShowAddView">Agregar Alumno</a>
           </li>
           <li class="nav-item">
@@ -11,6 +14,6 @@
           </li>     
           <li class="nav-item">
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/LogOut">Log out</a>
-          </li>        
+          </li>     
      </ul>
 </nav>
