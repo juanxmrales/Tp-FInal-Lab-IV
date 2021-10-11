@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
-     <span class="navbar-text">
-          <strong>Student</strong>
-     </span>
+     <a class="navbar-brand" href="index.php">
+          <img src= <?php echo FRONT_ROOT.VIEWS_PATH ?>img/student-hat.png ?>
+     </a>
+
      <ul class="navbar-nav ml-auto">
 
           <li class="nav-item">
