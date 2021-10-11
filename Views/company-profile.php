@@ -21,10 +21,10 @@
                                   {
                                    ?>
                                         <tr>
-                                             <td><?php echo $company->getName() ?></td>
-                                             <td><?php echo $company->getStreet() ?></td>
-                                             <td><?php echo $company->getNacionality() ?></td>
-                                             <td><?php echo $company->getDescription() ?></td>
+                                             <td><?php echo $company->getName(); ?></td>
+                                             <td><?php echo $company->getStreet(); ?></td>
+                                             <td><?php echo $company->getNacionality(); ?></td>
+                                             <td><?php echo $company->getDescription(); ?></td>
                                         </tr>
                                    <?php
                                   }

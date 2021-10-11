@@ -31,12 +31,12 @@
                               {
                                    ?>
                                         <tr>
-                                             <td><a href="<?php echo FRONT_ROOT ?>Company/ShowCompanyProfile/<?php echo $company->getId();?>"><button>Ver mas</button></a></td>
-                                             <td><?php echo $company->getId() ?></td>
-                                             <td><?php echo $company->getName() ?></td>
-                                             <td><?php echo $company->getStreet() ?></td>
-                                             <td><?php echo $company->getNacionality() ?></td>
-                                             <td><?php echo $company->getDescription() ?></td>
+                                             <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfile/<?php echo $company->getId();?>"><button>Ver mas</button></a></td>
+                                             <td><?php echo $company->getId(); ?></td>
+                                             <td><?php echo $company->getName(); ?></td>
+                                             <td><?php echo $company->getStreet(); ?></td>
+                                             <td><?php echo $company->getNacionality(); ?></td>
+                                             <td><?php echo $company->getDescription(); ?></td>
 
                                         </tr>
                                    <?php
@@ -46,16 +46,15 @@
                                    $companyDAO = new CompanyDAO();
                                    $filtred = $companyDAO->searchCompany($_GET['filter']);
 
-
                                    if($filtred){
                                          ?>
                                              <tr>
-                                                  <td><button>Ver</button></td>
-                                                  <td><?php echo $filtred->getId() ?></td>
-                                                  <td><?php echo $filtred->getName() ?></td>
-                                                  <td><?php echo $filtred->getStreet() ?></td>
-                                                  <td><?php echo $filtred->getNacionality() ?></td>
-                                                  <td><?php echo $filtred->getDescription() ?></td>
+                                                  <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfile/<?php echo $company->getId();?>"><button>Ver mas</button></a></td>
+                                                  <td><?php echo $filtred->getId(); ?></td>
+                                                  <td><?php echo $filtred->getName(); ?></td>
+                                                  <td><?php echo $filtred->getStreet(); ?></td>
+                                                  <td><?php echo $filtred->getNacionality(); ?></td>
+                                                  <td><?php echo $filtred->getDescription(); ?></td>
                                              </tr>
                                         <?php
                                    }
