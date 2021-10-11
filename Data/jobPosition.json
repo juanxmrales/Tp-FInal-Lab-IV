@@ -10,7 +10,7 @@
             "Juanx"
         ]
     },
-   {
+    {
         "name": "Frontend Developer",
         "companyId": 2,
         "description": "HTML,CSS,BOOSTRAP",
@@ -31,6 +31,11 @@
             "Pablo",
             "Juanx"
         ]
+    },
+    {
+        "name": "Fullstack Mobile",
+        "companyId": "2",
+        "description": "Android, Kotlin",
+        "proposedStudents": ""
     }
-
 ]
