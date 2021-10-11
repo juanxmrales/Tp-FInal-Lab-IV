@@ -25,6 +25,13 @@
             require_once(VIEWS_PATH."company-list.php");
         }
 
+        public function ShowCompanyProfile($id)
+        {
+            $companyList = $this->companyDAO->GetAll();
+
+            require_once(VIEWS_PATH."company-profile.php");
+        }
+
         public function Add($id, $name, $street, $nacionality, $description)
         {
             $company = new Company($id, $name, $street, $nacionality, $description);
