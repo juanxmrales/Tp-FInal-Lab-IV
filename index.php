@@ -17,11 +17,11 @@
 	
 	use DAO\ApiDAO as ApiDAO;
 
-	/*$students = ApiDAO::retrieveStudents();
+	$students = ApiDAO::retrieveStudents();
 	$carrers = ApiDAO::retrieveCarrers();
-	$jobPosition = ApiDAO::retrieveJobPosition();*/
+	$jobPosition = ApiDAO::retrieveJobPosition();
 
-
+	var_dump($students);
 	
 	session_start();
 

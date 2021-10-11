@@ -1,5 +1,8 @@
 <?php
-    require_once('nav.php');
+
+use DAO\ApiDAO;
+
+require_once('nav.php');
 ?>
 <main class="py-5">
      <section id="listado" class="mb-5">
