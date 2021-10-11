@@ -50,7 +50,7 @@
                          }
                          else{
                                    $studentDAO = new StudentDAO();
-                                   $filtred = $studentDAO->searchStudent($_GET['filter']);
+                                   $filtred = $studentDAO->searchStudent($_GET["filter"]);
 
 
                                    if($filtred){

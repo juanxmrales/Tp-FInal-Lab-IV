@@ -25,7 +25,7 @@
                 }
                 else
                 {
-                    $message = "Usario o contraseña inválida";
+                    $message = "Usuario o contraseña inválida";
                     require_once(VIEWS_PATH."login.php");
                 }
             }

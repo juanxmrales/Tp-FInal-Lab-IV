@@ -111,12 +111,12 @@
 
         public function searchStudent($dni)
         {
-            $this->RetrieveData();
+            $this->RetrieveDataStudentsAPI();
             $student = null;
 
             foreach($this->studentList as $value)
             {
-                if($value->getName() == $dni)
+                if($value->getDni() == $dni)
                 {
                     $student = $value;
                 }
