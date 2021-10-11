@@ -27,7 +27,7 @@
                     }
                     else if($_SESSION['type'] == 1)
                     {
-                        require_once(VIEWS_PATH . "Student/ShowListView.php");
+                        require_once(VIEWS_PATH . "Student/ShowListView");
                     }
                     
                 }
