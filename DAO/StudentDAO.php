@@ -34,6 +34,7 @@
                 $valuesArray["recordId"] = $student->getRecordId();
                 $valuesArray["firstName"] = $student->getFirstName();
                 $valuesArray["lastName"] = $student->getLastName();
+                $valuesArray["careerId"] = $student->getCareer();
 
                 array_push($arrayToEncode, $valuesArray);
             }

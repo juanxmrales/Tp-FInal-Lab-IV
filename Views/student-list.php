@@ -36,7 +36,7 @@ require_once('nav.php');
                                              <td><?php echo $student->getBirthDate() ?></td>
                                              <td><?php echo $student->getEmail() ?></td>
                                              <td><?php echo $student->getPhoneNumber() ?></td>
-                                             <td><?php ($student->getActive()==1) ? echo "Si" :  echo "No"; ?></td>
+                                             <td><?php echo ($student->getActive()) ? "Si" :  "No"; ?></td>
                                         </tr>
                                    <?php
                               }
