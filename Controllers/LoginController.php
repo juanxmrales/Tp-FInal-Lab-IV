@@ -23,18 +23,18 @@
 
                     if($_SESSION['type'] == 0)
                     {
-                        require_once(VIEWS_PATH . "Student/ShowStudentProfile");
+                        header("location:". FRONT_ROOT . "Student/ShowStudentProfile");
                     }
                     else if($_SESSION['type'] == 1)
                     {
-                        require_once(VIEWS_PATH . "Student/ShowListView");
+                        header("location:". FRONT_ROOT . "Student/ShowListView");
                     }
                     
                 }
                 else
                 {
                     $message = "Usuario o contraseña inválida";
-                    require_once(VIEWS_PATH."login.php");
+                    require_once(FRONT_ROOT."login.php");
                 }
             }
         }
