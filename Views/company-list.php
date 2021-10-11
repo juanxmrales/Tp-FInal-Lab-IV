@@ -9,6 +9,7 @@
                <form>
                     <input type="text" name="filter" placeholder="Nombre">
                     <button type="submit" value="Filtrar" class="btn btn-outline-dark">Filtrar</button>
+                    <br><br>
                </form>
                <table class="table bg-light-alpha">
                     <thead>
@@ -22,7 +23,7 @@
                     <tbody>
                          <?php
 
-                         if(!$_GET["filter"]){
+                         if(!isset($_GET["filter"])){
 
 
                               foreach($companyList as $company)
