@@ -8,9 +8,11 @@
 		private $companyId;
 		private $proposedStudents;
 		private $description;
+		private $id;
 
-		public function __construct($name, $companyId, $description,$proposedStudents = ""){
+		public function __construct($id,$name, $companyId, $description,$proposedStudents = ""){
 
+			$this->id = $id;
 			$this->name = $name;
 			$this->companyId = $companyId;
 			$this->description = $description;
@@ -94,6 +96,28 @@
 	    public function setDescription($description)
 	    {
 	        $this->description = $description;
+
+	        return $this;
+	    }
+
+
+
+    	/**
+	     * @return mixed
+	     */
+	    public function getId()
+	    {
+	        return $this->id;
+	    }
+
+	    /**
+	     * @param mixed $id
+	     *
+	     * @return self
+	     */
+	    public function setId($id)
+	    {
+	        $this->id = $id;
 
 	        return $this;
 	    }

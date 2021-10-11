@@ -1,5 +1,6 @@
 [
     {
+        "id": "0",
         "name": "Backend Developer",
         "companyId": 1,
         "description": "Node Js, Angular",
@@ -11,6 +12,7 @@
         ]
     },
     {
+        "id": "1",
         "name": "Frontend Developer",
         "companyId": 2,
         "description": "HTML,CSS,BOOSTRAP",
@@ -22,6 +24,7 @@
         ]
     },
     {
+        "id": "2",
         "name": "Data Cience",
         "companyId": 3,
         "description": "Python, Machine learning",
@@ -33,9 +36,31 @@
         ]
     },
     {
+        "id": "3",
         "name": "Fullstack Mobile",
         "companyId": "2",
         "description": "Android, Kotlin",
+        "proposedStudents": ""
+    },
+    {
+        "id": "4",
+        "name": "Database Master",
+        "companyId": "4",
+        "description": "MySql, Docker",
+        "proposedStudents": ""
+    },
+    {
+        "id": "7",
+        "name": "Limpiapisos",
+        "companyId": "11",
+        "description": "Blem, Ayudin",
+        "proposedStudents": ""
+    },
+    {
+        "id": "15",
+        "name": "Scrum Manager",
+        "companyId": "4",
+        "description": "Agile, Kanban",
         "proposedStudents": ""
     }
 ]

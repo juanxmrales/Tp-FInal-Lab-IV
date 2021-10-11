@@ -6,7 +6,13 @@
           <div class="container">
                <h2 class="mb-4">Agregar oferta</h2>
                <form action="<?php echo FRONT_ROOT ?>JobPosition/Add" method="post" class="bg-light-alpha p-5">
-                    <div class="row">                         
+                    <div class="row">
+                         <div class="col-lg-4">
+                              <div class="form-group">
+                                   <label for="">Id</label>
+                                   <input type="number" name="id" value="" class="form-control">
+                              </div>
+                         </div>                         
                          <div class="col-lg-4">
                               <div class="form-group">
                                    <label for="">Nombre</label>
@@ -15,8 +21,8 @@
                          </div>
                          <div class="col-lg-4">
                               <div class="form-group">
-                                   <label for="">ID compania</label>
-                                   <input type="text" name="companyId" value="" class="form-control" required="">
+                                   <label for="">Id compania</label>
+                                   <input type="number" name="companyId" value="" class="form-control" required="">
                               </div>
                          </div>
                          <div class="col-lg-4">

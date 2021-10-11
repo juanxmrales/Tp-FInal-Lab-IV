@@ -8,6 +8,7 @@ require_once('nav.php');
                <h2 class="mb-4">Listado de alumnos</h2>
                <table class="table bg-light-alpha">
                     <thead>
+                         <th>Id oferta</th>
                          <th>Nombre</th>
                          <th>ID Compania</th>
                          <th>Descripcion</th>
@@ -18,6 +19,7 @@ require_once('nav.php');
                               {
                                    ?>
                                         <tr>
+                                             <td><?php echo $jobPosition->getId() ?></td>
                                              <td><?php echo $jobPosition->getName() ?></td>
                                              <td><?php echo $jobPosition->getCompanyId() ?></td>
                                              <td><?php echo $jobPosition->getDescription() ?></td>
