@@ -1,0 +1,36 @@
+[
+    {
+        "name": "Backend Developer",
+        "companyId": 1,
+        "description": "Node Js, Angular",
+        "proposedStudents": [
+            "Julian",
+            "Agustin",
+            "Pablo",
+            "Juanx"
+        ]
+    },
+   {
+        "name": "Frontend Developer",
+        "companyId": 2,
+        "description": "HTML,CSS,BOOSTRAP",
+        "proposedStudents": [
+            "Julian",
+            "Agustin",
+            "Pablo",
+            "Juanx"
+        ]
+    },
+    {
+        "name": "Data Cience",
+        "companyId": 3,
+        "description": "Python, Machine learning",
+        "proposedStudents": [
+            "Julian",
+            "Agustin",
+            "Pablo",
+            "Juanx"
+        ]
+    }
+
+]
