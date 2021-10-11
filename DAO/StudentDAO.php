@@ -35,6 +35,11 @@
                 $valuesArray["firstName"] = $student->getFirstName();
                 $valuesArray["lastName"] = $student->getLastName();
                 $valuesArray["careerId"] = $student->getCareer();
+                $valuesArray["dni"] = $student->getDni();
+                $valuesArray["fileNumber"] = $student->getGender();
+                $valuesArray["birthDate"] = $student->getEmail();
+                $valuesArray["phoneNumber"] = $student->getPhoneNumber();
+                $valuesArray["active"] = $student->getActive();
 
                 array_push($arrayToEncode, $valuesArray);
             }
