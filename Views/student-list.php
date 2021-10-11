@@ -13,6 +13,13 @@ require_once('nav.php');
                          <th>Legajo</th>
                          <th>Apellido</th>
                          <th>Nombre</th>
+                         <th>DNI</th>
+                         <th>Numero de Archivo</th>
+                         <th>Genero</th>
+                         <th>Fecha de Nacimiento</th>
+                         <th>Email</th>
+                         <th>Telefono</th>
+                         <th>Activo</th>
                     </thead>
                     <tbody>
                          <?php
@@ -20,9 +27,16 @@ require_once('nav.php');
                               {
                                    ?>
                                         <tr>
-                                             <td><?php echo $student->getRecordId() ?></td>
+                                             <td><?php echo $student->getStudentId() ?></td>
                                              <td><?php echo $student->getLastName() ?></td>
                                              <td><?php echo $student->getFirstName() ?></td>
+                                             <td><?php echo $student->getDni() ?></td>
+                                             <td><?php echo $student->getFileNumber() ?></td>
+                                             <td><?php echo $student->getGender() ?></td>
+                                             <td><?php echo $student->getBirthDate() ?></td>
+                                             <td><?php echo $student->getEmail() ?></td>
+                                             <td><?php echo $student->getPhoneNumber() ?></td>
+                                             <td><?php ($student->getActive()==1) ? echo "Si" :  echo "No"; ?></td>
                                         </tr>
                                    <?php
                               }

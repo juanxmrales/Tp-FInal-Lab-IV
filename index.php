@@ -15,14 +15,6 @@
 		
 	Autoload::start();
 	
-	use DAO\ApiDAO as ApiDAO;
-
-	$students = ApiDAO::retrieveStudents();
-	$carrers = ApiDAO::retrieveCarrers();
-	$jobPosition = ApiDAO::retrieveJobPosition();
-
-	var_dump($students);
-	
 	session_start();
 
 	require_once(VIEWS_PATH."header.php");

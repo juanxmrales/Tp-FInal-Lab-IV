@@ -14,11 +14,10 @@
                     <tbody>
                          <?php
                               foreach($studentList as $student)
-                              
                               {
                                    ?>
                                         <tr>
-                                             <td><?php echo $student->getRecordId() ?></td>
+                                             <td><?php echo $student->getStudentId() ?></td>
                                              <td><?php echo $student->getLastName() ?></td>
                                              <td><?php echo $student->getFirstName() ?></td>
                                         </tr>
