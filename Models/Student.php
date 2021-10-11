@@ -17,12 +17,12 @@
 
         public function getStudentId()
         {
-            return $this->recordId;
+            return $this->studentID;
         }
 
         public function setStudentId($studentID)
         {
-            $this->recordId = $studentID;
+            $this->studentID = $studentID;
         }
 
         public function getCarrerId()
@@ -32,7 +32,7 @@
 
         public function setCarrerId($carrerId)
         {
-            $this->recordId = $carrerId;
+            $this->carrerId = $carrerId;
         }
         
 

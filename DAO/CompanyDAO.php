@@ -74,9 +74,7 @@
                     $company = $value;
                 }
             }
-
             return $company;
         }
-
     }
 ?>
