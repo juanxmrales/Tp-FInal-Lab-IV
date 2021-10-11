@@ -17,11 +17,10 @@
     <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH ?>bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH ?>estilos.css">
 
-    <title>Document</title>
 </head>
 <body>
     <div id="login">
-        <h3 class="text-center display-4" >Bienvenidos!</h3>
+        <h3 class="text-center display-4" style="margin-top: 70px">Bienvenidos!</h3>
 
         <div class="container">
             <div id="login-row" class="row justify-content-center align-items-center">
