@@ -5,7 +5,7 @@
      <ul class="navbar-nav ml-auto">
 
           <li class="nav-item">
-               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Company/ShowListView">Ver perfil</a>
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Student/ShowStudentProfile">Ver perfil</a>
           </li> 
           <li class="nav-item">
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>Company/ShowListView">Ver postulaciones</a>
