@@ -16,7 +16,7 @@
             $this->SaveData();
         }
 
-        /** 
+        /**
         public function Remove()
         {
             $jsonContent= file_get_contents('Data/companies.json');
