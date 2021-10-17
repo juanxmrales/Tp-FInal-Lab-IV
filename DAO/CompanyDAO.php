@@ -16,13 +16,8 @@
             $this->SaveData();
         }
 
-<<<<<<< HEAD
         /**
         public function Remove()
-=======
-        
-        public function Remove($id)
->>>>>>> c9e140d73b2fb076d25f80a3402dea1aa3d9d237
         {
             $this->GetAll();
 
@@ -30,7 +25,7 @@
 
             $this->SaveData();            
         }
-        
+        */
 
         public function GetAll()
         {
