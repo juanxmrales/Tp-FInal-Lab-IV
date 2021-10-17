@@ -39,7 +39,7 @@
             require_once(VIEWS_PATH."company-profile.php");
         }
 
-        public function Add($name, $street, $nacionality, $description)
+        public function Add($name, $street, $nacionality, $description, $active)
         {
             if(isset($_POST))
             {
@@ -47,7 +47,7 @@
                 {
                     $id = $this->companyDAO->CountRecords() + 1;
 
-                    $company = new Company($id, $name, $street, $nacionality, $description);
+                    $company = new Company($id, $name, $street, $nacionality, $description, $active);
 
                     $this->companyDAO->Add($company);
 
