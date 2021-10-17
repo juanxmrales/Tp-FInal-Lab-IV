@@ -88,5 +88,10 @@
 
             return $company;
         }
+
+        public function CountRecords()
+        {
+            return count($this->companyList);
+        }
     }
 ?>
