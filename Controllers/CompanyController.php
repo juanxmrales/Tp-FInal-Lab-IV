@@ -32,13 +32,25 @@
             require_once(VIEWS_PATH."company-profile.php");
         }
 
-        public function Add($id, $name, $street, $nacionality, $description)
+        public function Add($name, $street, $nacionality, $description)
         {
-            $company = new Company($id, $name, $street, $nacionality, $description);
+            if(isset($_POST))
+            {
+                if($this->companyDAO->SearchCompany($name)==null)
+                {
+                    $id = $this->companyDAO->CountRecords() + 1;
 
-            $this->companyDAO->Add($company);
+                    $company = new Company($id, $name, $street, $nacionality, $description);
 
-            $this->ShowAddView();
+                    $this->companyDAO->Add($company);
+
+                    $this->ShowAddView();
+                }
+                else
+                {
+                    $this->ShowAddView();
+                }
+            }
         }
 
         public function LogOut()

@@ -11,6 +11,9 @@
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>Company/ShowListView">Listar de Empresas</a>
           </li>
           <li class="nav-item">
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Company/ShowAddView">Agregar Empresa</a>
+          </li>
+          <li class="nav-item">
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>JobPosition/ShowAddView">Agregar oferta</a>
           </li>
           <li class="nav-item">

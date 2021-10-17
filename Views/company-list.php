@@ -31,7 +31,7 @@
                               {
                                    ?>
                                         <tr>
-                                             <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfile/<?php echo $company->getId();?>"><button>Ver mas</button></a></td>
+                                             <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfile/<?php echo $company->getId();?>"><button>Ver Mas</button></a></td>
                                              <td><?php echo $company->getId(); ?></td>
                                              <td><?php echo $company->getName(); ?></td>
                                              <td><?php echo $company->getStreet(); ?></td>
@@ -49,7 +49,7 @@
                                    if($filtred){
                                          ?>
                                              <tr>
-                                                  <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfile/<?php echo $filtred->getId();?>"><button>Ver mas</button></a></td>
+                                                  <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfile/<?php echo $filtred->getId();?>"><button>Ver Mas</button></a></td>
                                                   <td><?php echo $filtred->getId(); ?></td>
                                                   <td><?php echo $filtred->getName(); ?></td>
                                                   <td><?php echo $filtred->getStreet(); ?></td>
