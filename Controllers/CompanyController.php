@@ -18,6 +18,13 @@
             require_once(VIEWS_PATH."company-add.php");
         }
 
+        public function ShowModifyView($id)
+        {
+            $companyList = $this->companyDAO->GetAll();
+
+            require_once(VIEWS_PATH."company-modify.php");
+        }
+
         public function ShowListView()
         {
             $companyList = $this->companyDAO->GetAll();
@@ -52,6 +59,8 @@
                 }
             }
         }
+
+        
 
         public function LogOut()
         {    
