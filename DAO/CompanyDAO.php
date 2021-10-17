@@ -45,6 +45,7 @@
                 $valuesArray["street"] = $company->getStreet();
                 $valuesArray["nacionality"] = $company->getNacionality();
                 $valuesArray["description"] = $company->getDescription();
+                $valuesArray["active"] = $company->getActive();
 
                 array_push($arrayToEncode, $valuesArray);
             }
@@ -66,7 +67,7 @@
 
                 foreach($arrayToDecode as $valuesArray)
                 {
-                    $company = new Company($valuesArray["id"],$valuesArray["name"],$valuesArray["street"],$valuesArray["nacionality"],$valuesArray["description"]);
+                    $company = new Company($valuesArray["id"],$valuesArray["name"],$valuesArray["street"],$valuesArray["nacionality"],$valuesArray["description"], $valuesArray["active"]);
 
                     array_push($this->companyList, $company);
                 }

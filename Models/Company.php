@@ -19,14 +19,14 @@
                  * @param    $description
                  * @param    $active
 		 */
-        public function __construct($id, $name, $street, $nacionality, $description)
+        public function __construct($id, $name, $street, $nacionality, $description, $active)
         {
                 $this->id = $id;
                 $this->name = $name;
                 $this->street = $street;
                 $this->nacionality = $nacionality;
                 $this->description = $description;
-                $this->active = true;
+                $this->active = $active;
         }
 
         public function getId()
