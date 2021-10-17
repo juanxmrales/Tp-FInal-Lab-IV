@@ -16,23 +16,21 @@
             $this->SaveData();
         }
 
+<<<<<<< HEAD
         /**
         public function Remove()
+=======
+        
+        public function Remove($id)
+>>>>>>> c9e140d73b2fb076d25f80a3402dea1aa3d9d237
         {
-            $jsonContent= file_get_contents('Data/companies.json');
+            $this->GetAll();
 
-            $json = json_decode($jsonContent, true);
+            unset($this->companyList[$id]);
 
-            foreach($json as $userJson=>$val)
-            {
-                if($val['UserId']==$usuario)
-                {
-                    unset($json[$userJson]);
-                }
-            }
-            file_put_contents("_Notifications.json", json_encode($json, JSON_FORCE_OBJECT)); 
+            $this->SaveData();            
         }
-        */
+        
 
         public function GetAll()
         {
@@ -92,12 +90,8 @@
                     $company = $value;
                 }
             }
-            return $company;
-        }
 
-        public function CountRecords()
-        {
-            return count($this->companyList);
+            return $company;
         }
     }
 ?>
