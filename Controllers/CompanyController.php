@@ -60,6 +60,23 @@
             }
         }
 
+        public function Delete($id)
+        {
+            $this->companyDAO->Delete($id);
+
+            $this->ShowListView();
+        }
+
+        public function Modify($id,$name,$street,$nacionality,$description)
+        {
+            if(isset($_POST))
+            {
+                $this->companyDAO->Modify($id,$name,$street,$nacionality,$description);
+
+                $this->ShowCompanyProfile($id);
+            }
+        }
+
         public function LogOut()
         {    
             session_start();

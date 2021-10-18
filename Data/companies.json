@@ -21,13 +21,13 @@
         "street": "Carballo 123",
         "nacionality": "Argentina",
         "description": "Sean eternos los laurele que supimos conseguir",
-        "active": true
+        "active": false
     },
     {
         "id": 4,
         "name": "Mercedes Benz",
         "street": "Republica del Libano 7235",
-        "nacionality": "Alemania",
+        "nacionality": "Senegal",
         "description": "Empresa dedicada a la construccion de colectivos de alta calidad.",
         "active": true
     },
