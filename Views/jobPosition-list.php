@@ -9,6 +9,7 @@ require_once('nav.php');
                <h2 class="mb-4">Listado de Ofertas</h2>
                <table class="table bg-light-alpha">
                     <thead>
+                         <th></th>
                          <th>Nombre</th>
                          <th>Nombre de Compania</th>
                          <th>Descripcion</th>
@@ -19,6 +20,7 @@ require_once('nav.php');
                               {
                                    ?>
                                         <tr>
+                                        <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfileStudent/<?php echo $companyDAO->SearchCompanyById($jobPosition->getCompanyId())->getId();?>"><button>Ver Mas</button></a></td>
                                              <td><?php echo $jobPosition->getName(); ?></td>
                                              <td><?php echo $companyDAO->SearchCompanyById($jobPosition->getCompanyId())->getName(); ?></td>
                                              <td><?php echo $jobPosition->getDescription(); ?></td>
