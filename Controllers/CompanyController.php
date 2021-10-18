@@ -47,7 +47,7 @@
                 {
                     $id = $this->companyDAO->CountRecords() + 1;
 
-                    $company = new Company($id, $name, $street, $nacionality, $description, $active);
+                    $company = new Company($id, $name, $street, $nacionality, $description, true);
 
                     $this->companyDAO->Add($company);
 
