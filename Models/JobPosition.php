@@ -12,7 +12,7 @@
 		private $active;
 		private $career;
 
-		public function __construct($id,$name, $companyId, $description,$proposedStudents = "", $active, $career){
+		public function __construct($id,$name, $companyId, $description, $active, $career,$proposedStudents = array()){
 
 			$this->id = $id;
 			$this->name = $name;
