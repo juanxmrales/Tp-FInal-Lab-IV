@@ -70,6 +70,13 @@
             }
         }
 
+        public function Delete($id)
+        {
+            $this->companyDAO->Delete($id);
+
+            $this->ShowListView();
+        }
+
         public function LogOut()
         {    
             session_start();
