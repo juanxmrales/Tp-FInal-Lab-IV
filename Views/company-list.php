@@ -29,7 +29,7 @@
 
                               foreach($companyList as $company)
                               {
-                                   ?>
+                                   if($company->getActive() == true){?>
                                         <tr>
                                              <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfile/<?php echo $company->getId();?>"><button>Ver Mas</button></a></td>
                                              <td><?php echo $company->getId(); ?></td>
@@ -40,6 +40,7 @@
 
                                         </tr>
                                    <?php
+                                   }
                               }
                          }
                          else{
