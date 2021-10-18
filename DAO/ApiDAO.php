@@ -4,7 +4,7 @@
 
 	class ApiDAO{
 
-		public static function retrieveCarrers(){
+		public static function retrieveCareers(){
 
 				$opt = array(
 					  "http" => array(
