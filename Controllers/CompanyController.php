@@ -60,7 +60,15 @@
             }
         }
 
-        
+        public function Modify($id,$name,$street,$nacionality,$description)
+        {
+            if(isset($_POST))
+            {
+                $this->companyDAO->Modify($id,$name,$street,$nacionality,$description);
+
+                $this->ShowCompanyProfile($id);
+            }
+        }
 
         public function LogOut()
         {    

@@ -15,8 +15,14 @@
      <section id="listado" class="mb-5">
           <div class="container">
                <h2 class="mb-4">Modificar Empresa</h2>
-               <form action="<?php echo FRONT_ROOT ?>Company/Add" method="post" class="bg-light-alpha p-5">
-                    <div class="row">                         
+               <form action="<?php echo FRONT_ROOT ?>Company/Modify" method="post" class="bg-light-alpha p-5">
+                    <div class="row">
+                        <div class="col-lg-4">
+                              <div class="form-group">
+                                   <label for="">ID</label>
+                                   <input type="text" name="id" value="<?php echo $company->getId()?>" class="form-control" readonly>
+                              </div>
+                         </div>                 
                          <div class="col-lg-4">
                               <div class="form-group">
                                    <label for="">Nombre</label>
@@ -42,7 +48,7 @@
                               </div>
                          </div>
                     </div>
-                    <button type="submit" class="btn btn-dark ml-auto d-block">Agregar</button>
+                    <button type="submit" class="btn btn-dark ml-auto d-block">Incorporar cambios</button>
                </form>
           </div>
      </section>

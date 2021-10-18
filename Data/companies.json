@@ -2,8 +2,8 @@
     {
         "id": 1,
         "name": "Globant",
-        "street": "Mario Bravo 123",
-        "nacionality": "Argentina",
+        "street": "Mario Bravo 321",
+        "nacionality": "Lituania",
         "description": "Mujer tan bella y yo con una botella",
         "active": true
     },

@@ -16,6 +16,24 @@
             $this->SaveData();
         }
 
+        public function Modify($id,$name,$street,$nacionality,$description)
+        {
+            $this->RetrieveData();
+
+            foreach($this->companyList as $value)
+            {
+                if($value->getId()==$id)
+                {
+                    $value->setName($name);
+                    $value->setStreet($street);
+                    $value->setNacionality($nacionality);
+                    $value->setDescription($description);
+                }
+            }
+
+            $this->SaveData();
+        }
+
         /**
         public function Remove()
         {
@@ -94,5 +112,6 @@
         {
             return count($this->companyList);
         }
+        
     }
 ?>
