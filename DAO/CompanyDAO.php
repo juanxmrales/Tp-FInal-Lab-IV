@@ -34,16 +34,22 @@
             $this->SaveData();
         }
 
-        /**
-        public function Remove()
+        
+        public function Delete($id)
         {
-            $this->GetAll();
+            $this->RetrieveData();
 
-            unset($this->companyList[$id]);
+            foreach($this->companyList as $value)
+            {
+                if($value->getId() == $id)
+                {
+                    $value->setActive(false);
+                }
+            }            
 
             $this->SaveData();            
         }
-        */
+        
 
         public function GetAll()
         {

@@ -4,6 +4,8 @@
 
 	use DAO\JobPositionDAO as JobPositionDAO;
 	use Models\JobPosition as JobPosition;
+	use DAO\CompanyDAO as CompanyDAO;
+	use Models\Company as Company;
 
 	class JobPositionController
 	{
@@ -16,6 +18,8 @@
 
 		public function ShowAddView(){
 
+			$companyDAO = new CompanyDAO();
+			$companyList = $companyDAO->GetAll();
 			require_once(VIEWS_PATH."jobPosition-add.php");
 		}
 
