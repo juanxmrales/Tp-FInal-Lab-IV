@@ -34,6 +34,7 @@
                 $valuesArray["companyId"] = $jobPosition->getCompanyId();
                 $valuesArray["description"] = $jobPosition->getDescription();
                 $valuesArray["proposedStudents"] = $jobPosition->getProposedStudents();
+                $valuesArray["active"] = $jobPosition->getActive();
 
                 array_push($arrayToEncode, $valuesArray);
             }
@@ -55,7 +56,7 @@
 
                 foreach($arrayToDecode as $valuesArray)
                 {
-                    $jobPosition = new JobPosition($valuesArray["id"],$valuesArray["name"],$valuesArray["companyId"],$valuesArray["description"],$valuesArray["proposedStudents"]);
+                    $jobPosition = new JobPosition($valuesArray["id"],$valuesArray["name"],$valuesArray["companyId"],$valuesArray["description"],$valuesArray["proposedStudents"],$valuesArray["active"]);
 
                     array_push($this->jobPositionList, $jobPosition);
                 }
@@ -76,6 +77,11 @@
             }
             
             $this->SaveData();
+        }
+
+        public function CountRecords()
+        {
+            return count($this->jobPositionList);
         }
 
 

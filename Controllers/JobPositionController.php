@@ -27,7 +27,7 @@
 
 		public function Add(){
 
-			$jobPosition = new JobPosition($_POST['id'],$_POST['name'], $_POST['companyId'],$_POST['description'], "");
+			$jobPosition = new JobPosition($_POST['id'],$_POST['name'], $_POST['companyId'],$_POST['description'], "", $_POST['active']);
 			$this->jobPositionDAO->add($jobPosition);
 			$this->ShowListView();
 		}

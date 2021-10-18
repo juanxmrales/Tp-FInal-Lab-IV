@@ -60,8 +60,6 @@
             }
         }
 
-        
-
         public function LogOut()
         {    
             session_start();
