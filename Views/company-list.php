@@ -48,7 +48,7 @@
                                    $filtred = $companyDAO->searchCompany($_GET['filter']);
 
                                    if($filtred){
-                                         ?>
+                                         if($filtred->getActive() == true){?>
                                              <tr>
                                                   <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfile/<?php echo $filtred->getId();?>"><button>Ver Mas</button></a></td>
                                                   <td><?php echo $filtred->getId(); ?></td>
@@ -58,7 +58,8 @@
                                                   <td><?php echo $filtred->getDescription(); ?></td>
                                              </tr>
                                         <?php
-                                   }
+                                   }     
+                              }
                          }
                          ?>
                          </tr>
