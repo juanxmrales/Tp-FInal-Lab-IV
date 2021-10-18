@@ -4,34 +4,39 @@
         "name": "Globant",
         "street": "Mario Bravo 123",
         "nacionality": "Argentina",
-        "description": "Mujer tan bella y yo con una botella"
+        "description": "Mujer tan bella y yo con una botella",
+        "active": true
     },
     {
         "id": 2,
         "name": "Google",
         "street": "California 123",
         "nacionality": "EEUU",
-        "description": "Llego a la pista a bailar una diva virtual"
+        "description": "Llego a la pista a bailar una diva virtual",
+        "active": true
     },
     {
         "id": 3,
         "name": "Accenture",
         "street": "Carballo 123",
         "nacionality": "Argentina",
-        "description": "Sean eternos los laurele que supimos conseguir"
+        "description": "Sean eternos los laurele que supimos conseguir",
+        "active": false
     },
     {
         "id": 4,
         "name": "Mercedes Benz",
         "street": "Republica del Libano 7235",
         "nacionality": "Alemania",
-        "description": "Empresa dedicada a la construccion de colectivos de alta calidad."
+        "description": "Empresa dedicada a la construccion de colectivos de alta calidad.",
+        "active": true
     },
     {
         "id": 5,
         "name": "Sancor",
         "street": "Champagnat 3297",
         "nacionality": "Argentina",
-        "description": "Hacen un dulce de leche bastante decente y tambi\u00e9n caramelos."
+        "description": "Hacen un dulce de leche bastante decente y tambi\u00e9n caramelos.",
+        "active": true
     }
 ]
