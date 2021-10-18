@@ -1,6 +1,6 @@
 [
     {
-        "id": "0",
+        "id": "1",
         "name": "Backend Developer",
         "companyId": 1,
         "description": "Node Js, Angular",
@@ -13,7 +13,7 @@
         "active": true
     },
     {
-        "id": "1",
+        "id": "2",
         "name": "Frontend Developer",
         "companyId": 2,
         "description": "HTML,CSS,BOOSTRAP",
@@ -26,7 +26,7 @@
         "active": true
     },
     {
-        "id": "2",
+        "id": "3",
         "name": "Data Cience",
         "companyId": 3,
         "description": "Python, Machine learning",
@@ -39,7 +39,7 @@
         "active": true
     },
     {
-        "id": "3",
+        "id": "4",
         "name": "Fullstack Mobile",
         "companyId": "2",
         "description": "Android, Kotlin",
@@ -47,7 +47,7 @@
         "active": true
     },
     {
-        "id": "4",
+        "id": "5",
         "name": "Database Master",
         "companyId": "4",
         "description": "MySql, Docker",
@@ -55,7 +55,7 @@
         "active": true
     },
     {
-        "id": "7",
+        "id": "6",
         "name": "Limpiapisos",
         "companyId": "11",
         "description": "Blem, Ayudin",
@@ -63,7 +63,7 @@
         "active": true
     },
     {
-        "id": "15",
+        "id": "7",
         "name": "Scrum Manager",
         "companyId": "4",
         "description": "Agile, Kanban",
@@ -71,7 +71,7 @@
         "active": true
     },
     {
-        "id": 1,
+        "id": 8,
         "name": "Repartidor",
         "companyId": "5",
         "description": "Fiumba",

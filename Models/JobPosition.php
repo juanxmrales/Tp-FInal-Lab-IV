@@ -10,14 +10,16 @@
 		private $description;
 		private $id;
 		private $active;
+		private $career;
 
-		public function __construct($id,$name, $companyId, $description,$proposedStudents = "", $active){
+		public function __construct($id,$name, $companyId, $description, $active, $career,$proposedStudents = array()){
 
 			$this->id = $id;
 			$this->name = $name;
 			$this->companyId = $companyId;
 			$this->description = $description;
 			$this->proposedStudents = $proposedStudents;
+			$this->career = $career;
 			$this->active = $active;
 		}
 
@@ -54,6 +56,25 @@
 	    public function setProposedStudents($proposedStudents)
 	    {
 	        $this->proposedStudents = $proposedStudents;
+
+	        return $this;
+	    }
+
+	    public function getCareer()
+	    {
+	        return $this->career;
+	    }
+
+	    public function setCareer($career)
+	    {
+	        $this->career = $career;
+
+	        return $this;
+	    }
+
+	    public function setDescription($description)
+	    {
+	        $this->description = $description;
 
 	        return $this;
 	    }
