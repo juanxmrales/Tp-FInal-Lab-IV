@@ -21,8 +21,13 @@
                          </div>
                          <div class="col-lg-4">
                               <div class="form-group">
-                                   <label for="">Id compania</label>
-                                   <input type="number" name="companyId" value="" class="form-control" required="">
+                                   <label for="">Compania</label>
+                                   <select class="form-control">
+                                        <?php  foreach($companyList as $company){
+                                                  if($company->getActive()){ ?>
+                                                       <option><?php echo $company->getName() ?></option>
+                                        <?php }} ?>
+                                   </select>
                               </div>
                          </div>
                          <div class="col-lg-4">
