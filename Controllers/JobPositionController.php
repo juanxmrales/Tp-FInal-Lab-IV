@@ -31,7 +31,8 @@
 
 		public function Add(){
 
-			$jobPosition = new JobPosition($_POST['id'],$_POST['name'], $_POST['companyId'],$_POST['description'], "", $_POST['active']);
+			$id = $this->jobPositionDAO->CountRecords() + 1;
+			$jobPosition = new JobPosition($id,$_POST['name'], $_POST['companyId'],$_POST['description'], "", true);
 			$this->jobPositionDAO->add($jobPosition);
 			$this->ShowListView();
 		}

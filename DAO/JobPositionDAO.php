@@ -80,7 +80,8 @@
         }
 
         public function CountRecords()
-        {
+        {   
+            $this->RetrieveData();
             return count($this->jobPositionList);
         }
 

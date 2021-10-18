@@ -9,7 +9,8 @@
             "Agustin",
             "Pablo",
             "Juanx"
-        ]
+        ],
+        "active": true
     },
     {
         "id": "1",
@@ -21,7 +22,8 @@
             "Agustin",
             "Pablo",
             "Juanx"
-        ]
+        ],
+        "active": true
     },
     {
         "id": "2",
@@ -33,34 +35,55 @@
             "Agustin",
             "Pablo",
             "Juanx"
-        ]
+        ],
+        "active": true
     },
     {
         "id": "3",
         "name": "Fullstack Mobile",
         "companyId": "2",
         "description": "Android, Kotlin",
-        "proposedStudents": ""
+        "proposedStudents": "",
+        "active": true
     },
     {
         "id": "4",
         "name": "Database Master",
         "companyId": "4",
         "description": "MySql, Docker",
-        "proposedStudents": ""
+        "proposedStudents": "",
+        "active": true
     },
     {
         "id": "7",
         "name": "Limpiapisos",
         "companyId": "11",
         "description": "Blem, Ayudin",
-        "proposedStudents": ""
+        "proposedStudents": "",
+        "active": true
     },
     {
         "id": "15",
         "name": "Scrum Manager",
         "companyId": "4",
         "description": "Agile, Kanban",
-        "proposedStudents": ""
+        "proposedStudents": "",
+        "active": true
+    },
+    {
+        "id": 1,
+        "name": "Repartidor",
+        "companyId": "5",
+        "description": "Fiumba",
+        "proposedStudents": "",
+        "active": true
+    },
+    {
+        "id": 9,
+        "name": "Otros",
+        "companyId": "4",
+        "description": "hola q talco",
+        "proposedStudents": "",
+        "active": true
     }
 ]

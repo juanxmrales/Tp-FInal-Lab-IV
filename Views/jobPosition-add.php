@@ -6,13 +6,7 @@
           <div class="container">
                <h2 class="mb-4">Agregar oferta</h2>
                <form action="<?php echo FRONT_ROOT ?>JobPosition/Add" method="post" class="bg-light-alpha p-5">
-                    <div class="row">
-                         <div class="col-lg-4">
-                              <div class="form-group">
-                                   <label for="">Id</label>
-                                   <input type="number" name="id" value="" class="form-control">
-                              </div>
-                         </div>                         
+                    <div class="row">                       
                          <div class="col-lg-4">
                               <div class="form-group">
                                    <label for="">Nombre</label>
@@ -22,10 +16,10 @@
                          <div class="col-lg-4">
                               <div class="form-group">
                                    <label for="">Compania</label>
-                                   <select class="form-control">
+                                   <select class="form-control" name="companyId">
                                         <?php  foreach($companyList as $company){
                                                   if($company->getActive()){ ?>
-                                                       <option><?php echo $company->getName() ?></option>
+                                                       <option value=<?php echo $company->getId() ?>><?php echo $company->getName() ?></option>
                                         <?php }} ?>
                                    </select>
                               </div>

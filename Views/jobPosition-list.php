@@ -5,7 +5,7 @@ require_once('nav.php');
 <main class="py-5">
      <section id="listado" class="mb-5">
           <div class="container">
-               <h2 class="mb-4">Listado de alumnos</h2>
+               <h2 class="mb-4">Listado de Ofertas</h2>
                <table class="table bg-light-alpha">
                     <thead>
                          <th>Id oferta</th>
@@ -17,7 +17,7 @@ require_once('nav.php');
                          <?php
                               foreach($jobPositionList as $jobPosition)
                               {
-                                   ?>
+                                   if($jobPosition->getActive()){?>
                                         <tr>
                                              <td><?php echo $jobPosition->getId() ?></td>
                                              <td><?php echo $jobPosition->getName() ?></td>
@@ -25,7 +25,7 @@ require_once('nav.php');
                                              <td><?php echo $jobPosition->getDescription() ?></td>
 
                                         </tr>
-                                   <?php
+                                   <?php }
                               }
                          ?>
                          </tr>
