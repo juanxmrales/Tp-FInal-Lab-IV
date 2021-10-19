@@ -1,8 +1,10 @@
 <?php
     namespace Controllers;
 
-    use DAO\CompanyDAO as CompanyDAO;
-    use Models\Company as Company;
+use DAO\CareerDAO;
+use DAO\CompanyDAO as CompanyDAO;
+use DAO\JobPositionDAO;
+use Models\Company as Company;
 
     class CompanyController
     {
@@ -34,6 +36,10 @@
 
         public function ShowCompanyProfile($id)
         {
+            $careerDAO = new CareerDAO();
+            $jobPositionDAO = new JobPositionDAO();
+
+            $jobPositionList = $jobPositionDAO->GetAll();
             $companyList = $this->companyDAO->GetAll();
 
             require_once(VIEWS_PATH."company-profile.php");
@@ -48,6 +54,10 @@
 
         public function ShowCompanyProfileStudent($id)
         {
+            $careerDAO = new CareerDAO();
+            $jobPositionDAO = new JobPositionDAO();
+
+            $jobPositionList = $jobPositionDAO->GetAll();
             $company = $this->companyDAO->SearchCompanyById($id);
 
             require_once(VIEWS_PATH."company-profile-student.php");

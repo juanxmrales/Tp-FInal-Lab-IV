@@ -38,4 +38,29 @@
                </table>
           </div>
      </section>
+     <div class="container pt-5">
+          <h2 class="mb-4">Sus ofertas laborales</h2>
+               <table class="table bg-light-alpha">
+                    <thead>
+                         <th>Nombre</th>
+                         <th>Carrera</th>
+                         <th>Descripcion</th>
+                    </thead>
+                    <tbody>
+                         <?php
+                              foreach($jobPositionList as $jobPosition)
+                              {
+                                   if($jobPosition->getActive()==true&&$jobPosition->getCompanyId()==$id)
+                                   ?>
+                                        <tr>
+                                             <td><?php echo $jobPosition->getName(); ?></td>
+                                             <td><?php echo $careerDAO->SearchCareerById($jobPosition->getCareer())->getDescription(); ?></td>
+                                             <td><?php echo $jobPosition->getDescription(); ?></td>
+                                        </tr>
+                                   <?php
+                              }
+                         ?>
+                    </tbody>
+               </table>
+     </div>
 </main>
