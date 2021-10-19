@@ -4,13 +4,8 @@
 ?>
 <main class="py-5">
      <section id="listado" class="mb-5">
-<<<<<<< HEAD
           <div class="container pt-5">
                <h2 class="mb-4">Listado de Alumnos</h2>
-=======
-          <div class="container pl-1 pt-5">
-               <h2 class="mb-4">Listado Alumnos</h2>
->>>>>>> c31a317f5ef31010fdc5e580217f0a65c2748ed1
                <form>
                     <input type="text" name="filter" placeholder="DNI">
                     <button type="submit" value="Filtrar" class="btn btn-outline-dark">Filtrar</button>
