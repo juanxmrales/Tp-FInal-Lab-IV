@@ -6,13 +6,13 @@
 
 		private $name;
 		private $companyId;
-		private $proposedStudents;
+		private $proposedStudents = array();
 		private $description;
 		private $id;
 		private $active;
 		private $career;
 
-		public function __construct($id,$name, $companyId, $description, $active, $career,$proposedStudents = array()){
+		public function __construct($id,$name,$companyId,$description,$active,$career,$proposedStudents = array()){
 
 			$this->id = $id;
 			$this->name = $name;
@@ -22,7 +22,6 @@
 			$this->career = $career;
 			$this->active = $active;
 		}
-
 
 	    public function getName()
 	    {
@@ -56,9 +55,12 @@
 	    public function setProposedStudents($proposedStudents)
 	    {
 	        $this->proposedStudents = $proposedStudents;
-
-	        return $this;
 	    }
+
+		public function pushProposedStudent($email)
+		{
+			array_push($this->proposedStudents, $email);
+		}
 
 	    public function getCareer()
 	    {

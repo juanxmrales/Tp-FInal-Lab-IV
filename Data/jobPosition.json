@@ -8,7 +8,8 @@
             "Julian",
             "Agustin",
             "Pablo",
-            "Juanx"
+            "Juanx",
+            "wlorant1@sbwire.com"
         ],
         "career": 1,
         "active": true
@@ -55,7 +56,7 @@
         "name": "Database Master",
         "companyId": "4",
         "description": "MySql, Docker",
-        "proposedStudents": "",
+        "proposedStudents": [],
         "career": 5,
         "active": true
     },
@@ -64,7 +65,7 @@
         "name": "Limpiapisos",
         "companyId": "4",
         "description": "Blem, Ayudin",
-        "proposedStudents": "",
+        "proposedStudents": [],
         "career": 4,
         "active": true
     },
@@ -73,7 +74,9 @@
         "name": "Scrum Manager",
         "companyId": "4",
         "description": "Agile, Kanban",
-        "proposedStudents": "",
+        "proposedStudents": [
+            "wlorant1@sbwire.com"
+        ],
         "career": 1,
         "active": true
     },
@@ -82,7 +85,7 @@
         "name": "Repartidor",
         "companyId": "5",
         "description": "Fiumba",
-        "proposedStudents": "",
+        "proposedStudents": [],
         "career": 5,
         "active": true
     },
@@ -91,7 +94,7 @@
         "name": "Otros",
         "companyId": "4",
         "description": "hola q talco",
-        "proposedStudents": "",
+        "proposedStudents": [],
         "career": 4,
         "active": true
     },
@@ -100,7 +103,7 @@
         "name": "Secretaria de Registros",
         "companyId": "2",
         "description": "Se necesita ayudante en la secretaria",
-        "proposedStudents": null,
+        "proposedStudents": [],
         "career": "1",
         "active": true
     }
