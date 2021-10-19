@@ -15,7 +15,7 @@
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>JobPosition/ShowUserJobs">Ver postulaciones</a>
           </li>  
           <li class="nav-item">
-               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Company/ShowListView">Listar de Empresas</a>
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Company/ShowListViewStudent">Listar de Empresas</a>
           </li>
           <li class="nav-item">
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/LogOut">Log out</a>

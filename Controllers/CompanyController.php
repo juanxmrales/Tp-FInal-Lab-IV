@@ -39,6 +39,13 @@
             require_once(VIEWS_PATH."company-profile.php");
         }
 
+        public function ShowListViewStudent()
+        {
+            $companyList = $this->companyDAO->GetAll();
+
+            require_once(VIEWS_PATH."company-list-student.php");
+        }
+
         public function ShowCompanyProfileStudent($id)
         {
             $company = $this->companyDAO->SearchCompanyById($id);
