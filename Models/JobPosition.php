@@ -2,7 +2,9 @@
 
 	namespace Models;
 
-	class JobPosition{
+use ValueError;
+
+class JobPosition{
 
 		private $name;
 		private $companyId;
@@ -109,6 +111,23 @@
 
 			return $this;
 		}
+
+		public function existInProposed($email)
+		{
+			$flag = false;
+
+			$array = $this->getProposedStudents();
+
+			for($i=0; $i<count($array); $i++)
+			{
+				if($array[$i] == $email)
+				{
+					$flag = true;
+				}
+			}
+
+			return $flag;
+		}
 }
 
- ?>
+?>

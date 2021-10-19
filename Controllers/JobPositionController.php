@@ -36,6 +36,15 @@
 			require_once(VIEWS_PATH."jobPosition-list.php");
 		}
 
+		public function ShowUserJobs()
+		{
+			$careerDAO = new CareerDAO();
+			$companyDAO  = new CompanyDAO();
+			$jobPositionList = $this->jobPositionDAO->getAll();
+
+			require_once(VIEWS_PATH."user-postulation.php");
+		}
+
 		public function Add($name,$companyId,$description,$career){
 
 			$id = $this->jobPositionDAO->CountRecords() + 1;
