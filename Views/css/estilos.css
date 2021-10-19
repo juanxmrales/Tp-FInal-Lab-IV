@@ -45,4 +45,6 @@ body {
     margin-top: 70px;
 }
 
-#listado .container .btn {}
+.navbar {
+    margin-bottom: 70px;
+}
