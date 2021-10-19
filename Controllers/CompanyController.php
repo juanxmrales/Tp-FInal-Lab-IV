@@ -54,6 +54,7 @@ use Models\Company as Company;
 
         public function ShowCompanyProfileStudent($id)
         {
+
             $careerDAO = new CareerDAO();
             $jobPositionDAO = new JobPositionDAO();
 

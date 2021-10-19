@@ -50,7 +50,8 @@
                          <?php
                               foreach($jobPositionList as $jobPosition)
                               {
-                                   if($jobPosition->getActive()==true&&$jobPosition->getCompanyId()==$id)
+                                   if($jobPosition->getActive()==true && $jobPosition->getCompanyId()==$id)
+                                   {
                                    ?>
                                         <tr>
                                              <td><?php echo $jobPosition->getName(); ?></td>
@@ -58,6 +59,7 @@
                                              <td><?php echo $jobPosition->getDescription(); ?></td>
                                         </tr>
                                    <?php
+                                   }
                               }
                          ?>
                     </tbody>
