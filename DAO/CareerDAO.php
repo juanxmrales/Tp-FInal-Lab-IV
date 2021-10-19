@@ -25,6 +25,22 @@
 			$this->RetrieveData();
 			return $this->careerList;
 		}
+
+		public function SearchCareerById($id)
+		{
+			$this->RetrieveData();
+			$career = null;
+
+			foreach($this->careerList as $value)
+			{
+				if($value->getCareerId()==$id)
+				{
+					$career = $value;
+				}
+			}
+
+			return $career;
+		}
 	}
 
  ?>

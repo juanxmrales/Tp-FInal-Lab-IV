@@ -30,6 +30,7 @@ use DAO\JobPositionDAO as JobPositionDAO;
 
 		public function ShowListView(){
 			$companyDAO  = new CompanyDAO();
+			$careerDAO = new CareerDAO();
 
 			$jobPositionList = $this->jobPositionDAO->getAll();
 			require_once(VIEWS_PATH."jobPosition-list.php");
