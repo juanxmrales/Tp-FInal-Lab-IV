@@ -10,8 +10,10 @@ require_once('nav.php');
                <table class="table bg-light-alpha">
                     <thead>
                          <th></th>
+                         <th></th>
                          <th>Nombre</th>
-                         <th>Nombre de Compania</th>
+                         <th>Compania</th>
+                         <th>Carrera</th>
                          <th>Descripcion</th>
                     </thead>
                     <tbody>
@@ -21,6 +23,7 @@ require_once('nav.php');
                                    ?>
                                         <tr>
                                              <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfileStudent/<?php echo $companyDAO->SearchCompanyById($jobPosition->getCompanyId())->getId();?>"><button>Ver Mas</button></a></td>
+                                             <td><a href="<?php echo FRONT_ROOT; ?>JobPosition/ApplyJobPosition/<?php echo $jobPosition->getId();?>"><button>Postularme</button></a></td>
                                              <td><?php echo $jobPosition->getName(); ?></td>
                                              <td><?php echo $companyDAO->SearchCompanyById($jobPosition->getCompanyId())->getName(); ?></td>
                                              <td><?php echo $careerDAO->SearchCareerById($jobPosition->getCareer())->getDescription(); ?></td>
@@ -29,7 +32,6 @@ require_once('nav.php');
                                    <?php
                               }
                          ?>
-                         </tr>
                     </tbody>
                </table>
           </div>

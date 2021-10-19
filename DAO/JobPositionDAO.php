@@ -64,16 +64,15 @@
             }
         }
 
-        public function applyById($idJob, $idStudent){
+        public function applyById($idJob, $email){
 
             $this->RetrieveData();
-            $jobPosition = null;
 
             foreach($this->jobPositionList as $value)
             {
                 if($value->getId() == $idJob)
-                {
-                    array_push($value->getProposedStudents(), $idStudent);
+                {   
+                    $value->pushProposedStudent($email);
                 }
             }
             
