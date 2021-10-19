@@ -29,7 +29,10 @@
                               <li><hr class="dropdown-divider"></li>
                               <li><a class="dropdawn-item" href="<?php echo FRONT_ROOT ?>JobPosition/ShowListView">Listar ofertas</a></li>
                          </ul>
-                    </li>     
+                    </li>  
+                    <li class="nav-item">
+                         <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/LogOut">Log out</a>
+                    </li>   
                </ul>
           </div>
      </div>
