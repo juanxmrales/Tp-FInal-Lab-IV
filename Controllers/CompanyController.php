@@ -39,6 +39,13 @@
             require_once(VIEWS_PATH."company-profile.php");
         }
 
+        public function ShowCompanyProfileStudent($id)
+        {
+            $company = $this->companyDAO->SearchCompanyById($id);
+
+            require_once(VIEWS_PATH."company-profile-student.php");
+        }
+
         public function Add($name, $street, $nacionality, $description, $active)
         {
             if(isset($_POST))

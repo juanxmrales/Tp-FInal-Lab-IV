@@ -113,6 +113,22 @@
             return $company;
         }
 
+        public function SearchCompanyById($id)
+        {
+            $this->RetrieveData();
+            $company = null;
+
+            foreach($this->companyList as $value)
+            {
+                if($value->getId() == $id)
+                {
+                    $company = $value;
+                }
+            }
+
+            return $company;
+        }
+
         public function CountRecords()
         {
             $this->RetrieveData();

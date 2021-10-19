@@ -1,6 +1,7 @@
 <?php
 
 require_once('nav.php');
+
 ?>
 <main class="py-5">
      <section id="listado" class="mb-5">
@@ -8,24 +9,23 @@ require_once('nav.php');
                <h2 class="mb-4">Listado de Ofertas</h2>
                <table class="table bg-light-alpha">
                     <thead>
-                         <th>Id oferta</th>
+                         <th></th>
                          <th>Nombre</th>
-                         <th>ID Compania</th>
+                         <th>Nombre de Compania</th>
                          <th>Descripcion</th>
                     </thead>
                     <tbody>
                          <?php
                               foreach($jobPositionList as $jobPosition)
                               {
-                                   if($jobPosition->getActive()){?>
+                                   ?>
                                         <tr>
-                                             <td><?php echo $jobPosition->getId() ?></td>
-                                             <td><?php echo $jobPosition->getName() ?></td>
-                                             <td><?php echo $jobPosition->getCompanyId() ?></td>
-                                             <td><?php echo $jobPosition->getDescription() ?></td>
-
+                                        <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfileStudent/<?php echo $companyDAO->SearchCompanyById($jobPosition->getCompanyId())->getId();?>"><button>Ver Mas</button></a></td>
+                                             <td><?php echo $jobPosition->getName(); ?></td>
+                                             <td><?php echo $companyDAO->SearchCompanyById($jobPosition->getCompanyId())->getName(); ?></td>
+                                             <td><?php echo $jobPosition->getDescription(); ?></td>
                                         </tr>
-                                   <?php }
+                                   <?php
                               }
                          ?>
                          </tr>
