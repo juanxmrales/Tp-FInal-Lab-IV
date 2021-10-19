@@ -34,6 +34,7 @@
                 $valuesArray["companyId"] = $jobPosition->getCompanyId();
                 $valuesArray["description"] = $jobPosition->getDescription();
                 $valuesArray["proposedStudents"] = $jobPosition->getProposedStudents();
+                $valuesArray["career"] = $jobPosition->getCareer();
                 $valuesArray["active"] = $jobPosition->getActive();
 
                 array_push($arrayToEncode, $valuesArray);
@@ -56,7 +57,7 @@
 
                 foreach($arrayToDecode as $valuesArray)
                 {
-                    $jobPosition = new JobPosition($valuesArray["id"],$valuesArray["name"],$valuesArray["companyId"],$valuesArray["description"],$valuesArray["proposedStudents"],$valuesArray["active"]);
+                    $jobPosition = new JobPosition($valuesArray["id"],$valuesArray["name"],$valuesArray["companyId"],$valuesArray["description"],$valuesArray["active"],$valuesArray["career"],$valuesArray["proposedStudents"]);
 
                     array_push($this->jobPositionList, $jobPosition);
                 }

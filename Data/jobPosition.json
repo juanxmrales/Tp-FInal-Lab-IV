@@ -10,6 +10,7 @@
             "Pablo",
             "Juanx"
         ],
+        "career": 1,
         "active": true
     },
     {
@@ -23,6 +24,7 @@
             "Pablo",
             "Juanx"
         ],
+        "career": 4,
         "active": true
     },
     {
@@ -36,6 +38,7 @@
             "Pablo",
             "Juanx"
         ],
+        "career": 1,
         "active": true
     },
     {
@@ -44,6 +47,7 @@
         "companyId": "2",
         "description": "Android, Kotlin",
         "proposedStudents": "",
+        "career": 4,
         "active": true
     },
     {
@@ -52,6 +56,7 @@
         "companyId": "4",
         "description": "MySql, Docker",
         "proposedStudents": "",
+        "career": 5,
         "active": true
     },
     {
@@ -60,6 +65,7 @@
         "companyId": "4",
         "description": "Blem, Ayudin",
         "proposedStudents": "",
+        "career": 4,
         "active": true
     },
     {
@@ -68,6 +74,7 @@
         "companyId": "4",
         "description": "Agile, Kanban",
         "proposedStudents": "",
+        "career": 1,
         "active": true
     },
     {
@@ -76,6 +83,7 @@
         "companyId": "5",
         "description": "Fiumba",
         "proposedStudents": "",
+        "career": 5,
         "active": true
     },
     {
@@ -84,6 +92,16 @@
         "companyId": "4",
         "description": "hola q talco",
         "proposedStudents": "",
+        "career": 4,
+        "active": true
+    },
+    {
+        "id": 10,
+        "name": "Secretaria de Registros",
+        "companyId": "2",
+        "description": "Se necesita ayudante en la secretaria",
+        "proposedStudents": null,
+        "career": "1",
         "active": true
     }
 ]

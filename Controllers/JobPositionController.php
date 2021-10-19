@@ -2,7 +2,8 @@
 
 	namespace Controllers;
 
-	use DAO\JobPositionDAO as JobPositionDAO;
+use DAO\CareerDAO;
+use DAO\JobPositionDAO as JobPositionDAO;
 	use Models\JobPosition as JobPosition;
 	use DAO\CompanyDAO as CompanyDAO;
 	use Models\Company as Company;
@@ -20,6 +21,10 @@
 
 			$companyDAO = new CompanyDAO();
 			$companyList = $companyDAO->GetAll();
+
+			$careerDAO = new CareerDAO();
+			$careerList = $careerDAO->GetAll();
+
 			require_once(VIEWS_PATH."jobPosition-add.php");
 		}
 
@@ -30,10 +35,10 @@
 			require_once(VIEWS_PATH."jobPosition-list.php");
 		}
 
-		public function Add(){
+		public function Add($name,$companyId,$description,$career){
 
 			$id = $this->jobPositionDAO->CountRecords() + 1;
-			$jobPosition = new JobPosition($id,$_POST['name'], $_POST['companyId'],$_POST['description'], "", true);
+			$jobPosition = new JobPosition($id,$name,$companyId,$description,true,$career,null);
 			$this->jobPositionDAO->add($jobPosition);
 			$this->ShowListView();
 		}

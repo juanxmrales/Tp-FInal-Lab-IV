@@ -10,7 +10,7 @@
                          <div class="col-lg-4">
                               <div class="form-group">
                                    <label for="">Nombre</label>
-                                   <input type="text" name="name" value="" class="form-control" required="">
+                                   <input type="text" name="name" value="" class="form-control" required>
                               </div>
                          </div>
                          <div class="col-lg-4">
@@ -26,12 +26,23 @@
                          </div>
                          <div class="col-lg-4">
                               <div class="form-group">
+                                   <label for="">Carrera</label>
+                                   <select class="form-control" name="career">
+                                        <?php  foreach($careerList as $career){
+                                                  if($career->getActive()){ ?>
+                                                       <option value=<?php echo $career->getCareerId() ?>><?php echo $career->getDescription() ?></option>
+                                        <?php }} ?>
+                                   </select>
+                              </div>
+                         </div>
+                         <div class="col-lg-4">
+                              <div class="form-group">
                                    <label for="">Descripcion</label>
                                    <input type="text" name="description" value="" class="form-control" required="">
                               </div>
                          </div>
                     </div>
-                    <button type="submit" name="button" class="btn btn-dark ml-auto d-block">Agregar</button>
+                    <button type="submit" class="btn btn-dark ml-auto d-block">Agregar</button>
                </form>
           </div>
      </section>
