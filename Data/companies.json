@@ -10,10 +10,10 @@
     {
         "id": 2,
         "name": "Google",
-        "street": "California 123",
-        "nacionality": "EEUU",
+        "street": "San Luis 123",
+        "nacionality": "Lituania",
         "description": "Llego a la pista a bailar una diva virtual",
-        "active": true
+        "active": false
     },
     {
         "id": 3,
@@ -37,6 +37,14 @@
         "street": "Champagnat 3297",
         "nacionality": "Argentina",
         "description": "Hacen un dulce de leche bastante decente y tambi\u00e9n caramelos.",
+        "active": true
+    },
+    {
+        "id": 6,
+        "name": "Rexona",
+        "street": "San Luis 123",
+        "nacionality": "Bolivia",
+        "description": "No te abandona",
         "active": true
     }
 ]

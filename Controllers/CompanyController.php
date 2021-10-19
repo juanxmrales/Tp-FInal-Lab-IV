@@ -64,7 +64,7 @@ use Models\Company as Company;
             require_once(VIEWS_PATH."company-profile-student.php");
         }
 
-        public function Add($name, $street, $nacionality, $description, $active)
+        public function Add($name, $street, $nacionality, $description)
         {
             if(isset($_POST))
             {
