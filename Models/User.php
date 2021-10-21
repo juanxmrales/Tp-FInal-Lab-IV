@@ -9,12 +9,7 @@
 		private $type; /* 0 -> Student // 1 -> Admin // 2 -> Empresa */
 
 
-		/**
-		 * Class Constructor
-		 * @param    $email   
-		 * @param    $password   
-		 * @param    $type   
-		 */
+
 		public function __construct($email, $password, $type)
 		{
 			$this->email = $email;
