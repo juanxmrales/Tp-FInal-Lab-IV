@@ -42,14 +42,15 @@
                             </div>
 
                             <div class="form-group text-center">
-                            <input type="submit" class="btn btn-dark btn-lg btn-block" value="Conectar">
+                                <input type="submit" class="btn btn-dark btn-lg btn-block" value="Conectar">
                             </div>
-                                <form id="register-form" action="" method="POST">
-                                    <input type="submit" class="btn btn-dark btn-lg btn-block" value="Registrarse">
-                                </form>    
-
-                            <p style="color: red"><?php echo $message?></p>
+                                    
                         </form>
+                        <form id="register-form" action="<?php echo FRONT_ROOT ?>User/ShowAddView" method="POST">
+                            <input type="submit" class="btn btn-dark btn-lg btn-block" value="Registrarse">
+                        </form>
+
+                        <p style="color: red"><?php echo $message?></p>
                     </div>
                 </div>
             </div>

@@ -36,15 +36,6 @@
                                 <label>Password</label>
                                 <input type="password" id="password" name="password" class="form-control">
                             </div>                                                      
-                                                    
-                            <div class="form-group">
-                                <label for="state_id" class="control-label">Tipo</label>
-                                <select class="form-control" id="state_id">
-                                    <option value="0">Student</option>
-                                    <option value="1">Admin</option>
-                                    <option value="2">Empresa</option>
-                                </select>                    
-                            </div>
                                 
                             <div class="form-group">
                                 <button type="submit" class="btn btn-dark btn-lg btn-block">Registrar</button>
