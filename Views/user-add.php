@@ -23,9 +23,9 @@
                 <div id="add-user-col" class="col-md-6">
 
                     <div id="add-user-box" class="userAdd-box col-md-12 bg-light text-dark">
-                        <form>
+                        <form action="<?php echo FRONT_ROOT ?>User/Add" method="post">
 
-                            <h3 class="text-center" style="padding-top:10px">Regristrar usuario</h3>
+                            <h3 class="text-center" style="padding-top:10px">Registrar usuario</h3>
 
                             <div class="form-group">
                                 <label>E-mail</label>

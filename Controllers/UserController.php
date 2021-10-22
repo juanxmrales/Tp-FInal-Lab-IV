@@ -25,9 +25,9 @@
             require_once(VIEWS_PATH."user-list.php");
         }
 
-        public function Add($email, $password, $type)
+        public function Add($email, $password)
         {
-            $user = new User($email,$password,$type);
+            $user = new User($email,$password, 0);
 
             $this->userDAO->Add($user);
 
