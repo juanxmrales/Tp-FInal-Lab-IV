@@ -2,71 +2,67 @@
     namespace DAO;
 
     use JetBrains\PhpStorm\Internal\ReturnTypeContract;
+    use \Exception as Exception;
     use Models\User as User;
 
     class UserDAO
     {
-        private $userList = array();
+        private $connection;
+        private $tableName = "users";
 
         public function Add(User $user)
         {
-            $this->RetrieveData();
-            
-            array_push($this->userList, $user);
+            try
+            {
+                $query = "INSERT INTO ".$this->tableName." (email, password, type) VALUES (:email, :password, :type);";
+                
+                $parameters["email"] = $user->getEmail();
+                $parameters["password"] = $user->getPassword();
+                $parameters["type"] = $user->getType();
 
-            $this->SaveData();
+                $this->connection = Connection::GetInstance();
+
+                $this->connection->ExecuteNonQuery($query, $parameters);
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
         }
 
         public function GetAll()
         {
-            $this->RetrieveData();
-
-            return $this->userList;
-        }
-
-        private function SaveData()
-        {
-            $arrayToEncode = array();
-
-            foreach($this->userList as $user)
+            try
             {
-                $valuesArray["email"] = $user->getEmail();
-                $valuesArray["password"] = $user->getPassword();
-                $valuesArray["type"] = $user->getType();
+                $userList = array();
 
-                array_push($arrayToEncode, $valuesArray);
-            }
+                $query = "SELECT * FROM ".$this->tableName;
 
-            $jsonContent = json_encode($arrayToEncode, JSON_PRETTY_PRINT);
-            
-            file_put_contents('Data/users.json', $jsonContent);
-        }
+                $this->connection = Connection::GetInstance();
 
-        private function RetrieveData()
-        {
-            $this->userList = array();
+                $resultSet = $this->connection->Execute($query);
+                
+                foreach ($resultSet as $row)
+                {                
+                    $user = new User($row["email"],$row["password"],$row["type"]);
 
-            if(file_exists('Data/users.json'))
-            {
-                $jsonContent = file_get_contents('Data/users.json');
-
-                $arrayToDecode = ($jsonContent) ? json_decode($jsonContent, true) : array();
-
-                foreach($arrayToDecode as $valuesArray)
-                {
-                    $user = new User($valuesArray["email"],$valuesArray["password"],$valuesArray["type"]);
-
-                    array_push($this->userList, $user);
+                    array_push($userList, $user);
                 }
+
+                return $userList;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
             }
         }
 
         public function exist($email,$password)
         {
-            $this->RetrieveData();
+            $userList = $this->GetAll();
             $flag = false;
 
-            foreach($this->userList as $value)
+            foreach($userList as $value)
             {
                 if($value->getEmail() == $email && $value->getPassword() == $password)
                 {
@@ -79,10 +75,10 @@
 
         public function searchUser($email)
         {
-            $this->RetrieveData();
+            $userList = $this->GetAll();
             $user = null;
 
-            foreach($this->userList as $value)
+            foreach($userList as $value)
             {
                 if($value->getEmail() == $email)
                 {
