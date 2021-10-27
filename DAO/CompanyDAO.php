@@ -1,108 +1,70 @@
 <?php
     namespace DAO;
 
+    use \Exception as Exception;
     use Models\Company as Company;
 
     class CompanyDao
     {
-        private $companyList = array();
+        private $connection;
+        private $tableName = "companies";
 
         public function Add(Company $company)
         {
-            $this->RetrieveData();
-            
-            array_push($this->companyList, $company);
-
-            $this->SaveData();
-        }
-
-        public function Modify($id,$name,$street,$nacionality,$description)
-        {
-            $this->RetrieveData();
-
-            foreach($this->companyList as $value)
+            try
             {
-                if($value->getId()==$id)
-                {
-                    $value->setName($name);
-                    $value->setStreet($street);
-                    $value->setNacionality($nacionality);
-                    $value->setDescription($description);
-                }
+                $query = "INSERT INTO ".$this->tableName." (id,name,street,nacionality,description,active) VALUES (:id,:name,:street,:nacionality,:description,:active);";
+                
+                $parameters["id"] = $company->getId();
+                $parameters["name"] = $company->getName();
+                $parameters["street"] = $company->getStreet();
+                $parameters["nacionality"] = $company->getNacionality();
+                $parameters["description"] = $company->getDescription();
+                $parameters["active"] = $company->getActive();
+
+                $this->connection = Connection::GetInstance();
+
+                $this->connection->ExecuteNonQuery($query, $parameters);
             }
-
-            $this->SaveData();
-        }
- 
-        public function Delete($id)
-        {
-            $this->RetrieveData();
-
-            foreach($this->companyList as $value)
+            catch(Exception $ex)
             {
-                if($value->getId() == $id)
-                {
-                    $value->setActive(false);
-                }
-            }            
-
-            $this->SaveData();            
+                throw $ex;
+            }
         }
-        
 
         public function GetAll()
         {
-            $this->RetrieveData();
-
-            return $this->companyList;
-        }
-
-        private function SaveData()
-        {
-            $arrayToEncode = array();
-
-            foreach($this->companyList as $company)
+            try
             {
-                $valuesArray["id"] = $company->getId();
-                $valuesArray["name"] = $company->getName();
-                $valuesArray["street"] = $company->getStreet();
-                $valuesArray["nacionality"] = $company->getNacionality();
-                $valuesArray["description"] = $company->getDescription();
-                $valuesArray["active"] = $company->getActive();
+                $companyList = array();
 
-                array_push($arrayToEncode, $valuesArray);
-            }
+                $query = "SELECT * FROM ".$this->tableName;
 
-            $jsonContent = json_encode($arrayToEncode, JSON_PRETTY_PRINT);
-            
-            file_put_contents('Data/companies.json', $jsonContent);
-        }
+                $this->connection = Connection::GetInstance();
 
-        private function RetrieveData()
-        {
-            $this->companyList = array();
+                $resultSet = $this->connection->Execute($query);
+                
+                foreach ($resultSet as $row)
+                {                
+                    $company = new Company($row["id"],$row["name"],$row["street"],$row["nacionality"],$row["description"],$row["active"]);
 
-            if(file_exists('Data/companies.json'))
-            {
-                $jsonContent = file_get_contents('Data/companies.json');
-
-                $arrayToDecode = ($jsonContent) ? json_decode($jsonContent, true) : array();
-
-                foreach($arrayToDecode as $valuesArray)
-                {
-                    $company = new Company($valuesArray["id"],$valuesArray["name"],$valuesArray["street"],$valuesArray["nacionality"],$valuesArray["description"], $valuesArray["active"]);
-
-                    array_push($this->companyList, $company);
+                    array_push($companyList, $company);
                 }
+
+                return $companyList;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
             }
         }
 
         public function SearchCompany($name)
         {
-            $this->RetrieveData();
+            $companyList = $this->GetAll();
             $company = null;
 
-            foreach($this->companyList as $value)
+            foreach($companyList as $value)
             {
                 if($value->getName() == $name)
                 {
@@ -115,10 +77,10 @@
 
         public function SearchCompanyById($id)
         {
-            $this->RetrieveData();
+            $companyList = $this->GetAll();
             $company = null;
 
-            foreach($this->companyList as $value)
+            foreach($companyList as $value)
             {
                 if($value->getId() == $id)
                 {
@@ -131,7 +93,7 @@
 
         public function CountRecords()
         {
-            $this->RetrieveData();
+            $companyList = $this->GetAll();
 
             return count($this->companyList);
         }

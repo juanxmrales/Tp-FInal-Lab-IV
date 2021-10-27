@@ -8,21 +8,22 @@
         private $idJobPosition;
         private $idCompany;
         private $fecha;
-        private $descripcion;
-        private $activo;
+        private $description;
+        private $active;
+        private $users = array();
 
-        public function __construct($id,$idJobPosition,$idCompany,$fecha,$descripcion,$activo)
+        public function __construct($id,$idJobPosition,$idCompany,$fecha,$description,$active,$users = array())
         {
             $this->id = $id;
             $this->idJobPosition = $idJobPosition;
             $this->idCompany = $idCompany;
             $this->fecha = $fecha;
-            $this->descripcion = $descripcion;
-            $this->activo = $activo;
+            $this->description = $description;
+            $this->active = $active;
+            $this->users = $users;
         }
 
         
-
         /**
          * Get the value of id
          */ 
@@ -106,9 +107,9 @@
         /**
          * Get the value of descripcion
          */ 
-        public function getDescripcion()
+        public function getDescription()
         {
-                return $this->descripcion;
+                return $this->description;
         }
 
         /**
@@ -116,9 +117,9 @@
          *
          * @return  self
          */ 
-        public function setDescripcion($descripcion)
+        public function setDescription($description)
         {
-                $this->descripcion = $descripcion;
+                $this->description = $description;
 
                 return $this;
         }
@@ -126,9 +127,9 @@
         /**
          * Get the value of activo
          */ 
-        public function getActivo()
+        public function getActive()
         {
-                return $this->activo;
+                return $this->active;
         }
 
         /**
@@ -136,11 +137,36 @@
          *
          * @return  self
          */ 
-        public function setActivo($activo)
+        public function setActive($active)
         {
-                $this->activo = $activo;
+                $this->active = $active;
 
                 return $this;
+        }
+
+        /**
+         * Get the value of users
+         */ 
+        public function getUsers()
+        {
+                return $this->users;
+        }
+
+        /**
+         * Set the value of users
+         *
+         * @return  self
+         */ 
+        public function setUsers($users)
+        {
+                $this->users = $users;
+
+                return $this;
+        }
+
+        public function putInUsersList($users)
+        {
+                array_push($this->users,$users);
         }
     }
 ?>
