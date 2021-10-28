@@ -3,18 +3,18 @@
 	namespace Controllers;
 
 	use DAO\CareerDAO;
-	use DAO\JobPositionDAO as JobPositionDAO;
-	use Models\JobPosition as JobPosition;
+	use DAO\JobOfferDAO as JobOfferDAO;
+	use Models\JobOffer as JobOffer;
 	use DAO\CompanyDAO as CompanyDAO;
 	use Models\Company as Company;
 
-	class JobPositionController
+	class JobOfferController
 	{
-		private $jobPositionDAO;
+		private $jobOfferDAO;
 
 		public function __construct(){
 
-			$this->jobPositionDAO = new JobPositionDAO();
+			$this->jobOfferDAO = new JobOfferDAO();
 		}
 
 		public function ShowAddView(){
@@ -25,38 +25,37 @@
 			$careerDAO = new CareerDAO();
 			$careerList = $careerDAO->GetAll();
 
-			require_once(VIEWS_PATH."jobPosition-add.php");
+			require_once(VIEWS_PATH."jobOffer-add.php");
 		}
 
 		public function ShowListView(){
 			$companyDAO  = new CompanyDAO();
 			$careerDAO = new CareerDAO();
 
-			$jobPositionList = $this->jobPositionDAO->getAll();
-			require_once(VIEWS_PATH."jobPosition-list.php");
+			$jobOfferList = $this->jobOfferDAO->getAll();
+			require_once(VIEWS_PATH."jobOffer-list.php");
 		}
 
 		public function ShowUserJobs()
 		{
 			$careerDAO = new CareerDAO();
 			$companyDAO  = new CompanyDAO();
-			$jobPositionList = $this->jobPositionDAO->getAll();
+			$jobOfferList = $this->jobOfferDAO->getAll();
 
 			require_once(VIEWS_PATH."user-postulation.php");
 		}
 
 		public function Add($name,$companyId,$description,$career){
 
-			$id = $this->jobPositionDAO->CountRecords() + 1;
-			$jobPosition = new JobPosition($id,$name,$companyId,$description,true,$career);
-			$this->jobPositionDAO->add($jobPosition);
+			$jobOffer = new JobOffer($id,$name,$companyId,$description,true,$career);
+			$this->jobOfferDAO->add($jobOffer);
 			$this->ShowListView();
 		}
 
-		public function ApplyJobPosition($idJob){
+		public function ApplyJobOffer($idJob){
 			$email = $_SESSION['email'];
 
-			$this->jobPositionDAO->applyById($idJob, $email);
+			$this->jobOfferDAO->applyById($idJob, $email);
 
 			$this->ShowListView();
 		}
