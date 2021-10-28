@@ -46,7 +46,7 @@
                 
                 foreach ($resultSet as $row)
                 {                
-                    $company = new Company($row["id"],$row["name"],$row["street"],$row["nacionality"],$row["description"],$row["active"]);
+                    $company = new Company($row["id"],$row["name"],$row["street"],$row["nationality"],$row["description"],$row["active"]);
 
                     array_push($companyList, $company);
                 }
