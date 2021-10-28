@@ -5,7 +5,7 @@
      <section id="listado" class="mb-5">
           <div class="container pt-5">
                <h2 class="mb-4">Agregar oferta</h2>
-               <form action="<?php echo FRONT_ROOT ?>JobPosition/Add" method="post" class="bg-light-alpha p-5">
+               <form action="<?php echo FRONT_ROOT ?>JobOffer/Add" method="post" class="bg-light-alpha p-5">
                     <div class="row">                       
                          <div class="col-lg-4">
                               <div class="form-group">
