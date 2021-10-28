@@ -4,7 +4,7 @@
 
     use DAO\StudentDAO;
     use DAO\UserDAO as UserDAO;
-use Models\User;
+    use Models\User;
 
 class LoginRegisterController
     {
@@ -17,12 +17,13 @@ class LoginRegisterController
             
                 if($users->exist($email,$password))
                 {
-                    if($students->SearchStudentByEmail($email))
-                    {
-                        $user = $users->searchUser($email);
+                    $user = $users->searchUser($email);
 
-                        $_SESSION['email'] = $email;
-                        $_SESSION['type'] = $user->getType();
+                    $_SESSION['email'] = $email;
+                    $_SESSION['type'] = $user->getType();
+
+                    if($students->SearchStudentByEmail($email)||$_SESSION['type']==1)
+                    {
 
                         $_SESSION['logueado'] = 1;
 
@@ -35,6 +36,12 @@ class LoginRegisterController
                             header("location:". FRONT_ROOT . "Student/SearchStudent");
                         }
                     }
+                    else
+                    {
+                        $message = "Usuario o contraseña inválida";
+                        require_once(VIEWS_PATH."login.php");
+                    }
+
                 }
                 else
                 {
