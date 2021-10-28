@@ -4,8 +4,9 @@
 
     use DAO\StudentDAO;
     use DAO\UserDAO as UserDAO;
+use Models\User;
 
-    class LoginRegisterController
+class LoginRegisterController
     {
         public function Login($email,$password)
         {
@@ -50,25 +51,13 @@
                 $users = new UserDAO();
                 $students = new StudentDAO();
             
-                if($users->exist($email,$password))
+                if(!$users->searchUser($email))
                 {
                     if($students->SearchStudentByEmail($email))
                     {
-                        $user = $users->searchUser($email);
+                        $users->Add(new User($email,$password,0));
 
-                        $_SESSION['email'] = $email;
-                        $_SESSION['type'] = $user->getType();
-
-                        $_SESSION['logueado'] = 1;
-
-                        if($_SESSION['type'] == 0)
-                        {
-                            header("location:". FRONT_ROOT . "Student/ShowStudentProfile");
-                        }
-                        else if($_SESSION['type'] == 1)
-                        {
-                            header("location:". FRONT_ROOT . "Student/SearchStudent");
-                        }
+                        header("location:". FRONT_ROOT . "Home/Index");
                     }
                 }
                 else

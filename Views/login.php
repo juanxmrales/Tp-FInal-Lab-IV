@@ -28,7 +28,7 @@
 
                     <div id="login-box" class="col-md-12 bg-light text-dark">
 
-                        <form id="login-form" class="login-form" action="<?php echo FRONT_ROOT ?>Login/Verify" method="POST">
+                        <form id="login-form" class="login-form" action="<?php echo FRONT_ROOT ?>LoginRegister/Login" method="POST">
 
                             <h3 class="text-center" style="padding-top:10px">Iniciar sesión</h3>
 
