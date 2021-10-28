@@ -2,132 +2,90 @@
 
 	namespace Models;
 
-use ValueError;
 
 class JobPosition{
 
-		private $name;
-		private $companyId;
-		private $proposedStudents = array();
-		private $description;
-		private $id;
-		private $active;
-		private $career;
+		
+	private $id;
+	private $carrerId;
+	private $description;
 
-		public function __construct($id,$name,$companyId,$description,$active,$career,$proposedStudents = array()){
 
-			$this->id = $id;
-			$this->name = $name;
-			$this->companyId = $companyId;
-			$this->description = $description;
-			$this->proposedStudents = $proposedStudents;
-			$this->career = $career;
-			$this->active = $active;
-		}
+	/**
+	 * Class Constructor
+	 * @param    $id   
+	 * @param    $carrerId   
+	 * @param    $description   
+	 */
+	public function __construct($id, $carrerId, $description)
+	{
+		$this->id = $id;
+		$this->carrerId = $carrerId;
+		$this->description = $description;
+	}
 
-	    public function getName()
-	    {
-	        return $this->name;
-	    }
+	
+		
 
-	    public function setName($name)
-	    {
-	        $this->name = $name;
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
-	        return $this;
-	    }
+    /**
+     * @param mixed $id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
 
-	    public function getCompanyId()
-	    {
-	        return $this->companyId;
-	    }
+        return $this;
+    }
 
-	    public function setCompanyId($companyId)
-	    {
-	        $this->companyId = $companyId;
+    /**
+     * @return mixed
+     */
+    public function getCarrerId()
+    {
+        return $this->carrerId;
+    }
 
-	        return $this;
-	    }
+    /**
+     * @param mixed $carrerId
+     *
+     * @return self
+     */
+    public function setCarrerId($carrerId)
+    {
+        $this->carrerId = $carrerId;
 
-	    public function getProposedStudents()
-	    {
-	        return $this->proposedStudents;
-	    }
+        return $this;
+    }
 
-	    public function setProposedStudents($proposedStudents)
-	    {
-	        $this->proposedStudents = $proposedStudents;
-	    }
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
 
-		public function pushProposedStudent($email)
-		{
-			array_push($this->proposedStudents, $email);
-		}
+    /**
+     * @param mixed $description
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
 
-	    public function getCareer()
-	    {
-	        return $this->career;
-	    }
-
-	    public function setCareer($career)
-	    {
-	        $this->career = $career;
-
-	        return $this;
-	    }
-
-	    public function getDescription()
-	    {
-	        return $this->description;
-	    }
-
-	    public function setDescription($description)
-	    {
-	        $this->description = $description;
-
-	        return $this;
-	    }
-
-	    public function getId()
-	    {
-	        return $this->id;
-	    }
-
-	    public function setId($id)
-	    {
-	        $this->id = $id;
-
-	        return $this;
-	    }
-
-		public function getActive()
-		{
-			return $this->active;
-		}
-
-		public function setActive($active)
-		{
-			$this->active = $active;
-
-			return $this;
-		}
-
-		public function existInProposed($email)
-		{
-			$flag = false;
-
-			$array = $this->getProposedStudents();
-
-			for($i=0; $i<count($array); $i++)
-			{
-				if($array[$i] == $email)
-				{
-					$flag = true;
-				}
-			}
-
-			return $flag;
-		}
+        return $this;
+    }
 }
 
 ?>
