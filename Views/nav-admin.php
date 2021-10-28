@@ -15,7 +15,7 @@
                          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                               <li><a class="dropdawn-item" href="<?php echo FRONT_ROOT ?>Company/ShowAddView">Agregar Empresa</a></li>
                               <li><hr class="dropdown-divider"></li>
-                              <li><a class="dropdawn-item" href="<?php echo FRONT_ROOT ?>JobPosition/ShowAddView">Agregar oferta</a></li>
+                              <li><a class="dropdawn-item" href="<?php echo FRONT_ROOT ?>JobOffer/ShowAddView">Agregar oferta</a></li>
                          </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -27,7 +27,7 @@
                               <li><hr class="dropdown-divider"></li>
                               <li><a class="dropdawn-item" href="<?php echo FRONT_ROOT ?>Company/ShowListView">Listar de Empresas</a></li>
                               <li><hr class="dropdown-divider"></li>
-                              <li><a class="dropdawn-item" href="<?php echo FRONT_ROOT ?>JobPosition/ShowListView">Listar ofertas</a></li>
+                              <li><a class="dropdawn-item" href="<?php echo FRONT_ROOT ?>JobOffer/ShowListView">Listar ofertas</a></li>
                          </ul>
                     </li>  
                     <li class="nav-item">

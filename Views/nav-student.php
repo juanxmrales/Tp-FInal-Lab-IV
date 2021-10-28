@@ -9,10 +9,10 @@
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>Student/ShowStudentProfile">Ver perfil</a>
           </li> 
          <li class="nav-item">
-               <a class="nav-link" href="<?php echo FRONT_ROOT ?>JobPosition/ShowListView">Ver ofertas</a>
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>JobOffer/ShowListView">Ver ofertas</a>
           </li> 
           <li class="nav-item">
-               <a class="nav-link" href="<?php echo FRONT_ROOT ?>JobPosition/ShowUserJobs">Ver postulaciones</a>
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>JobOffer/ShowUserJobs">Ver postulaciones</a>
           </li>  
           <li class="nav-item">
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>Company/ShowListViewStudent">Listar de Empresas</a>

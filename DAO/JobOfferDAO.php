@@ -37,7 +37,7 @@ class JobOfferDAO
         {
             try
             {
-                $userList = array();
+                $jobList = array();
 
                 $query = "SELECT * FROM ".$this->tableName;
 
@@ -47,7 +47,7 @@ class JobOfferDAO
                 
                 foreach ($resultSet as $row)
                 {                
-                    $job = new JobOffer($row["id"],$row["idJobPosition"],$row["idCompany"],$row["fecha"],$row["description"],$row["active"]);
+                    $job = new JobOffer($row["id"],$row["id_jobPosition"],$row["id_company"],$row["fecha"],$row["description"],$row["active"]);
 
                     array_push($jobList, $job);
                 }
