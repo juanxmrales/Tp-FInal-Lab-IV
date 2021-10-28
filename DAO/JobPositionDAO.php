@@ -7,14 +7,13 @@
     {
         private $jobPositionList = array();
 
-
         public function RetrieveData(){
 
             $jsonJobPosition = ApiDAO::retrieveJobPosition();
 
             foreach($jsonJobPosition as $jobPosition){
 
-                $newJobPosition = new JobPositionDAO($jobPosition["jobPositionId"], $jobPosition["carrerId"], $jobPosition["description"]);
+                $newJobPosition = new JobPosition($jobPosition["jobPositionId"], $jobPosition["careerId"], $jobPosition["description"]);
                 array_push($this->jobPositionList, $newJobPosition);  
             }
         }

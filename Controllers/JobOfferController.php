@@ -46,7 +46,7 @@ use Models\Company as Company;
 
 			require_once(VIEWS_PATH."user-postulation.php");
 		}
-
+		/*
 		public function Add($name,$companyId,$description,$career){
 
 			$jobOffer = new JobOffer($id,$name,$companyId,$description,true,$career);
@@ -61,6 +61,7 @@ use Models\Company as Company;
 
 			$this->ShowListView();
 		}
+		*/
 	}
 
  ?>

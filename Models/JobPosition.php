@@ -25,8 +25,6 @@ class JobPosition{
 	}
 
 	
-		
-
     /**
      * @return mixed
      */
@@ -50,7 +48,7 @@ class JobPosition{
     /**
      * @return mixed
      */
-    public function getCarrerId()
+    public function getCareerId()
     {
         return $this->carrerId;
     }
@@ -60,7 +58,7 @@ class JobPosition{
      *
      * @return self
      */
-    public function setCarrerId($carrerId)
+    public function setCareerId($carrerId)
     {
         $this->carrerId = $carrerId;
 
