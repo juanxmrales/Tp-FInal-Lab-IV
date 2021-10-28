@@ -6,7 +6,8 @@
 	use DAO\JobOfferDAO as JobOfferDAO;
 	use Models\JobOffer as JobOffer;
 	use DAO\CompanyDAO as CompanyDAO;
-	use Models\Company as Company;
+use DAO\JobPositionDAO;
+use Models\Company as Company;
 
 	class JobOfferController
 	{
@@ -31,6 +32,7 @@
 		public function ShowListView(){
 			$companyDAO  = new CompanyDAO();
 			$careerDAO = new CareerDAO();
+			$jobPositionDAO = new JobPositionDAO();
 
 			$jobOfferList = $this->jobOfferDAO->getAll();
 			require_once(VIEWS_PATH."jobOffer-list.php");
