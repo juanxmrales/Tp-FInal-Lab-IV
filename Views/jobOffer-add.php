@@ -9,12 +9,6 @@
                     <div class="row">                       
                          <div class="col-lg-4">
                               <div class="form-group">
-                                   <label for="">Nombre</label>
-                                   <input type="text" name="name" value="" class="form-control" required>
-                              </div>
-                         </div>
-                         <div class="col-lg-4">
-                              <div class="form-group">
                                    <label for="">Compania</label>
                                    <select class="form-control" name="companyId">
                                         <?php  foreach($companyList as $company){
