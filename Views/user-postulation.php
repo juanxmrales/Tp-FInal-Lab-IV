@@ -17,18 +17,18 @@ require_once('nav.php');
                     </thead>
                     <tbody>
                          <?php
-                              foreach($jobPositionList as $jobPosition)
+                              foreach($jobOfferList as $jobOffer)
                               {
-                                  if($jobPosition->getActive()==true && $jobPosition->existInProposed($_SESSION['email'])==true)
+                                  if($jobOffer->getActive()==true && $jobOffer->existInProposed($_SESSION['email'])==true)
                                   {
                                     
                                    ?>
                                         <tr>
-                                             <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfileStudent/<?php echo $companyDAO->SearchCompanyById($jobPosition->getCompanyId())->getId();?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
-                                             <td><?php echo $jobPosition->getName(); ?></td>
-                                             <td><?php echo $companyDAO->SearchCompanyById($jobPosition->getCompanyId())->getName(); ?></td>
-                                             <td><?php echo $careerDAO->SearchCareerById($jobPosition->getCareer())->getDescription(); ?></td>
-                                             <td><?php echo $jobPosition->getDescription(); ?></td>
+                                             <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfileStudent/<?php echo $companyDAO->SearchCompanyById($jobOffer->getCompanyId())->getId();?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
+                                             <td><?php echo $jobOffer->getName(); ?></td>
+                                             <td><?php echo $companyDAO->SearchCompanyById($jobOffer->getCompanyId())->getName(); ?></td>
+                                             <td><?php echo $careerDAO->SearchCareerById($jobOffer->getCareer())->getDescription(); ?></td>
+                                             <td><?php echo $jobOffer->getDescription(); ?></td>
                                         </tr>
                                    <?php
                                   }

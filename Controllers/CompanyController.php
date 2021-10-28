@@ -70,9 +70,8 @@ use Models\Company as Company;
             {
                 if($this->companyDAO->SearchCompany($name)==null)
                 {
-                    $id = $this->companyDAO->CountRecords() + 1;
 
-                    $company = new Company($id, $name, $street, $nacionality, $description, true);
+                    $company = new Company(0,$name, $street, $nacionality, $description, true);
 
                     $this->companyDAO->Add($company);
 

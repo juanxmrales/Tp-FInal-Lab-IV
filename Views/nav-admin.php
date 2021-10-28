@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg  navbar-dark bg-dark fixed-top">
+<!--<nav class="navbar navbar-expand-lg  navbar-dark bg-dark fixed-top">
      <div class="container">
           <a class="navbar-brand" href="index.php">
                <img src= <?php echo FRONT_ROOT.VIEWS_PATH ?>img/admin.png ?>
@@ -36,4 +36,31 @@
                </ul>
           </div>
      </div>
+</nav>-->
+<nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+     <a class="navbar-brand" href="index.php">
+          <img src= <?php echo FRONT_ROOT.VIEWS_PATH ?>img/student-hat.png ?>
+     </a>
+
+     <ul class="navbar-nav ml-auto">
+
+          <li class="nav-item">
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Company/ShowAddView">Agregar Empresa</a>
+          </li> 
+         <li class="nav-item">
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>JobOffer/ShowAddView">Agregar oferta</a>
+          </li> 
+          <li class="nav-item">
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Student/SearchStudent">Listar Alumnos</a>
+          </li>  
+          <li class="nav-item">
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Company/ShowListView">Listar de Empresas</a>
+          </li>         
+          <li class="nav-item">
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>JobOffer/ShowListView">Listar ofertas</a>
+          </li>
+          <li class="nav-item">
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/LogOut">Log out</a>
+          </li>        
+     </ul>
 </nav>

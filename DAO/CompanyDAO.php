@@ -13,12 +13,12 @@
         {
             try
             {
-                $query = "INSERT INTO ".$this->tableName." (id,name,street,nacionality,description,active) VALUES (:id,:name,:street,:nacionality,:description,:active);";
+                $query = "INSERT INTO ".$this->tableName." (id,name,street,nationality,description,active) VALUES (:id,:name,:street,:nationality,:description,:active);";
                 
                 $parameters["id"] = $company->getId();
                 $parameters["name"] = $company->getName();
                 $parameters["street"] = $company->getStreet();
-                $parameters["nacionality"] = $company->getNacionality();
+                $parameters["nationality"] = $company->getNacionality();
                 $parameters["description"] = $company->getDescription();
                 $parameters["active"] = $company->getActive();
 
@@ -89,13 +89,6 @@
             }
 
             return $company;
-        }
-
-        public function CountRecords()
-        {
-            $companyList = $this->GetAll();
-
-            return count($this->companyList);
         }
         
     }
