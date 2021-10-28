@@ -2,6 +2,7 @@
 
     namespace Controllers;
 
+    use DAO\StudentDAO;
     use DAO\UserDAO as UserDAO;
 
     class LoginController
@@ -11,25 +12,28 @@
             if(isset($_POST))
             {
                 $users = new UserDAO();
+                $students = new StudentDAO();
             
                 if($users->exist($email,$password))
                 {
-                    $user = $users->searchUser($email);
-
-                    $_SESSION['email'] = $email;
-                    $_SESSION['type'] = $user->getType();
-
-                    $_SESSION['logueado'] = 1;
-
-                    if($_SESSION['type'] == 0)
+                    if($students->SearchStudentByEmail($email))
                     {
-                        header("location:". FRONT_ROOT . "Student/ShowStudentProfile");
+                        $user = $users->searchUser($email);
+
+                        $_SESSION['email'] = $email;
+                        $_SESSION['type'] = $user->getType();
+
+                        $_SESSION['logueado'] = 1;
+
+                        if($_SESSION['type'] == 0)
+                        {
+                            header("location:". FRONT_ROOT . "Student/ShowStudentProfile");
+                        }
+                        else if($_SESSION['type'] == 1)
+                        {
+                            header("location:". FRONT_ROOT . "Student/SearchStudent");
+                        }
                     }
-                    else if($_SESSION['type'] == 1)
-                    {
-                        header("location:". FRONT_ROOT . "Student/SearchStudent");
-                    }
-                    
                 }
                 else
                 {
