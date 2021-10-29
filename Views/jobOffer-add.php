@@ -1,5 +1,6 @@
 <?php
     require_once('nav.php');
+
 ?>
 <main class="py-5">
      <section id="listado" class="mb-5">
@@ -10,7 +11,7 @@
                          <div class="col-lg-4">
                               <div class="form-group">
                                    <label for="">Compania</label>
-                                   <select class="form-control" name="companyId">
+                                   <select class="form-control" name="idCompany" id="idCompany">
                                         <?php  foreach($companyList as $company){
                                                   if($company->getActive()){ ?>
                                                        <option value=<?php echo $company->getId() ?>><?php echo $company->getName() ?></option>
@@ -20,19 +21,19 @@
                          </div>
                          <div class="col-lg-4">
                               <div class="form-group">
-                                   <label for="">Carrera</label>
-                                   <select class="form-control" name="career">
-                                        <?php  foreach($careerList as $career){
-                                                  if($career->getActive()){ ?>
-                                                       <option value=<?php echo $career->getCareerId() ?>><?php echo $career->getDescription() ?></option>
-                                        <?php }} ?>
+                                   <label for="">Posicion</label>
+                                   <select class="form-control" name="idJobPosition" id="idJobPosition">
+                                        <?php  foreach($jobPositionList as $jobPosition){
+                                                  ?>
+                                                       <option value=<?php echo $jobPosition->getId() ?>><?php echo $jobPosition->getDescription() ?></option>
+                                        <?php } ?>
                                    </select>
                               </div>
                          </div>
                          <div class="col-lg-4">
                               <div class="form-group">
                                    <label for="">Descripcion</label>
-                                   <input type="text" name="description" value="" class="form-control" required="">
+                                   <input type="text" name="description" id="description" class="form-control" required="">
                               </div>
                          </div>
                     </div>

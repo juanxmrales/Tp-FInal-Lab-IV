@@ -12,15 +12,15 @@ class JobOfferDAO
 
         public function Add(JobOffer $job)
         {
+
             try
             {
-                $query = "INSERT INTO ".$this->tableName." (email, password, type) VALUES (:email, :password, :type);";
+                $query = "INSERT INTO ".$this->tableName." (id_jobPosition, id_company, fecha, description, active) VALUES (:id_jobPosition, :id_company, :fecha, :description, :active);";
                 
-                $parameters["id"] = $job->getId();
-                $parameters["idJobPosition"] = $job->getIdJobPosition();
-                $parameters["idCompany"] = $job->getIdCompany();
+                $parameters["id_jobPosition"] = $job->getIdJobPosition();
+                $parameters["id_company"] = $job->getIdCompany();
                 $parameters["fecha"] = $job->getFecha();
-                $parameters["description"] = $job->getIdCompany();
+                $parameters["description"] = $job->getDescription();
                 $parameters["active"] = $job->getActive();
 
                 $this->connection = Connection::GetInstance();

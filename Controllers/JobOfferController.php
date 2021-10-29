@@ -6,8 +6,8 @@
 	use DAO\JobOfferDAO as JobOfferDAO;
 	use Models\JobOffer as JobOffer;
 	use DAO\CompanyDAO as CompanyDAO;
-use DAO\JobPositionDAO;
-use Models\Company as Company;
+	use DAO\JobPositionDAO;
+	use Models\Company as Company;
 
 	class JobOfferController
 	{
@@ -22,9 +22,8 @@ use Models\Company as Company;
 
 			$companyDAO = new CompanyDAO();
 			$companyList = $companyDAO->GetAll();
-
-			$careerDAO = new CareerDAO();
-			$careerList = $careerDAO->GetAll();
+			$jobPositionDAO = new JobPositionDAO();
+			$jobPositionList = $jobPositionDAO->getAll();
 
 			require_once(VIEWS_PATH."jobOffer-add.php");
 		}
@@ -33,6 +32,7 @@ use Models\Company as Company;
 			$companyDAO  = new CompanyDAO();
 			$careerDAO = new CareerDAO();
 			$jobPositionDAO = new JobPositionDAO();
+
 
 			$jobOfferList = $this->jobOfferDAO->getAll();
 			require_once(VIEWS_PATH."jobOffer-list.php");
@@ -46,14 +46,16 @@ use Models\Company as Company;
 
 			require_once(VIEWS_PATH."user-postulation.php");
 		}
-		/*
-		public function Add($name,$companyId,$description,$career){
+		
 
-			$jobOffer = new JobOffer($id,$name,$companyId,$description,true,$career);
+		public function Add($idCompany,$idJobPosition,$description){
+
+			$jobOffer = new JobOffer(0, $idJobPosition, $idCompany, "2000-07-08", $description, 1);
 			$this->jobOfferDAO->add($jobOffer);
 			$this->ShowListView();
 		}
 
+		/*
 		public function ApplyJobOffer($idJob){
 			$email = $_SESSION['email'];
 
