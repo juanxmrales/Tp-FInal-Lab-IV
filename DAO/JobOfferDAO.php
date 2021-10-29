@@ -37,7 +37,10 @@ class JobOfferDAO
         {
             try
             {
+                $userXJobDAO = new UserXJobOfferDAO();
+
                 $jobList = array();
+                $userXJobList = $userXJobDAO->GetAll();
 
                 $query = "SELECT * FROM ".$this->tableName;
 
@@ -46,8 +49,20 @@ class JobOfferDAO
                 $resultSet = $this->connection->Execute($query);
                 
                 foreach ($resultSet as $row)
-                {                
-                    $job = new JobOffer($row["id"],$row["id_jobPosition"],$row["id_company"],$row["fecha"],$row["description"],$row["active"]);
+                {
+                    $userList = array();
+
+                    foreach($userXJobList as $value)
+                    {
+                        if($value->getJobOfferId()==$row["id"])
+                        {
+                            array_push($userList,$value->getUserId());
+                        }
+                    }
+
+                    $job = new JobOffer($row["id"],$row["id_jobPosition"],$row["id_company"],$row["fecha"],$row["description"],$row["active"],$userList);
+
+                    $userList = null;
 
                     array_push($jobList, $job);
                 }
