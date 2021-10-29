@@ -40,7 +40,6 @@ use DAO\JobPositionDAO;
             $jobPositionDAO = new JobPositionDAO();
             $careerDAO = new CareerDAO();
             $jobOfferDAO = new JobOfferDAO();
-            $companyDAO = new CompanyDAO();
 
             $jobOfferList = $jobOfferDAO->GetAll();
             $companyList = $this->companyDAO->GetAll();
@@ -60,7 +59,6 @@ use DAO\JobPositionDAO;
             $jobPositionDAO = new JobPositionDAO();
             $careerDAO = new CareerDAO();
             $jobOfferDAO = new JobOfferDAO();
-            $companyDAO = new CompanyDAO();
 
             $jobOfferList = $jobOfferDAO->GetAll();
             $company = $this->companyDAO->SearchCompanyById($id);

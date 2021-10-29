@@ -31,8 +31,9 @@ require_once('nav.php');
           <h2 class="mb-4">Sus ofertas laborales</h2>
                <table class="table bg-light-alpha">
                     <thead>
-                         <th>Nombre</th>
+                         <th>Puesto</th>
                          <th>Carrera</th>
+                         <th>Fecha</th>
                          <th>Descripcion</th>
                     </thead>
                     <tbody>
@@ -44,7 +45,6 @@ require_once('nav.php');
                                    ?>
                                         <tr>
                                              <td><?php echo $jobPositionDAO->SearchJobPositionById($jobOffer->getIdJobPosition())->getDescription(); ?></td>
-                                             <td><?php echo $companyDAO->SearchCompanyById($jobOffer->getIdCompany())->getName(); ?></td>
                                              <td><?php echo $careerDAO->SearchCareerById($jobPositionDAO->SearchJobPositionById($jobOffer->getIdJobPosition())->getCareerId())->getDescription(); ?></td>
                                              <td><?php echo $jobOffer->getFecha();?></td>
                                              <td><?php echo $jobOffer->getDescription(); ?></td>

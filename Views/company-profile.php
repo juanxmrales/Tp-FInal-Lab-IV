@@ -42,21 +42,23 @@
           <h2 class="mb-4">Sus ofertas laborales</h2>
                <table class="table bg-light-alpha">
                     <thead>
-                         <th>Nombre</th>
+                         <th>Puesto</th>
                          <th>Carrera</th>
+                         <th>Fecha</th>
                          <th>Descripcion</th>
                     </thead>
                     <tbody>
                          <?php
-                              foreach($jobPositionList as $jobPosition)
+                              foreach($jobOfferList as $jobOffer)
                               {
-                                   if($jobPosition->getActive()==true && $jobPosition->getCompanyId()==$id)
+                                   if($jobOffer->getActive()==true&&$jobOffer->getIdCompany()==$id)
                                    {
                                    ?>
                                         <tr>
-                                             <td><?php echo $jobPosition->getName(); ?></td>
-                                             <td><?php echo $careerDAO->SearchCareerById($jobPosition->getCareer())->getDescription(); ?></td>
-                                             <td><?php echo $jobPosition->getDescription(); ?></td>
+                                             <td><?php echo $jobPositionDAO->SearchJobPositionById($jobOffer->getIdJobPosition())->getDescription(); ?></td>
+                                             <td><?php echo $careerDAO->SearchCareerById($jobPositionDAO->SearchJobPositionById($jobOffer->getIdJobPosition())->getCareerId())->getDescription(); ?></td>
+                                             <td><?php echo $jobOffer->getFecha();?></td>
+                                             <td><?php echo $jobOffer->getDescription(); ?></td>
                                         </tr>
                                    <?php
                                    }
