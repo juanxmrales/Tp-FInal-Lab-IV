@@ -66,12 +66,19 @@ class LoginRegisterController
 
                         header("location:". FRONT_ROOT . "Home/Index");
                     }
+                    else
+                    {
+                        $message = "Usuario o contraseña inválida";
+                        require_once(VIEWS_PATH."login.php");
+                    }
                 }
                 else
-                {
-                    $message = "Usuario o contraseña inválida";
-                    require_once(VIEWS_PATH."login.php");
-                }
+                    {
+                        $message = "El email ingresado ya existe";
+                        require_once(VIEWS_PATH."login.php");
+                    }
+
+                
             }
         }
   
