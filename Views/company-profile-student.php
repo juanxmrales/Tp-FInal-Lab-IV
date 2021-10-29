@@ -1,6 +1,6 @@
 <?php
 
-use Models\JobPosition;
+use Models\jobOffer;
 
 require_once('nav.php');            
 ?>
@@ -37,15 +37,17 @@ require_once('nav.php');
                     </thead>
                     <tbody>
                          <?php
-                              foreach($jobPositionList as $jobPosition)
+                              foreach($jobOfferList as $jobOffer)
                               {
-                                   if($jobPosition->getActive()==true&&$jobPosition->getCompanyId()==$id)
+                                   if($jobOffer->getActive()==true&&$jobOffer->getIdCompany()==$id)
                                    {
                                    ?>
                                         <tr>
-                                             <td><?php echo $jobPosition->getName(); ?></td>
-                                             <td><?php echo $careerDAO->SearchCareerById($jobPosition->getCareer())->getDescription(); ?></td>
-                                             <td><?php echo $jobPosition->getDescription(); ?></td>
+                                             <td><?php echo $jobPositionDAO->SearchJobPositionById($jobOffer->getIdJobPosition())->getDescription(); ?></td>
+                                             <td><?php echo $companyDAO->SearchCompanyById($jobOffer->getIdCompany())->getName(); ?></td>
+                                             <td><?php echo $careerDAO->SearchCareerById($jobPositionDAO->SearchJobPositionById($jobOffer->getIdJobPosition())->getCareerId())->getDescription(); ?></td>
+                                             <td><?php echo $jobOffer->getFecha();?></td>
+                                             <td><?php echo $jobOffer->getDescription(); ?></td>
                                         </tr>
                                    <?php
                                    }
