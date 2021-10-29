@@ -59,6 +59,44 @@
             }
         }
 
+
+        public function Modify(Company $company){
+
+            try{
+
+                $query = "UPDATE $this->tableName SET name = :name , street = :street , nationality = :nationality , description = :description WHERE id = :id;";
+
+                $parameters["id"] = $company->getId();
+                $parameters["name"] = $company->getName();
+                $parameters["street"] = $company->getStreet();
+                $parameters["nationality"] = $company->getNacionality();
+                $parameters["description"] = $company->getDescription();
+
+                $this->connection = Connection::GetInstance();
+                $this->connection->ExecuteNonQuery($query, $parameters);
+            }
+            catch(Exception $ex){
+
+                throw $ex;
+            }
+        }
+
+
+        public function Delete($id){
+
+            try{
+
+                $query = "UPDATE $this->tableName SET active = 0 WHERE id = $id;";
+
+                $this->connection = Connection::GetInstance();
+                $this->connection->ExecuteNonQuery($query);
+            }
+            catch(Exception $ex){
+
+                throw $ex;
+            }
+        }
+
         public function SearchCompany($name)
         {
             $companyList = $this->GetAll();

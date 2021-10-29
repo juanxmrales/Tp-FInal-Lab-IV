@@ -97,7 +97,7 @@ use DAO\JobPositionDAO;
         {
             if(isset($_POST))
             {
-                $this->companyDAO->Modify($id,$name,$street,$nacionality,$description);
+                $this->companyDAO->Modify(new Company($id,$name, $street, $nacionality, $description, true));
 
                 $this->ShowCompanyProfile($id);
             }
