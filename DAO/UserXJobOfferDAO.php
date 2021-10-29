@@ -41,7 +41,7 @@
 
                 $resultSet = $this->connection->Execute($query);
                 
-                foreach ($resultSet as $row)
+                foreach($resultSet as $row)
                 {                
                     $userXJob = new UserXJobOffer($row["id_usuario"],$row["id_jobOffer"]);
 
