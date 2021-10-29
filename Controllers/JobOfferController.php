@@ -50,7 +50,9 @@
 
 		public function Add($idCompany,$idJobPosition,$description){
 
-			$jobOffer = new JobOffer(0, $idJobPosition, $idCompany, "2000-07-08", $description, 1);
+			$date = getdate();
+			$fecha = $date["year"] . "-" . $date["mon"] . "-" . $date["mday"];
+			$jobOffer = new JobOffer(0, $idJobPosition, $idCompany, $fecha, $description, 1);
 			$this->jobOfferDAO->add($jobOffer);
 			$this->ShowListView();
 		}
