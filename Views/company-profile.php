@@ -15,8 +15,8 @@
 <main class="py-5">
      <section id="listado" class="mb-5">
           <div class="container">
-               <a href="<?php echo FRONT_ROOT; ?>Company/ShowModifyView/<?php echo $company->getId();?>"><button>Modificar Informacion</button></a>
-               <a href="<?php echo FRONT_ROOT; ?>Company/Delete/<?php echo $company->getId();?>"><button>Eliminar Empresa</button></a>
+               <a href="<?php echo FRONT_ROOT; ?>Company/ShowModifyView/<?php echo $company->getId();?>"><button class="btn btn-dark ">Modificar Informacion</button></a>
+               <a href="<?php echo FRONT_ROOT; ?>Company/Delete/<?php echo $company->getId();?>"><button class="btn btn-dark">Eliminar Empresa</button></a>
                <br>
                <br>                  
                <h2 class="mb-4">Perfil de Empresa</h2>

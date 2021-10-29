@@ -38,6 +38,16 @@
 			require_once(VIEWS_PATH."jobOffer-list.php");
 		}
 
+		public function ShowListViewAdmin(){
+			$companyDAO  = new CompanyDAO();
+			$careerDAO = new CareerDAO();
+			$jobPositionDAO = new JobPositionDAO();
+
+
+			$jobOfferList = $this->jobOfferDAO->getAll();
+			require_once(VIEWS_PATH."jobOffer-list-admin.php");
+		}
+
 		public function ShowUserJobs()
 		{
 			$careerDAO = new CareerDAO();

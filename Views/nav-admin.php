@@ -54,10 +54,10 @@
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>Student/SearchStudent">Listar Alumnos</a>
           </li>  
           <li class="nav-item">
-               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Company/ShowListView">Listar de Empresas</a>
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Company/ShowListView">Listar Empresas</a>
           </li>         
           <li class="nav-item">
-               <a class="nav-link" href="<?php echo FRONT_ROOT ?>JobOffer/ShowListView">Listar ofertas</a>
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>JobOffer/ShowListViewAdmin">Listar ofertas</a>
           </li>
           <li class="nav-item">
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/LogOut">Log out</a>
