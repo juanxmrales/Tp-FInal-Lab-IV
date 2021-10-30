@@ -10,7 +10,7 @@ define("JS_PATH", FRONT_ROOT.VIEWS_PATH . "js/");
 define("DB_HOST", "localhost");
 define("DB_NAME", "proyfinal");
 define("DB_USER", "root");
-define("DB_PASS", "p4turuzu08**");
+define("DB_PASS", "");
 ?>
 
 

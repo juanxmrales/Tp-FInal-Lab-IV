@@ -3,26 +3,24 @@
 <script src="https://kit.fontawesome.com/b4c4dc37b0.js" crossorigin="anonymous"></script>
 
 <footer>
-	<div class="container-items">
-		<div class="footer-item">
-			<h3>About us</h3>
-			<i class="fas fa-at"></i><a href="mailto:pablog.rizzo@gmail.com">Email Agus Paz</a>
-			<i class="fas fa-at"></i>
-            <a href="mailto:pablog.rizzo@gmail.com">Email Julian Castro</a>
-			<i class="fas fa-at"></i>
-            <a href="mailto:pablog.rizzo@gmail.com">Email Juan Cruz Morales</a>
-			<i class="fas fa-at"></i>
-            <a href="mailto:pablog.rizzo@gmail.com">Email Pablo Rizzo</a>
-		</div>
+	<div class="footer-item">
+		<h3>About us</h3>
+		<i class="fas fa-at"></i><a href="mailto:pablog.rizzo@gmail.com">Email Agus Paz</a>
+		<i class="fas fa-at"></i>
+        <a href="mailto:pablog.rizzo@gmail.com">Email Julian Castro</a>
+		<i class="fas fa-at"></i>
+        <a href="mailto:pablog.rizzo@gmail.com">Email Juan Cruz Morales</a>
+		<i class="fas fa-at"></i>
+        <a href="mailto:pablog.rizzo@gmail.com">Email Pablo Rizzo</a>
+	</div>
 		
-		<div class="footer-item">
-			<h3>Nuestras redes</h3>
+	<div class="footer-item">
+		<h3>Nuestras redes</h3>
 
-		</div>
+	</div>
 
-		<div class="footer-item">
-			<h3>Contact</h3>
+	<div class="footer-item">
+		<h3>Contact</h3>
 			
-		</div>
 	</div>
 </footer>
