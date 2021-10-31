@@ -21,7 +21,6 @@ require_once('nav.php');
                               {
                                   if($jobOffer->getActive()==true && $jobOffer->existInProposed($_SESSION['email'])==true)
                                   {
-                                    
                                    ?>
                                         <tr>
                                              <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfileStudent/<?php echo $companyDAO->SearchCompanyById($jobOffer->getCompanyId())->getId();?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
@@ -33,7 +32,6 @@ require_once('nav.php');
                                    <?php
                                   }
                               }
-                              
                          ?>
                     </tbody>
                </table>

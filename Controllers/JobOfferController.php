@@ -7,9 +7,11 @@
 	use Models\JobOffer as JobOffer;
 	use DAO\CompanyDAO as CompanyDAO;
 	use DAO\JobPositionDAO;
-	use Models\Company as Company;
+use DAO\UserXJobOfferDAO;
+use Models\Company as Company;
+use Models\UserXJobOffer;
 
-	class JobOfferController
+class JobOfferController
 	{
 		private $jobOfferDAO;
 
@@ -67,15 +69,19 @@
 			$this->ShowListView();
 		}
 
-		/*
+		
 		public function ApplyJobOffer($idJob){
+
 			$email = $_SESSION['email'];
 
-			$this->jobOfferDAO->applyById($idJob, $email);
+			$userXJob = new UserXJobOffer($email,$idJob);
+			$userXJobDAO = new UserXJobOfferDAO();
+
+			$this->userXJobDAO->Add($userXJob);
 
 			$this->ShowListView();
 		}
-		*/
+		
 	}
 
  ?>

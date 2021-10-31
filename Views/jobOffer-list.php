@@ -24,18 +24,21 @@ require_once('nav.php');
                          	
                               foreach($jobOfferList as $jobOffer)
                               {    
-                                   ?>  
-                                        <tr>
-                                             <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfileStudent/<?php echo $companyDAO->SearchCompanyById($jobOffer->getIdCompany())->getId();?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
-                                             <td><a href="<?php echo FRONT_ROOT; ?>JobOffer/ApplyJobOffer/<?php echo $jobOffer->getId();?>"><button class="btn btn-dark ml-auto d-block">Postularme</button></a></td>
+                                   if($jobOffer->getActive())
+                                   {
+                                        ?>
+                                             <tr>
+                                                  <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfileStudent/<?php echo $companyDAO->SearchCompanyById($jobOffer->getIdCompany())->getId();?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
+                                                  <td><a href="<?php echo FRONT_ROOT; ?>JobOffer/ApplyJobOffer/<?php echo $jobOffer->getId();?>"><button class="btn btn-dark ml-auto d-block">Postularme</button></a></td>
 
-                                             <td><?php echo $jobPositionDAO->SearchJobPositionById($jobOffer->getIdJobPosition())->getDescription(); ?></td>
-                                             <td><?php echo $companyDAO->SearchCompanyById($jobOffer->getIdCompany())->getName(); ?></td>
-                                             <td><?php echo $careerDAO->SearchCareerById($jobPositionDAO->SearchJobPositionById($jobOffer->getIdJobPosition())->getCareerId())->getDescription(); ?></td>
-                                             <td><?php echo $jobOffer->getFecha();?></td>
-                                             <td><?php echo $jobOffer->getDescription(); ?></td>
-                                        </tr>
-                                   <?php
+                                                  <td><?php echo $jobPositionDAO->SearchJobPositionById($jobOffer->getIdJobPosition())->getDescription(); ?></td>
+                                                  <td><?php echo $companyDAO->SearchCompanyById($jobOffer->getIdCompany())->getName(); ?></td>
+                                                  <td><?php echo $careerDAO->SearchCareerById($jobPositionDAO->SearchJobPositionById($jobOffer->getIdJobPosition())->getCareerId())->getDescription(); ?></td>
+                                                  <td><?php echo $jobOffer->getFecha();?></td>
+                                                  <td><?php echo $jobOffer->getDescription(); ?></td>
+                                             </tr>
+                                        <?php
+                                   }
                               }
                          ?>
                     </tbody>
