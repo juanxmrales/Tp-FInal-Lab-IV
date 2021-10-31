@@ -164,9 +164,20 @@
                 return $this;
         }
 
-        public function putInUsersList($users)
+        public function ExistPostulation($email)
         {
-                array_push($this->users,$users);
+                $flag = false;
+                $list = $this->getUsers();
+
+                foreach($list as $value)
+                {
+                        if($value == $email)
+                        {
+                                $flag == true;
+                        }
+                }
+
+                return $flag;
         }
     }
 ?>

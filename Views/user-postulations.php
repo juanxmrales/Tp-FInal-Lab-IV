@@ -19,7 +19,7 @@ require_once('nav.php');
                          <?php
                               foreach($jobOfferList as $jobOffer)
                               {
-                                  if($jobOffer->getActive()==true && $jobOffer->existInProposed($_SESSION['email'])==true)
+                                  if($jobOffer->getActive()==true && $jobOffer->ExistPostulation()==true)
                                   {
                                    ?>
                                         <tr>
