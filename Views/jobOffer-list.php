@@ -9,6 +9,7 @@ require_once('nav.php');
      <section id="listado" class="mb-5">
           <div class="container pt-5">
                <h2 class="mb-4">Listado de Ofertas</h2>
+               <span class="badge badge-success" style="font-size: 15px;"><?php echo $message ?></span>
                <table class="table bg-light-alpha">
                     <thead>
                          <th></th>

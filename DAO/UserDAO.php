@@ -44,7 +44,7 @@
                 
                 foreach ($resultSet as $row)
                 {                
-                    $user = new User($row["email"],$row["password"],$row["type"]);
+                    $user = new User($row["id"], $row["email"],$row["password"],$row["type"]);
 
                     array_push($userList, $user);
                 }

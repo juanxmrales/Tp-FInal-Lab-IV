@@ -7,9 +7,9 @@
 	use Models\JobOffer as JobOffer;
 	use DAO\CompanyDAO as CompanyDAO;
 	use DAO\JobPositionDAO;
-use DAO\UserXJobOfferDAO;
-use Models\Company as Company;
-use Models\UserXJobOffer;
+	use DAO\UserXJobOfferDAO;
+	use Models\Company as Company;
+	use Models\UserXJobOffer;
 
 class JobOfferController
 	{
@@ -30,7 +30,7 @@ class JobOfferController
 			require_once(VIEWS_PATH."jobOffer-add.php");
 		}
 
-		public function ShowListView(){
+		public function ShowListView($message = ""){
 			$companyDAO  = new CompanyDAO();
 			$careerDAO = new CareerDAO();
 			$jobPositionDAO = new JobPositionDAO();
@@ -52,6 +52,7 @@ class JobOfferController
 
 		public function ShowUserJobs()
 		{
+			$jobPositionDAO = new JobPositionDAO;
 			$careerDAO = new CareerDAO();
 			$companyDAO  = new CompanyDAO();
 			$jobOfferList = $this->jobOfferDAO->getAll();
@@ -72,14 +73,13 @@ class JobOfferController
 		
 		public function ApplyJobOffer($idJob){
 
-			$email = $_SESSION['email'];
 
-			$userXJob = new UserXJobOffer($email,$idJob);
+			$userXJob = new UserXJobOffer($_SESSION['idUser'],$idJob);
 			$userXJobDAO = new UserXJobOfferDAO();
 
 			$userXJobDAO->Add($userXJob);
 
-			$this->ShowListView();
+			$this->ShowListView("Postulacion exitosa");
 		}
 		
 	}
