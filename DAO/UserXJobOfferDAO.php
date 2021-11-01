@@ -14,7 +14,7 @@
         {
             try
             {
-                $query = "INSERT INTO ".$this->tableName." (id_usuario, id_jobOffer) VALUES (:password, :type);";
+                $query = "INSERT INTO ".$this->tableName." (id_usuario, id_jobOffer) VALUES (:id_usuario, :id_jobOffer)";
                 
                 $parameters["id_usuario"] = $userXJob->getUserId();
                 $parameters["id_jobOffer"] = $userXJob->getJobOfferId();

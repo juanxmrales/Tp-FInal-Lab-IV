@@ -56,7 +56,7 @@ class JobOfferController
 			$companyDAO  = new CompanyDAO();
 			$jobOfferList = $this->jobOfferDAO->getAll();
 
-			require_once(VIEWS_PATH."user-postulation.php");
+			require_once(VIEWS_PATH."user-postulations.php");
 		}
 		
 
@@ -77,7 +77,7 @@ class JobOfferController
 			$userXJob = new UserXJobOffer($email,$idJob);
 			$userXJobDAO = new UserXJobOfferDAO();
 
-			$this->userXJobDAO->Add($userXJob);
+			$userXJobDAO->Add($userXJob);
 
 			$this->ShowListView();
 		}
