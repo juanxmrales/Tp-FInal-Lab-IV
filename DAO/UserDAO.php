@@ -76,7 +76,7 @@
                     array_push($userList, $user);
                 }
 
-                return $userList;
+                return $userList[0];
             }
             catch(Exception $ex)
             {

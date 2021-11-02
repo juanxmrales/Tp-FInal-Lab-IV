@@ -64,10 +64,10 @@ class JobOfferController
 		
 		public function ShowPostulates($id)
 		{
-			$studentsList = (new StudentDAO())->getAll();
+			$studentsDAO = new StudentDAO();
 			$userDAO = new UserDAO();
 			$jobOffer = (new JobOfferDAO)->getById($id);
-			$postulates = $jobOffer->getUsers();
+			$postulates = $jobOffer[0]->getUsers();
 
 			require_once(VIEWS_PATH."jobOffer-postulates.php");
 		}

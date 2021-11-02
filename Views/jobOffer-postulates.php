@@ -9,23 +9,31 @@ require_once('nav.php');
                <h2 class="mb-4">Postulantes</h2>
                <table class="table bg-light-alpha">
                     <thead>
-                         <th>boton de ver perfil</th>
-                         <th>boton de contactar</th>
-                         <th>email</th>
-                         <th>Compania</th>
-                         <th>Carrera</th>
-                         <th>Fecha</th>
-                         <th>Descripcion</th>
+                         <th></th>
+                         <th></th>
+                         <th>Nombre</th>
+                         <th>Apellido</th>
+                         <th>DNI</th>
+                         <th>Email</th>
+                         <th>Telefono</th>
                     </thead>
                     <tbody>
                          <?php
-                              
+                          
                               foreach($postulates as $userId)
                               {    
+                                   
+                                   $user = $userDAO->getById($userId);                                   
+                                   $student = $studentsDAO->searchStudentByEmail($user->getEmail());
                                    ?>  
                                         <tr>
-
-
+                                             <td><a href=""><button class="btn btn-dark ml-auto d-block">Ver Perfil</button></a></td>
+                                             <td><a href=""><button class="btn btn-dark ml-auto d-block">Contactar</button></a></td>
+                                             <td><?php echo $student->getFirstName(); ?></td>
+                                             <td><?php echo $student->getLastName(); ?></td>
+                                             <td><?php echo $student->getDni(); ?></td>
+                                             <td><?php echo $student->getEmail(); ?></td>
+                                             <td><?php echo $student->getPhoneNumber(); ?></td>
                                         </tr>
                                    <?php
                               }
