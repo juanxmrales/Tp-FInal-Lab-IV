@@ -13,14 +13,4 @@
 		<i class="fas fa-at"></i>
         <a href="mailto:pablog.rizzo@gmail.com">Email Pablo Rizzo</a>
 	</div>
-		
-	<div class="footer-item">
-		<h3>Nuestras redes</h3>
-
-	</div>
-
-	<div class="footer-item">
-		<h3>Contact</h3>
-			
-	</div>
 </footer>
