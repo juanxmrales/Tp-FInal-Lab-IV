@@ -55,5 +55,60 @@
                 throw $ex;
             }
         }
+
+        public function GetByJobOfferId($id)
+        {
+            try
+            {
+                $list = array();
+
+                $query = "SELECT * FROM $this->tableName WHERE id_jobOffer = $id";
+
+                $this->connection = Connection::GetInstance();
+
+                $resultSet = $this->connection->Execute($query);
+                
+                foreach($resultSet as $row)
+                {                
+                    $userXJob = new UserXJobOffer($row["id_usuario"],$row["id_jobOffer"]);
+
+                    array_push($list, $userXJob);
+                }
+
+                return $list;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
+        }
+
+        public function GetByUserId($id)
+        {
+            try
+            {
+                $list = array();
+
+                $query = "SELECT * FROM $this->tableName WHERE id_usuario = $id";
+
+                $this->connection = Connection::GetInstance();
+
+                $resultSet = $this->connection->Execute($query);
+                
+                foreach($resultSet as $row)
+                {                
+                    $userXJob = new UserXJobOffer($row["id_usuario"],$row["id_jobOffer"]);
+
+                    array_push($list, $userXJob);
+                }
+
+                return $list;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
+        }
+
     }
 ?>

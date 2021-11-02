@@ -2,6 +2,7 @@
 
 	namespace Controllers;
 
+	use DAO\StudentDAO;
 	use DAO\CareerDAO;
 	use DAO\JobOfferDAO as JobOfferDAO;
 	use Models\JobOffer as JobOffer;
@@ -10,6 +11,7 @@
 	use DAO\UserXJobOfferDAO;
 	use Models\Company as Company;
 	use Models\UserXJobOffer;
+	use DAO\UserDAO;
 
 class JobOfferController
 	{
@@ -60,6 +62,15 @@ class JobOfferController
 			require_once(VIEWS_PATH."user-postulations.php");
 		}
 		
+		public function ShowPostulates($id)
+		{
+			$studentsList = (new StudentDAO())->getAll();
+			$userDAO = new UserDAO();
+			$jobOffer = (new JobOfferDAO)->getById($id);
+			$postulates = $jobOffer->getUsers();
+
+			require_once(VIEWS_PATH."jobOffer-postulates.php");
+		}
 
 		public function Add($idCompany,$idJobPosition,$description){
 

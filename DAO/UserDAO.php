@@ -57,6 +57,33 @@
             }
         }
 
+        public function GetById($id)
+        {
+            try
+            {
+                $userList = array();
+
+                $query = "SELECT * FROM $this->tableName WHERE id = $id";
+
+                $this->connection = Connection::GetInstance();
+
+                $resultSet = $this->connection->Execute($query);
+                
+                foreach ($resultSet as $row)
+                {                
+                    $user = new User($row["id"], $row["email"],$row["password"],$row["type"]);
+
+                    array_push($userList, $user);
+                }
+
+                return $userList;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
+        }
+
         public function exist($email,$password)
         {
             $userList = $this->GetAll();
