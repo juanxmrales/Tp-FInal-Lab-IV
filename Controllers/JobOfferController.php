@@ -73,7 +73,6 @@ class JobOfferController
 		
 		public function ApplyJobOffer($idJob){
 
-
 			$userXJob = new UserXJobOffer($_SESSION['idUser'],$idJob);
 			$userXJobDAO = new UserXJobOfferDAO();
 

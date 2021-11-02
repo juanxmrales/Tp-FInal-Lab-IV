@@ -2,7 +2,8 @@
     namespace Controllers;
 
     use DAO\StudentDAO as StudentDAO;
-    use Models\Student as Student;
+use DAO\UserDAO;
+use Models\Student as Student;
 
     class StudentController
     {
@@ -27,6 +28,9 @@
 
         public function SearchStudent()
         {
+            $userDAO = new UserDAO();
+
+            $userList = $userDAO->GetAll();
             $studentList = $this->studentDAO->GetAll();
 
             require_once(VIEWS_PATH."buscar-alumno.php");
