@@ -4,20 +4,24 @@
 
 	class User{
 
+		private $id;
 		private $email;
 		private $password;
 		private $type; /* 0 -> Student // 1 -> Admin // 2 -> Empresa */
 
 
 
-		public function __construct($email, $password, $type)
-		{
+		public function __construct($id, $email, $password, $type)
+		{	
+			$this->id = $id;
 			$this->email = $email;
 			$this->password = $password;
 			$this->type = $type;
 		}
 
+		
 
+		
 	    /**
 	     * @return mixed
 	     */
@@ -77,7 +81,27 @@
 
 	        return $this;
 	    }
-}
+
+	    /**
+	     * @return mixed
+	     */
+	    public function getId()
+	    {
+	        return $this->id;
+	    }
+
+	    /**
+	     * @param mixed $id
+	     *
+	     * @return self
+	     */
+	    public function setId($id)
+	    {
+	        $this->id = $id;
+
+	        return $this;
+	    }
+	}
 
  ?>
 

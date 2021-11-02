@@ -74,6 +74,50 @@ class JobOfferDAO
                 throw $ex;
             }
         }
+
+        public function GetById($id)
+        {
+            try
+            {
+                $userXJobDAO = new UserXJobOfferDAO();
+
+                $jobList = array();
+                $userXJobList = $userXJobDAO->GetAll();
+
+                $query = "SELECT * FROM $this->tableName WHERE id = $id";
+
+                $this->connection = Connection::GetInstance();
+
+                $resultSet = $this->connection->Execute($query);
+                
+                foreach ($resultSet as $row)
+                {
+                    $userList = array();
+
+                    foreach($userXJobList as $value)
+                    {
+                        if($value->getJobOfferId()==$row["id"])
+                        {
+                            array_push($userList,$value->getUserId());
+                        }
+                    }
+
+                    $job = new JobOffer($row["id"],$row["id_jobPosition"],$row["id_company"],$row["fecha"],$row["description"],$row["active"],$userList);
+
+                    $userList = null;
+
+                    array_push($jobList, $job);
+                }
+
+                return $jobList;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
+        }
+
+
     }
 
 ?>

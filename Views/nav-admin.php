@@ -39,7 +39,7 @@
 </nav>-->
 <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
      <a class="navbar-brand" href="index.php">
-          <img src= <?php echo FRONT_ROOT.VIEWS_PATH ?>img/student-hat.png ?>
+          <img src= <?php echo FRONT_ROOT.VIEWS_PATH ?>img/admin.png ?>
      </a>
 
      <ul class="navbar-nav ml-auto">

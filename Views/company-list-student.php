@@ -31,7 +31,7 @@
                               {
                                    if($company->getActive() == true){?>
                                         <tr>
-                                             <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfileStudent/<?php echo $company->getId();?>"><button>Ver Mas</button></a></td>
+                                             <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfileStudent/<?php echo $company->getId();?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
                                              <td><?php echo $company->getId(); ?></td>
                                              <td><?php echo $company->getName(); ?></td>
                                              <td><?php echo $company->getStreet(); ?></td>

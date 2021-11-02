@@ -164,20 +164,11 @@
                 return $this;
         }
 
-        public function ExistPostulation($email)
+        public function ExistPostulation($id)
         {
-                $flag = false;
                 $list = $this->getUsers();
 
-                foreach($list as $value)
-                {
-                        if($value == $email)
-                        {
-                                $flag == true;
-                        }
-                }
-
-                return $flag;
+                return in_array($id, $list);
         }
     }
 ?>
