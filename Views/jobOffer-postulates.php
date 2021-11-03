@@ -23,8 +23,8 @@ require_once('nav.php');
                               foreach($postulates as $userId)
                               {    
                                    
-                                   $user = $userDAO->getById($userId);                                   
-                                   $student = $studentsDAO->searchStudentByEmail($user->getEmail());
+                                   $user = $userDAO->GetById($userId);     
+                                   $student = $studentsDAO->SearchStudentByEmail($user->getEmail());
                                    ?>  
                                         <tr>
                                              <td><a href=""><button class="btn btn-dark ml-auto d-block">Ver Perfil</button></a></td>

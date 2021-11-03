@@ -20,8 +20,6 @@
 		}
 
 		
-
-		
 	    /**
 	     * @return mixed
 	     */

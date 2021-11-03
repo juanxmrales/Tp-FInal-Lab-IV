@@ -25,7 +25,7 @@ require_once('nav.php');
                          	
                               foreach($jobOfferList as $jobOffer)
                               {    
-                                   if($jobOffer->getActive())
+                                   if($jobOffer->getActive()&&$companyDAO->SearchCompanyById($jobOffer->getIdCompany())->getActive())
                                    {
                                         ?>
                                              <tr>
