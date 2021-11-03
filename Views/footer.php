@@ -5,7 +5,54 @@
 
 <footer>
   	 <div class="container">
-  	 		
-  	 	
+			<div class="row">
+			<div class="col-md-3 col-sm-6">
+				<!--Column1-->
+				<div class="footer-pad">
+				<h4>Agustín Paz</h4>
+				<ul class="social-network social-circle">
+					<li><a href="mailto:pablog.rizzo@gmail.com" class="icoFacebook" title="Gmail"><i class="fa fa-envelope"></i></a></li>
+					<li><a href="https://www.linkedin.com/in/pablorizzo/" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+				</ul>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6">
+				<!--Column1-->
+				<div class="footer-pad">
+				<h4>Julián Castro</h4>
+				<ul class="social-network social-circle">
+					<li><a href="mailto:pablog.rizzo@gmail.com" class="icoFacebook" title="Gmail"><i class="fa fa-envelope"></i></a></li>
+					<li><a href="https://www.linkedin.com/in/pablorizzo/" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+				</ul>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6">
+				<!--Column1-->
+				<div class="footer-pad">
+				<h4>Juan Cruz Morales</h4>
+				<ul class="social-network social-circle">
+					<li><a href="mailto:pablog.rizzo@gmail.com" class="icoFacebook" title="Gmail"><i class="fa fa-envelope"></i></a></li>
+					<li><a href="https://www.linkedin.com/in/pablorizzo/" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+				</ul>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6">
+				<!--Column1-->
+				<div class="footer-pad">
+				<h4>Pablo Rizzo</h4>
+				<ul class="social-network social-circle">
+					<li><a href="mailto:pablog.rizzo@gmail.com" class="icoFacebook" title="Gmail"><i class="fa fa-envelope"></i></a></li>
+					<li><a href="https://www.linkedin.com/in/pablorizzo/" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+				</ul>
+				</div>
+			</div>
+				
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-md-12 copy">
+					<p class="text-center">&copy; Copyright 2021 - UTN.  Todos los derechos e izquierdos bien puestos.</p>
+				</div>
+			</div> 	
   	 </div>
 </footer>
