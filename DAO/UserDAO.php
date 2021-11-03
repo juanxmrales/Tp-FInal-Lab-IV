@@ -93,7 +93,7 @@
 
             foreach($userList as $value)
             {
-                if($value->getEmail() == $email && $value->getPassword() == $password)
+                if($value->getEmail() == $email && password_verify($password, $value->getPassword()))
                 {
                     $flag = true;
                 }

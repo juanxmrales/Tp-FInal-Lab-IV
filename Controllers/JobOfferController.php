@@ -87,9 +87,9 @@ class JobOfferController
 			$userXJob = new UserXJobOffer($_SESSION['idUser'],$idJob);
 			$userXJobDAO = new UserXJobOfferDAO();
 
-			$userXJobDAO->Add($userXJob);
+			$message = $userXJobDAO->Add($userXJob);
 
-			$this->ShowListView("Postulacion exitosa");
+			$this->ShowListView($message);
 		}
 		
 	}

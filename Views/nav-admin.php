@@ -25,9 +25,9 @@
                          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                               <li><a class="dropdawn-item" href="<?php echo FRONT_ROOT ?>Student/SearchStudent">Listar Alumnos</a></li>
                               <li><hr class="dropdown-divider"></li>
-                              <li><a class="dropdawn-item" href="<?php echo FRONT_ROOT ?>Company/ShowListView">Listar de Empresas</a></li>
+                              <li><a class="dropdawn-item" href="<?php echo FRONT_ROOT ?>Company/ShowListView">Listar Empresas</a></li>
                               <li><hr class="dropdown-divider"></li>
-                              <li><a class="dropdawn-item" href="<?php echo FRONT_ROOT ?>JobOffer/ShowListView">Listar ofertas</a></li>
+                              <li><a class="dropdawn-item" href="<?php echo FRONT_ROOT ?>JobOffer/ShowListViewAdmin">Listar ofertas</a></li>
                          </ul>
                     </li>  
                     <li class="nav-item">

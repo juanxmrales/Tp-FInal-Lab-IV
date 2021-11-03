@@ -14,7 +14,7 @@
             {
                 $users = new UserDAO();
                 $students = new StudentDAO();
-            
+    
                 if($users->exist($email,$password))
                 {
                     $user = $users->searchUser($email);
@@ -77,7 +77,7 @@
                     {
                         if($student->getActive())
                         {
-                            $users->Add(new User(0,$email,$password,0));
+                            $users->Add(new User(0,$email,password_hash($password, PASSWORD_DEFAULT),0));
 
                             $message = "Cuenta creada con exito, por favor inicie sesion";
                             require_once(VIEWS_PATH."login.php");
@@ -91,13 +91,13 @@
                     else
                     {
                         $message = "Email inexistente en el sistema";
-                        require_once(VIEWS_PATH."login.php");
+                        require_once(VIEWS_PATH."user-add.php");
                     }
                 }
                 else
                     {
                         $message = "El email ingresado ya fue utilizado";
-                        require_once(VIEWS_PATH."login.php");
+                        require_once(VIEWS_PATH."user-add.php");
                     }
 
                 
