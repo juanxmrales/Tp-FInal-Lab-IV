@@ -92,9 +92,14 @@ footer{
     bottom: 0;
     left: 0;
     padding: 20px 0;
-    background-color: #24262b;
     text-align: center;
     height: 100px;
+
+    background: #16222A;
+    background: -webkit-linear-gradient(59deg, #3A6073, #16222A);
+    background: linear-gradient(59deg, #3A6073, #16222A);
+    color: white;
+    margin-top:100px;
 }
 
 
