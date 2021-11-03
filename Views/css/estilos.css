@@ -11,7 +11,7 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    line-height: 1.5;
+    /*line-height: 1.5;*/
     position: relative;
     margin: 0;
     padding-bottom: 6rem;
@@ -91,8 +91,10 @@ footer{
     right: 0;
     bottom: 0;
     left: 0;
-    padding: 70px 0;
+    padding: 20px 0;
     background-color: #24262b;
     text-align: center;
-    height: 300px;
+    height: 100px;
 }
+
+

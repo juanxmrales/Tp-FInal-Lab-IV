@@ -3,28 +3,14 @@
 <script src="https://kit.fontawesome.com/b4c4dc37b0.js" crossorigin="anonymous"></script>
 
 
-/*<footer>
+<footer>
   	 <div class="container">
-  	 	<div class="row">
-  	 		<div class="footer-col">
-  	 			<h4>company</h4>
-  	 				informacion sobre la empresa
-  	 		</div>
   	 		<div class="footer-col">
   	 			<h4>Contacto</h4>
   	 			<ul>
 				   <li><i class="fas fa-at"></i><a href="mailto:pablog.rizzo@gmail.com">Email Agus Paz</a></li>
   	 			</ul>
   	 		</div>
-  	 		<div class="footer-col">
-  	 			<h4>follow us</h4>
-  	 			<div class="social-links">
-  	 				<a href="#"><i class="fab fa-facebook-f"></i></a>
-  	 				<a href="#"><i class="fab fa-twitter"></i></a>
-  	 				<a href="#"><i class="fab fa-instagram"></i></a>
-  	 				<a href="#"><i class="fab fa-linkedin-in"></i></a>
-  	 			</div>
-  	 		</div>
   	 	</div>
   	 </div>
-</footer>*/
+</footer>
