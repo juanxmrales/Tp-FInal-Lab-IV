@@ -57,6 +57,7 @@
             }
         }
 
+        
         public function GetById($id)
         {
             try
@@ -83,6 +84,7 @@
                 throw $ex;
             }
         }
+        
 
         public function exist($email,$password)
         {

@@ -69,7 +69,6 @@
                     $student = $value;
                 }
             }
-
             return $student;
         }
 
