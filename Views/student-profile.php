@@ -3,7 +3,7 @@
 ?>
 
 <center>
-<div class="card" style="width: 27rem; margin-top: 5rem; opacity: 85%;">
+<div class="card" style="width: 27rem; margin: 5rem 0 15rem 0; opacity: 85%;">
   <img src= <?php echo FRONT_ROOT.VIEWS_PATH ?>img/user.png ?>
   <div class="card-body" >
     <h5 class="card-title">Informacion del Alumno</h5>
