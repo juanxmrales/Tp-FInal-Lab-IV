@@ -3,7 +3,7 @@
 require_once('nav.php');
 
 ?>
-<main class="py-5">
+<main class="py-5" style="margin: -5rem 0 12rem 0">
      <section id="listado" class="mb-5">
           <div class="container pt-5">
                <h2 class="mb-4">Postulantes</h2>

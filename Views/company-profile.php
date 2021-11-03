@@ -12,7 +12,7 @@
      }
                          
 ?>
-<main class="py-5">
+<main class="py-5" style="margin: 0 0 10rem 0">
      <section id="listado" class="mb-5">
           <div class="container">
                <a href="<?php echo FRONT_ROOT; ?>Company/ShowModifyView/<?php echo $company->getId();?>"><button class="btn btn-dark ">Modificar Informacion</button></a>

@@ -4,11 +4,11 @@ use DAO\ApiDAO;
 
 require_once('nav.php');
 ?>
-<main class="py-5">
-     <section id="listado" class="mb-5">
-          <div class="container pt-5">
+<main class="py-5" >
+     <section id="listado" class="mb-5" >
+          <div class="container pt-5" >
                <h2 class="mb-4">Listado de alumnos</h2>
-               <table class="table bg-light-alpha">
+               <table class="table bg-light-alpha" >
                     <thead>
                          <th>Legajo</th>
                          <th>Apellido</th>
