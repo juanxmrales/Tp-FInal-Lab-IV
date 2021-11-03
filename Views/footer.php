@@ -11,8 +11,8 @@
 				<div class="footer-pad">
 				<h4>Agustín Paz</h4>
 				<ul class="social-network social-circle">
-					<li><a href="mailto:pablog.rizzo@gmail.com" class="icoFacebook" title="Gmail"><i class="fa fa-envelope"></i></a></li>
-					<li><a href="https://www.linkedin.com/in/pablorizzo/" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+					<li><a href="mailto:colilo40@gmail.com" class="icoFacebook" title="Gmail"><i class="fa fa-envelope"></i></a></li>
+					<li><a href="https://www.linkedin.com/in/agustin-paz-176028223/" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
 				</ul>
 				</div>
 			</div>
@@ -21,8 +21,8 @@
 				<div class="footer-pad">
 				<h4>Julián Castro</h4>
 				<ul class="social-network social-circle">
-					<li><a href="mailto:pablog.rizzo@gmail.com" class="icoFacebook" title="Gmail"><i class="fa fa-envelope"></i></a></li>
-					<li><a href="https://www.linkedin.com/in/pablorizzo/" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+					<li><a href="mailto:julmdq@live.com.ar" class="icoFacebook" title="Gmail"><i class="fa fa-envelope"></i></a></li>
+					<li><a href="https://www.linkedin.com/in/juliancq/" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
 				</ul>
 				</div>
 			</div>
@@ -31,8 +31,8 @@
 				<div class="footer-pad">
 				<h4>Juan Cruz Morales</h4>
 				<ul class="social-network social-circle">
-					<li><a href="mailto:pablog.rizzo@gmail.com" class="icoFacebook" title="Gmail"><i class="fa fa-envelope"></i></a></li>
-					<li><a href="https://www.linkedin.com/in/pablorizzo/" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+					<li><a href="mailto:jcmxu95@gmail.com" class="icoFacebook" title="Gmail"><i class="fa fa-envelope"></i></a></li>
+					<li><a href="https://www.linkedin.com/in/juancruzmorales95/" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
 				</ul>
 				</div>
 			</div>
