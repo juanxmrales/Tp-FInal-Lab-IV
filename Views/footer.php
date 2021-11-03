@@ -5,12 +5,7 @@
 
 <footer>
   	 <div class="container">
-  	 		<div class="footer-col">
-  	 			<h4>Contacto</h4>
-  	 			<ul>
-				   <li><i class="fas fa-at"></i><a href="mailto:pablog.rizzo@gmail.com">Email Agus Paz</a></li>
-  	 			</ul>
-  	 		</div>
-  	 	</div>
+  	 		
+  	 	
   	 </div>
 </footer>
