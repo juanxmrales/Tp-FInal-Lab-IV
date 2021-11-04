@@ -12,7 +12,7 @@
     <?php
       foreach($studentList as $student)
       {
-        if($student->getEmail() == $_SESSION["email"])
+        if($student->getEmail() == $email)
         {
           ?>
           <li class="list-group-item">Nombre: <?php echo $student->getFirstName(); ?></li>
@@ -23,7 +23,6 @@
           <li class="list-group-item">Fecha de Nacimiento: <?php echo $student->getBirthDate(); ?></li>
           <li class="list-group-item">Email: <?php echo $student->getEmail(); ?></li>
           <li class="list-group-item">Telefono: <?php echo $student->getPhoneNumber(); ?></li>
- 
 
           <?php
         }
@@ -31,8 +30,4 @@
     ?>
     
   </ul>
-</div>
-
-<div class="contanerr">
-  
 </div>
