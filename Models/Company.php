@@ -8,7 +8,6 @@
         private $street;
         private $nacionality;
         private $description;
-        private $active;  // True: active. False: removed//
         
         /**
 		 * Class Constructor
@@ -19,14 +18,13 @@
                  * @param    $description
                  * @param    $active
 		 */
-        public function __construct($id, $name, $street, $nacionality, $description, $active)
+        public function __construct($id, $name, $street, $nacionality, $description)
         {
                 $this->id = $id;
                 $this->name = $name;
                 $this->street = $street;
                 $this->nacionality = $nacionality;
                 $this->description = $description;
-                $this->active = $active;
         }
 
         public function getId()
@@ -89,16 +87,5 @@
                 return $this;
         }
 
-        public function getActive()
-        {
-                return $this->active;
-        }
-
-        public function setActive($active)
-        {
-                $this->active = $active;
-
-                return $this;
-        }
     }
 ?>
