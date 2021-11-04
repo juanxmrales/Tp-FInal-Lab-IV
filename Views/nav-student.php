@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
      <div class="container">
           <a class="navbar-brand" href="index.php">
-               <img src= <?php echo FRONT_ROOT.VIEWS_PATH ?>img/student-hat.png ?>
+               <i class="fas fa-user-graduate"></i>
           </a>
 
           <ul class="navbar-nav ml-auto">
@@ -22,4 +22,5 @@
                </li>        
           </ul>
      </div>
+     <script src="https://kit.fontawesome.com/b4c4dc37b0.js" crossorigin="anonymous"></script>
 </nav>
