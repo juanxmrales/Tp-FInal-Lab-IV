@@ -27,7 +27,7 @@
                               <li><hr class="dropdown-divider"></li>
                               <li><a class="dropdawn-item" href="<?php echo FRONT_ROOT ?>Company/ShowListView">Listar Empresas</a></li>
                               <li><hr class="dropdown-divider"></li>
-                              <li><a class="dropdawn-item" href="<?php echo FRONT_ROOT ?>JobOffer/ShowListViewAdmin">Listar ofertas</a></li>
+                              <li><a class="dropdawn-item" href="<?php echo FRONT_ROOT ?>JobOffer/ShowListViewAdmin">Listar Ofertas</a></li>
                          </ul>
                     </li>  
                     <li class="nav-item">
