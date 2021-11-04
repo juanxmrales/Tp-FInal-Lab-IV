@@ -2,7 +2,7 @@
     require_once('nav.php');
 ?>
 
-
+<center>
 <div class="card">
   <img src= <?php echo FRONT_ROOT.VIEWS_PATH ?>img/user.png ?>
   <div class="card-body">
@@ -31,3 +31,4 @@
     
   </ul>
 </div>
+    </center>
