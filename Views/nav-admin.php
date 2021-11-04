@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg  navbar-dark bg-dark fixed-top">
      <div class="container">
           <a class="navbar-brand" href="index.php">
-               <img src= <?php echo FRONT_ROOT.VIEWS_PATH ?>img/admin.png ?>
+               <i class="fas fa-user-cog"></i>
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -63,4 +63,5 @@
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/LogOut">Log out</a>
           </li>        
      </ul>
+     <script src="https://kit.fontawesome.com/b4c4dc37b0.js" crossorigin="anonymous"></script>
 </nav>

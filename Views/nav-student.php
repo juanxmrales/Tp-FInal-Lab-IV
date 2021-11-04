@@ -1,24 +1,26 @@
 <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
-     <a class="navbar-brand" href="index.php">
-          <img src= <?php echo FRONT_ROOT.VIEWS_PATH ?>img/student-hat.png ?>
-     </a>
+     <div class="container">
+          <a class="navbar-brand" href="index.php">
+               <i class="fas fa-user-graduate"></i>
+          </a>
 
-     <ul class="navbar-nav ml-auto">
-
+          <ul class="navbar-nav ml-auto">
+               <li class="nav-item">
+                    <a class="nav-link" href="<?php echo FRONT_ROOT ?>Student/ShowStudentProfile">Ver perfil</a>
+               </li> 
           <li class="nav-item">
-               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Student/ShowStudentProfile">Ver perfil</a>
-          </li> 
-         <li class="nav-item">
-               <a class="nav-link" href="<?php echo FRONT_ROOT ?>JobOffer/ShowListView">Ver ofertas</a>
-          </li> 
-          <li class="nav-item">
-               <a class="nav-link" href="<?php echo FRONT_ROOT ?>JobOffer/ShowUserJobs">Ver postulaciones</a>
-          </li>  
-          <li class="nav-item">
-               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Company/ShowListViewStudent">Listar de Empresas</a>
-          </li>
-          <li class="nav-item">
-               <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/LogOut">Log out</a>
-          </li>        
-     </ul>
+                    <a class="nav-link" href="<?php echo FRONT_ROOT ?>JobOffer/ShowListView">Ver ofertas</a>
+               </li> 
+               <li class="nav-item">
+                    <a class="nav-link" href="<?php echo FRONT_ROOT ?>JobOffer/ShowUserJobs">Ver postulaciones</a>
+               </li>  
+               <li class="nav-item">
+                    <a class="nav-link" href="<?php echo FRONT_ROOT ?>Company/ShowListViewStudent">Listar de Empresas</a>
+               </li>
+               <li class="nav-item">
+                    <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/LogOut">Log out</a>
+               </li>        
+          </ul>
+     </div>
+     <script src="https://kit.fontawesome.com/b4c4dc37b0.js" crossorigin="anonymous"></script>
 </nav>

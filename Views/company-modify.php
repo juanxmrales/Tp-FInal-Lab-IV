@@ -11,7 +11,7 @@
           }
      }
 ?>
-<main class="py-5">
+<main class="py-5"  style="margin: 0 0 10rem 0">
      <section id="listado" class="mb-5">
           <div class="container">
                <h2 class="mb-4">Modificar Empresa</h2>
