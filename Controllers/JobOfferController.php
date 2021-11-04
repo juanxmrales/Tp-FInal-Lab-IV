@@ -91,6 +91,33 @@ class JobOfferController
 
 			$this->ShowListView($message);
 		}
+
+		public function ShowModifyView($id)
+		{
+			$companyDAO = new CompanyDAO();
+			$companyList = $companyDAO->GetAll();
+			$jobPositionDAO = new JobPositionDAO();
+			$jobPositionList = $jobPositionDAO->getAll();
+			$job = $this->jobOfferDAO->GetById($id);
+
+			require_once(VIEWS_PATH."jobOffer-modify.php");
+		}
+
+		public function Modify($id,$idCompany,$idJobPosition,$fecha,$description,$active)
+		{
+			$jobOffer = new JobOffer((int)$id,$idJobPosition,$idCompany,$fecha,$description,$active);
+
+			$this->jobOfferDAO->Modify($jobOffer);
+
+			$this->ShowListViewAdmin();
+		}
+
+		public function Delete($id)
+		{
+			$this->jobOfferDAO->Delete($id);
+
+			$this->ShowListViewAdmin();
+		}
 		
 	}
 

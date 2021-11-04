@@ -42,6 +42,8 @@
           <h2 class="mb-4">Sus ofertas laborales</h2>
                <table class="table bg-light-alpha">
                     <thead>
+                         <th></th>
+                         <th></th>
                          <th>Puesto</th>
                          <th>Carrera</th>
                          <th>Fecha</th>
@@ -53,14 +55,16 @@
                               {
                                    if($jobOffer->getActive()==true&&$jobOffer->getIdCompany()==$id)
                                    {
-                                   ?>
-                                        <tr>
-                                             <td><?php echo $jobPositionDAO->SearchJobPositionById($jobOffer->getIdJobPosition())->getDescription(); ?></td>
-                                             <td><?php echo $careerDAO->SearchCareerById($jobPositionDAO->SearchJobPositionById($jobOffer->getIdJobPosition())->getCareerId())->getDescription(); ?></td>
-                                             <td><?php echo $jobOffer->getFecha();?></td>
-                                             <td><?php echo $jobOffer->getDescription(); ?></td>
-                                        </tr>
-                                   <?php
+                                        ?>
+                                             <tr>
+                                                  <td><a href="<?php echo FRONT_ROOT; ?>JobOffer/ShowModifyView/<?php echo $jobOffer->getId();?>"><button class="btn btn-dark ">Modificar</button></a></td>
+                                                  <td><a href="<?php echo FRONT_ROOT; ?>JobOffer/Delete/<?php echo $jobOffer->getId();?>"><button class="btn btn-dark">Eliminar</button></a></td>
+                                                  <td><?php echo $jobPositionDAO->SearchJobPositionById($jobOffer->getIdJobPosition())->getDescription(); ?></td>
+                                                  <td><?php echo $careerDAO->SearchCareerById($jobPositionDAO->SearchJobPositionById($jobOffer->getIdJobPosition())->getCareerId())->getDescription(); ?></td>
+                                                  <td><?php echo $jobOffer->getFecha();?></td>
+                                                  <td><?php echo $jobOffer->getDescription(); ?></td>
+                                             </tr>
+                                        <?php
                                    }
                               }
                          ?>

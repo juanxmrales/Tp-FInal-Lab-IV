@@ -2,10 +2,10 @@
 
     namespace DAO;
 
-use Models\JobOffer;
-use \Exception as Exception;
+    use Models\JobOffer;
+    use \Exception as Exception;
 
-class JobOfferDAO
+    class JobOfferDAO
     {
         private $connection;
         private $tableName = "joboffers";
@@ -105,14 +105,49 @@ class JobOfferDAO
                     $job = new JobOffer($row["id"],$row["id_jobPosition"],$row["id_company"],$row["fecha"],$row["description"],$row["active"],$userList);
 
                     $userList = null;
-
-                    array_push($jobList, $job);
                 }
 
-                return $jobList;
+                return $job;
             }
             catch(Exception $ex)
             {
+                throw $ex;
+            }
+        }
+
+        public function Modify(JobOffer $job){
+
+            try{
+
+                $query = "UPDATE $this->tableName SET id_jobPosition = :id_jobPosition , id_company = :id_company , fecha = :fecha , description = :description  WHERE id = :id";
+
+                $parameters["id"] = $job->getId();
+                $parameters["id_jobPosition"] = $job->getIdJobPosition();
+                $parameters["id_company"] = $job->getIdCompany();
+                $parameters["fecha"] = $job->getFecha();
+                $parameters["description"] = $job->getDescription();
+
+                $this->connection = Connection::GetInstance();
+                $this->connection->ExecuteNonQuery($query, $parameters);
+            }
+            catch(Exception $ex){
+
+                throw $ex;
+            }
+        }
+
+
+        public function Delete($id){
+
+            try{
+
+                $query = "DELETE FROM $this->tableName WHERE id = $id;";
+
+                $this->connection = Connection::GetInstance();
+                $this->connection->ExecuteNonQuery($query);
+            }
+            catch(Exception $ex){
+
                 throw $ex;
             }
         }
