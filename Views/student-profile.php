@@ -2,10 +2,10 @@
     require_once('nav.php');
 ?>
 
-<center>
-<div class="card" style="width: 27rem; margin: 5rem 0 15rem 0; opacity: 85%;">
+
+<div class="card">
   <img src= <?php echo FRONT_ROOT.VIEWS_PATH ?>img/user.png ?>
-  <div class="card-body" >
+  <div class="card-body">
     <h5 class="card-title">Informacion del Alumno</h5>
   </div>
   <ul class="list-group list-group-flush">
@@ -32,4 +32,7 @@
     
   </ul>
 </div>
-</center>
+
+<div class="contanerr">
+  
+</div>

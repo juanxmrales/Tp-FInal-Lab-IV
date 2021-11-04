@@ -85,6 +85,22 @@ body {
     font-size: small;
 }
 
+.card{
+  position: relative;
+  border: 2px solid red;
+  width: 20rem; 
+  margin: 5rem 0 15rem 5rem;
+}
+
+.contanerr{
+  position: relative;
+  display: inline;
+  border: 2px solid blue;
+  width: 250px;
+  height: 250px;
+
+}
+
 /*------------------------footer-------------------------*/
 
 footer{

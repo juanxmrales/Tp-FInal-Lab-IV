@@ -2,7 +2,7 @@
      use DAO\StudentDAO as StudentDAO;
      require_once('nav.php');
 ?>
-<main class="py-5" style="margin: -7rem 0 10rem 0;">
+<main class="py-5" style="margin: -7rem 0 20rem -3rem;">
      <section id="listado" class="mb-5">
           <div class="container pt-5">
                <h2 class="mb-4">Listado de Alumnos</h2>
@@ -12,7 +12,7 @@
                     <br><br>
                </form>
                </div>
-               <div class="container scroll">
+               <div class="container">
                <table class="table bg-light-alpha">
                     <thead>
                          <th>Legajo</th>
