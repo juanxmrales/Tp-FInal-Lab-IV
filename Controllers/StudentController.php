@@ -36,7 +36,7 @@ use Models\Student as Student;
             require_once(VIEWS_PATH."buscar-alumno.php");
         }
 
-        public function ShowStudentProfile()
+        public function ShowStudentProfile($email)
         {
             $studentList = $this->studentDAO->GetAll();
 

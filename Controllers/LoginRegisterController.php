@@ -33,7 +33,7 @@
                             {
                                 $_SESSION['logueado'] = 1;
 
-                                header("location:". FRONT_ROOT . "Student/ShowStudentProfile");
+                                header("location:". FRONT_ROOT . "Student/ShowStudentProfile/" . $_SESSION["email"]);
                             }
                             else
                             {
