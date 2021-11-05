@@ -37,8 +37,8 @@
                          <div class="col-lg-4">
                               <div class="form-group">
                                    <label for="">Compania</label>
-                                   <select class="form-control" name="idCompany" id="idCompany">
-                                   <option value="<?php echo $comp->getId();?>" disabled selected hidden><?php echo $comp->getName();?></option>
+                                   <select class="form-control" name="idCompany" id="idCompany" defa>
+                                   <option value="<?php echo $comp->getId();?>" selected><?php echo $comp->getName();?></option>
                                         <?php  foreach($companyList as $company){
                                                ?>
                                                        <option value=<?php echo $company->getId() ?>><?php echo $company->getName(); ?></option>
@@ -50,7 +50,7 @@
                               <div class="form-group">
                                    <label for="">Posicion</label>
                                    <select class="form-control" name="idJobPosition" id="idJobPosition" value="<?php echo $jobPos->getDescription();?>">>
-                                   <option value="<?php echo $jobPos->getId();?>" disabled selected hidden><?php echo $jobPos->getDescription();?></option>
+                                   <option value="<?php echo $jobPos->getId();?>" selected><?php echo $jobPos->getDescription();?></option>
                                         <?php  foreach($jobPositionList as $jobPosition){
                                                 ?>
                                                        <option value=<?php echo $jobPosition->getId() ?>><?php echo $jobPosition->getDescription(); ?></option>

@@ -1,10 +1,10 @@
-<?php
+<?php 
 
-    namespace Models;
+	namespace Models;
 
-    class JobOffer
-    {
-        private $id;
+	class JobOffer{
+
+		private $id;
         private $idJobPosition;
         private $jobPosition;
         private $idCompany;
@@ -12,209 +12,221 @@
         private $career;
         private $fecha;
         private $description;
-        private $users = array();
+        private $users;
 
-        public function __construct($id,$idJobPosition,$jobPosition,$idCompany,$company,$career,$fecha,$description,$users = array())
-        {
-            $this->id = $id;
-            $this->$idJobPosition = $idJobPosition;
-            $this->jobPosition = $jobPosition;
-            $this->idCompany = $idCompany;
-            $this->company = $company;
-            $this->career = $career;
-            $this->fecha = $fecha;
-            $this->description = $description;
-            $this->users = $users; 
-        }
 
-    
-            /**
-             * @return mixed
-             */
-            public function getId()
-            {
-                return $this->id;
-            }
+		/**
+		 * Class Constructor
+		 * @param    $id   
+		 * @param    $idJobPosition   
+		 * @param    $jobPosition   
+		 * @param    $idCompany   
+		 * @param    $company   
+		 * @param    $career   
+		 * @param    $fecha   
+		 * @param    $description   
+		 * @param    $users   
+		 */
+		public function __construct($id, $idJobPosition, $jobPosition, $idCompany, $company, $career, $fecha, $description, $users = array())
+		{
+			$this->id = $id;
+			$this->idJobPosition = $idJobPosition;
+			$this->jobPosition = $jobPosition;
+			$this->idCompany = $idCompany;
+			$this->company = $company;
+			$this->career = $career;
+			$this->fecha = $fecha;
+			$this->description = $description;
+			$this->users = $users;
+		}
 
-            /**
-             * @param mixed $id
-             *
-             * @return self
-             */
-            public function setId($id)
-            {
-                $this->id = $id;
 
-                return $this;
-            }
+	    /**
+	     * @return mixed
+	     */
+	    public function getId()
+	    {
+	        return $this->id;
+	    }
 
-            /**
-             * @return mixed
-             */
-            public function getIdJobPosition()
-            {
-                return $this->idJobPosition;
-            }
+	    /**
+	     * @param mixed $id
+	     *
+	     * @return self
+	     */
+	    public function setId($id)
+	    {
+	        $this->id = $id;
 
-            /**
-             * @param mixed $idJobPosition
-             *
-             * @return self
-             */
-            public function setIdJobPosition($idJobPosition)
-            {
-                $this->idJobPosition = $idJobPosition;
+	        return $this;
+	    }
 
-                return $this;
-            }
+	    /**
+	     * @return mixed
+	     */
+	    public function getIdJobPosition()
+	    {
+	        return $this->idJobPosition;
+	    }
 
-            /**
-             * @return mixed
-             */
-            public function getJobPosition()
-            {
-                return $this->jobPosition;
-            }
+	    /**
+	     * @param mixed $idJobPosition
+	     *
+	     * @return self
+	     */
+	    public function setIdJobPosition($idJobPosition)
+	    {
+	        $this->idJobPosition = $idJobPosition;
 
-            /**
-             * @param mixed $jobPosition
-             *
-             * @return self
-             */
-            public function setJobPosition($jobPosition)
-            {
-                $this->jobPosition = $jobPosition;
+	        return $this;
+	    }
 
-                return $this;
-            }
+	    /**
+	     * @return mixed
+	     */
+	    public function getJobPosition()
+	    {
+	        return $this->jobPosition;
+	    }
 
-            /**
-             * @return mixed
-             */
-            public function getIdCompany()
-            {
-                return $this->idCompany;
-            }
+	    /**
+	     * @param mixed $jobPosition
+	     *
+	     * @return self
+	     */
+	    public function setJobPosition($jobPosition)
+	    {
+	        $this->jobPosition = $jobPosition;
 
-            /**
-             * @param mixed $idCompany
-             *
-             * @return self
-             */
-            public function setIdCompany($idCompany)
-            {
-                $this->idCompany = $idCompany;
+	        return $this;
+	    }
 
-                return $this;
-            }
+	    /**
+	     * @return mixed
+	     */
+	    public function getIdCompany()
+	    {
+	        return $this->idCompany;
+	    }
 
-            /**
-             * @return mixed
-             */
-            public function getCompany()
-            {
-                return $this->company;
-            }
+	    /**
+	     * @param mixed $idCompany
+	     *
+	     * @return self
+	     */
+	    public function setIdCompany($idCompany)
+	    {
+	        $this->idCompany = $idCompany;
 
-            /**
-             * @param mixed $company
-             *
-             * @return self
-             */
-            public function setCompany($company)
-            {
-                $this->company = $company;
+	        return $this;
+	    }
 
-                return $this;
-            }
+	    /**
+	     * @return mixed
+	     */
+	    public function getCompany()
+	    {
+	        return $this->company;
+	    }
 
-            /**
-             * @return mixed
-             */
-            public function getCareer()
-            {
-                return $this->career;
-            }
+	    /**
+	     * @param mixed $company
+	     *
+	     * @return self
+	     */
+	    public function setCompany($company)
+	    {
+	        $this->company = $company;
 
-            /**
-             * @param mixed $career
-             *
-             * @return self
-             */
-            public function setCareer($career)
-            {
-                $this->career = $career;
+	        return $this;
+	    }
 
-                return $this;
-            }
+	    /**
+	     * @return mixed
+	     */
+	    public function getCareer()
+	    {
+	        return $this->career;
+	    }
 
-            /**
-             * @return mixed
-             */
-            public function getFecha()
-            {
-                return $this->fecha;
-            }
+	    /**
+	     * @param mixed $career
+	     *
+	     * @return self
+	     */
+	    public function setCareer($career)
+	    {
+	        $this->career = $career;
 
-            /**
-             * @param mixed $fecha
-             *
-             * @return self
-             */
-            public function setFecha($fecha)
-            {
-                $this->fecha = $fecha;
+	        return $this;
+	    }
 
-                return $this;
-            }
+	    /**
+	     * @return mixed
+	     */
+	    public function getFecha()
+	    {
+	        return $this->fecha;
+	    }
 
-            /**
-             * @return mixed
-             */
-            public function getDescription()
-            {
-                return $this->description;
-            }
+	    /**
+	     * @param mixed $fecha
+	     *
+	     * @return self
+	     */
+	    public function setFecha($fecha)
+	    {
+	        $this->fecha = $fecha;
 
-            /**
-             * @param mixed $description
-             *
-             * @return self
-             */
-            public function setDescription($description)
-            {
-                $this->description = $description;
+	        return $this;
+	    }
 
-                return $this;
-            }
+	    /**
+	     * @return mixed
+	     */
+	    public function getDescription()
+	    {
+	        return $this->description;
+	    }
 
-            /**
-             * @return mixed
-             */
-            public function getUsers()
-            {
-                return $this->users;
-            }
+	    /**
+	     * @param mixed $description
+	     *
+	     * @return self
+	     */
+	    public function setDescription($description)
+	    {
+	        $this->description = $description;
 
-            /**
-             * @param mixed $users
-             *
-             * @return self
-             */
-            public function setUsers($users)
-            {
-                $this->users = $users;
+	        return $this;
+	    }
 
-                return $this;
-            }
+	    /**
+	     * @return mixed
+	     */
+	    public function getUsers()
+	    {
+	        return $this->users;
+	    }
 
-       public function ExistPostulation($id)
+	    /**
+	     * @param mixed $users
+	     *
+	     * @return self
+	     */
+	    public function setUsers($users)
+	    {
+	        $this->users = $users;
+
+	        return $this;
+	    }
+
+	    public function ExistPostulation($id)
         {
                 $list = $this->getUsers();
 
                 return in_array($id, $list);
         }
 }
-?>
 
-        
+ ?>

@@ -91,10 +91,8 @@ class JobOfferController
 
 			$jobOffer = new JobOffer(0,$idJobPosition,$jobPosition,$idCompany,$company,$career,$fecha,$description);
 
-				print_r($jobOffer);
-
-			/*$this->jobOfferDAO->add($jobOffer);
-			$this->ShowListView();*/
+			$this->jobOfferDAO->add($jobOffer);
+			$this->ShowAddView();
 		}
 
 		
