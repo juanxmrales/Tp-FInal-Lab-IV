@@ -20,17 +20,16 @@ require_once('nav.php');
                          <?php
                               foreach($jobOfferList as $jobOffer)
                               {    
-                                  if($jobOffer->getActive()== 1 && $jobOffer->ExistPostulation($_SESSION['idUser']))
+                                  if($jobOffer->ExistPostulation($_SESSION['idUser']))
                                   {
-
                                    ?>
                                         <tr>
-                                                  <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfileStudent/<?php echo $companyDAO->SearchCompanyById($jobOffer->getIdCompany())->getId();?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
-                                                  <td><?php echo $jobPositionDAO->SearchJobPositionById($jobOffer->getIdJobPosition())->getDescription(); ?></td>
-                                                  <td><?php echo $companyDAO->SearchCompanyById($jobOffer->getIdCompany())->getName(); ?></td>
-                                                  <td><?php echo $careerDAO->SearchCareerById($jobPositionDAO->SearchJobPositionById($jobOffer->getIdJobPosition())->getCareerId())->getDescription(); ?></td>
-                                                  <td><?php echo $jobOffer->getFecha();?></td>
-                                                  <td><?php echo $jobOffer->getDescription(); ?></td>    
+                                             <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfileStudent/<?php echo $jobOffer->getIdCompany();?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
+                                             <td><?php echo $jobOffer->getJobPosition(); ?></td>
+                                             <td><?php echo $jobOffer->getCareer(); ?></td>
+                                             <td><?php echo $jobOffer->getCompany(); ?></td>
+                                             <td><?php echo $jobOffer->getFecha(); ?></td>
+                                             <td><?php echo $jobOffer->getDescription(); ?></td>
                                         </tr>
                                    <?php
                                   }

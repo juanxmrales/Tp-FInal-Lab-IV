@@ -53,15 +53,15 @@
                          <?php
                               foreach($jobOfferList as $jobOffer)
                               {
-                                   if($jobOffer->getActive()==true&&$jobOffer->getIdCompany()==$id)
+                                   if($jobOffer->getIdCompany()==$id)
                                    {
                                         ?>
                                              <tr>
                                                   <td><a href="<?php echo FRONT_ROOT; ?>JobOffer/ShowModifyView/<?php echo $jobOffer->getId();?>"><button class="btn btn-dark ">Modificar</button></a></td>
                                                   <td><a href="<?php echo FRONT_ROOT; ?>JobOffer/Delete/<?php echo $jobOffer->getId();?>"><button class="btn btn-dark">Eliminar</button></a></td>
-                                                  <td><?php echo $jobPositionDAO->SearchJobPositionById($jobOffer->getIdJobPosition())->getDescription(); ?></td>
-                                                  <td><?php echo $careerDAO->SearchCareerById($jobPositionDAO->SearchJobPositionById($jobOffer->getIdJobPosition())->getCareerId())->getDescription(); ?></td>
-                                                  <td><?php echo $jobOffer->getFecha();?></td>
+                                                  <td><?php echo $jobOffer->getIdJobPosition(); ?></td>
+                                                  <td><?php echo $jobOffer->getCareer(); ?></td>
+                                                  <td><?php echo $jobOffer->getFecha(); ?></td>
                                                   <td><?php echo $jobOffer->getDescription(); ?></td>
                                              </tr>
                                         <?php

@@ -29,7 +29,7 @@
 
                               foreach($companyList as $company)
                               {
-                                   if($company->getActive() == true){?>
+                                   ?>
                                         <tr>
                                              <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfile/<?php echo $company->getId();?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
                                              <td><?php echo $company->getId(); ?></td>
@@ -40,25 +40,25 @@
 
                                         </tr>
                                    <?php
-                                   }
+                                   
                               }
                          }
                          else{
-                                   $companyDAO = new CompanyDAO();
-                                   $filtred = $companyDAO->searchCompany($_GET['filter']);
+                              $companyDAO = new CompanyDAO();
+                              $filtred = $companyDAO->searchCompany($_GET['filter']);
 
-                                   if($filtred){
-                                         if($filtred->getActive() == true){?>
-                                             <tr>
-                                                  <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfile/<?php echo $filtred->getId();?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
-                                                  <td><?php echo $filtred->getId(); ?></td>
-                                                  <td><?php echo $filtred->getName(); ?></td>
-                                                  <td><?php echo $filtred->getStreet(); ?></td>
-                                                  <td><?php echo $filtred->getNacionality(); ?></td>
-                                                  <td><?php echo $filtred->getDescription(); ?></td>
-                                             </tr>
-                                        <?php
-                                   }     
+                              if($filtred){
+                                        ?>
+                                        <tr>
+                                             <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfile/<?php echo $filtred->getId();?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
+                                             <td><?php echo $filtred->getId(); ?></td>
+                                             <td><?php echo $filtred->getName(); ?></td>
+                                             <td><?php echo $filtred->getStreet(); ?></td>
+                                             <td><?php echo $filtred->getNacionality(); ?></td>
+                                             <td><?php echo $filtred->getDescription(); ?></td>
+                                        </tr>
+                                   <?php
+                                   
                               }
                          }
                          ?>

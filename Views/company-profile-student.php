@@ -40,13 +40,13 @@ require_once('nav.php');
                          <?php
                               foreach($jobOfferList as $jobOffer)
                               {
-                                   if($jobOffer->getActive()==true&&$jobOffer->getIdCompany()==$id)
+                                   if($jobOffer->getIdCompany()==$id)
                                    {
                                    ?>
                                         <tr>
-                                             <td><?php echo $jobPositionDAO->SearchJobPositionById($jobOffer->getIdJobPosition())->getDescription(); ?></td>
-                                             <td><?php echo $careerDAO->SearchCareerById($jobPositionDAO->SearchJobPositionById($jobOffer->getIdJobPosition())->getCareerId())->getDescription(); ?></td>
-                                             <td><?php echo $jobOffer->getFecha();?></td>
+                                             <td><?php echo $jobOffer->getJobPosition(); ?></td>
+                                             <td><?php echo $jobOffer->getCareer(); ?></td>
+                                             <td><?php echo $jobOffer->getFecha(); ?></td>
                                              <td><?php echo $jobOffer->getDescription(); ?></td>
                                         </tr>
                                    <?php

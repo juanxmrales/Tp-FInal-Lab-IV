@@ -13,14 +13,13 @@
         {
             try
             {
-                $query = "INSERT INTO ".$this->tableName." (id,name,street,nationality,description,active) VALUES (:id,:name,:street,:nationality,:description,:active);";
+                $query = "INSERT INTO ".$this->tableName." (id,name,street,nationality,description) VALUES (:id,:name,:street,:nationality,:description);";
                 
                 $parameters["id"] = $company->getId();
                 $parameters["name"] = $company->getName();
                 $parameters["street"] = $company->getStreet();
                 $parameters["nationality"] = $company->getNacionality();
                 $parameters["description"] = $company->getDescription();
-                $parameters["active"] = $company->getActive();
 
                 $this->connection = Connection::GetInstance();
 
@@ -46,7 +45,7 @@
                 
                 foreach ($resultSet as $row)
                 {                
-                    $company = new Company($row["id"],$row["name"],$row["street"],$row["nationality"],$row["description"],$row["active"]);
+                    $company = new Company($row["id"],$row["name"],$row["street"],$row["nationality"],$row["description"]);
 
                     array_push($companyList, $company);
                 }
@@ -86,7 +85,7 @@
 
             try{
 
-                $query = "UPDATE $this->tableName SET active = 0 WHERE id = $id;";
+                $query = "DELETE FROM $this->tableName WHERE id = $id;";
 
                 $this->connection = Connection::GetInstance();
                 $this->connection->ExecuteNonQuery($query);

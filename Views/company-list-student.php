@@ -29,7 +29,7 @@
 
                               foreach($companyList as $company)
                               {
-                                   if($company->getActive() == true){?>
+                                  ?>
                                         <tr>
                                              <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfileStudent/<?php echo $company->getId();?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
                                              <td><?php echo $company->getId(); ?></td>
@@ -40,15 +40,15 @@
 
                                         </tr>
                                    <?php
-                                   }
+                                   
                               }
                          }
-                         else{
+                              else{
                                    $companyDAO = new CompanyDAO();
                                    $filtred = $companyDAO->searchCompany($_GET['filter']);
 
                                    if($filtred){
-                                         if($filtred->getActive() == true){?>
+                                         ?>
                                              <tr>
                                                   <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfileStudent/<?php echo $filtred->getId();?>"><button>Ver Mas</button></a></td>
                                                   <td><?php echo $filtred->getId(); ?></td>
@@ -58,9 +58,9 @@
                                                   <td><?php echo $filtred->getDescription(); ?></td>
                                              </tr>
                                         <?php
-                                   }     
+                                       
+                                   }
                               }
-                         }
                          ?>
                          </tr>
                     </tbody>

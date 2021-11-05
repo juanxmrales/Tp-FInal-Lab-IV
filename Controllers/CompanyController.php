@@ -68,21 +68,18 @@ use DAO\JobPositionDAO;
 
         public function Add($name, $street, $nacionality, $description)
         {
-            if(isset($_POST))
+            if($this->companyDAO->SearchCompany($name)==null)
             {
-                if($this->companyDAO->SearchCompany($name)==null)
-                {
 
-                    $company = new Company(0,$name, $street, $nacionality, $description, true);
+                $company = new Company(0,$name, $street, $nacionality, $description);
 
-                    $this->companyDAO->Add($company);
+                $this->companyDAO->Add($company);
 
-                    $this->ShowAddView();
-                }
-                else
-                {
-                    $this->ShowAddView();
-                }
+                $this->ShowAddView();
+            }
+            else
+            {
+                $this->ShowAddView();
             }
         }
 
@@ -95,21 +92,10 @@ use DAO\JobPositionDAO;
 
         public function Modify($id,$name,$street,$nacionality,$description)
         {
-            if(isset($_POST))
-            {
-                $this->companyDAO->Modify(new Company($id,$name, $street, $nacionality, $description, true));
+            $this->companyDAO->Modify(new Company($id,$name, $street, $nacionality, $description));
 
-                $this->ShowCompanyProfile($id);
-            }
-        }
+            $this->ShowCompanyProfile($id);
 
-        public function LogOut()
-        {    
-            session_start();
-
-            session_destroy();
-
-            header("location: " . FRONT_ROOT . "Home/Index");
         }
     }
 ?>

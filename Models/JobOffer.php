@@ -14,8 +14,18 @@
         private $description;
         private $users = array();
 
-        
-        
+        public function __construct($id,$idJobPosition,$jobPosition,$idCompany,$company,$career,$fecha,$description,$users = array())
+        {
+            $this->id = $id;
+            $this->$idJobPosition = $idJobPosition;
+            $this->jobPosition = $jobPosition;
+            $this->idCompany = $idCompany;
+            $this->company = $company;
+            $this->career = $career;
+            $this->fecha = $fecha;
+            $this->description = $description;
+            $this->users = $users; 
+        }
 
     
             /**

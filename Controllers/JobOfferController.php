@@ -76,7 +76,20 @@ class JobOfferController
 
 			$date = getdate();
 			$fecha = $date["year"] . "-" . $date["mon"] . "-" . $date["mday"];
-			$jobOffer = new JobOffer(0, $idJobPosition, $idCompany, $fecha, $description, 1);
+
+			$companyDAO = new CompanyDAO();
+			$jobPositionDAO = new JobPositionDAO();
+			$careerDAO = new CareerDAO();
+
+			$company = ($companyDAO->SearchCompanyById($idCompany))->getName();
+			$job = $jobPositionDAO->SearchJobPositionById($idJobPosition);
+
+			$jobPosition = $job->getDescription();
+			$careerId = $job->getCareerId();
+
+			$career = ($careerDAO->SearchCareerById($careerId))->getDescription();
+
+			$jobOffer = new JobOffer(0,$idJobPosition,$jobPosition,$idCompany,$company,$career,$fecha,$description);
 			$this->jobOfferDAO->add($jobOffer);
 			$this->ShowListView();
 		}
@@ -103,9 +116,21 @@ class JobOfferController
 			require_once(VIEWS_PATH."jobOffer-modify.php");
 		}
 
-		public function Modify($id,$idCompany,$idJobPosition,$fecha,$description,$active)
+		public function Modify($id,$idCompany,$idJobPosition,$fecha,$description)
 		{
-			$jobOffer = new JobOffer((int)$id,$idJobPosition,$idCompany,$fecha,$description,$active);
+			$companyDAO = new CompanyDAO();
+			$jobPositionDAO = new JobPositionDAO();
+			$careerDAO = new CareerDAO();
+
+			$company = ($companyDAO->SearchCompanyById($idCompany))->getName();
+			$job = $jobPositionDAO->SearchJobPositionById($idJobPosition);
+
+			$jobPosition = $job->getDescription();
+			$careerId = $job->getCareerId();
+
+			$career = ($careerDAO->SearchCareerById($careerId))->getDescription();
+
+			$jobOffer = new JobOffer($id,$idJobPosition,$jobPosition,$idCompany,$company,$career,$fecha,$description);
 
 			$this->jobOfferDAO->Modify($jobOffer);
 

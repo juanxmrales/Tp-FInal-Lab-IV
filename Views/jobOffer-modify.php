@@ -27,21 +27,22 @@
           <div class="container pt-5">
                <h2 class="mb-4">Modificar Oferta</h2>
                <form action="<?php echo FRONT_ROOT ?>JobOffer/Modify" method="post" class="bg-light-alpha p-5">
-                    <div class="row">                       
+                    <div class="row">
                          <div class="col-lg-4">
-                              <div class="form-group">
-                              <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="">ID</label>
                                     <input type="text" name="id" id="id" class="form-control" readonly value="<?php echo $job->getId();?>">
                                 </div>
-                              </div>
+                         </div>               
+                         <div class="col-lg-4">
+                              <div class="form-group">
                                    <label for="">Compania</label>
-                                   <select class="form-control" name="idCompany" id="idCompany" value="<?php echo $comp->getName();?>">
+                                   <select class="form-control" name="idCompany" id="idCompany">
+                                   <option value="<?php echo $comp->getId();?>" disabled selected hidden><?php echo $comp->getName();?></option>
                                         <?php  foreach($companyList as $company){
-                                                  if($company->getActive()){ ?>
+                                               ?>
                                                        <option value=<?php echo $company->getId() ?>><?php echo $company->getName(); ?></option>
-                                        <?php }} ?>
+                                        <?php }?>
                                    </select>
                               </div>
                          </div>
@@ -49,8 +50,9 @@
                               <div class="form-group">
                                    <label for="">Posicion</label>
                                    <select class="form-control" name="idJobPosition" id="idJobPosition" value="<?php echo $jobPos->getDescription();?>">>
+                                   <option value="<?php echo $jobPos->getId();?>" disabled selected hidden><?php echo $jobPos->getDescription();?></option>
                                         <?php  foreach($jobPositionList as $jobPosition){
-                                                  ?>
+                                                ?>
                                                        <option value=<?php echo $jobPosition->getId() ?>><?php echo $jobPosition->getDescription(); ?></option>
                                         <?php } ?>
                                    </select>
@@ -68,12 +70,7 @@
                                    <input type="text" name="description" id="description" class="form-control" required="" value="<?php echo $job->getDescription();?>">
                               </div>
                          </div>
-                         <div class="col-lg-4">
-                              <div class="form-group">
-                                   <label for="">Activo</label>
-                                   <input type="text" name="active" id="active" class="form-control" readonly value="<?php echo $job->getActive();?>">
-                              </div>
-                         </div>
+
                          
                     </div>
                     <button type="submit" class="btn btn-dark ml-auto d-block">Incorporar cambios</button>

@@ -15,13 +15,15 @@
 
             try
             {
-                $query = "INSERT INTO ".$this->tableName." (id_jobPosition, id_company, fecha, description, active) VALUES (:id_jobPosition, :id_company, :fecha, :description, :active);";
+                $query = "INSERT INTO ".$this->tableName." (id_jobPosition, jobPosition, career, id_company, company, fecha, description, active) VALUES (:id_jobPosition, :jobPosition, :career, :id_company, :company, :fecha, :description);";
                 
                 $parameters["id_jobPosition"] = $job->getIdJobPosition();
+                $parameters["jobPosition"] = $job->getJobPosition();
                 $parameters["id_company"] = $job->getIdCompany();
+                $parameters["company"] = $job->getCompany();
+                $parameters["career"] = $job->getCareer();
                 $parameters["fecha"] = $job->getFecha();
                 $parameters["description"] = $job->getDescription();
-                $parameters["active"] = $job->getActive();
 
                 $this->connection = Connection::GetInstance();
 
@@ -60,7 +62,7 @@
                         }
                     }
 
-                    $job = new JobOffer($row["id"],$row["id_jobPosition"],$row["id_company"],$row["fecha"],$row["description"],$row["active"],$userList);
+                    $job = new JobOffer($row["id"],$row["id_jobPosition"],$row["jobPosition"],$row["id_company"],$row["company"],$row["career"],$row["fecha"],$row["description"],$userList);
 
                     $userList = null;
 
@@ -102,7 +104,7 @@
                         }
                     }
 
-                    $job = new JobOffer($row["id"],$row["id_jobPosition"],$row["id_company"],$row["fecha"],$row["description"],$row["active"],$userList);
+                    $job = new JobOffer($row["id"],$row["id_jobPosition"],$row["jobPosition"],$row["id_company"],$row["company"],$row["career"],$row["fecha"],$row["description"],$userList);
 
                     $userList = null;
                 }
@@ -119,11 +121,14 @@
 
             try{
 
-                $query = "UPDATE $this->tableName SET id_jobPosition = :id_jobPosition , id_company = :id_company , fecha = :fecha , description = :description  WHERE id = :id";
+                $query = "UPDATE $this->tableName SET id_jobPosition = :id_jobPosition , jobPosition = :jobPosition , id_company = :id_company , company = :company , career = :career , fecha = :fecha , description = :description  WHERE id = :id";
 
                 $parameters["id"] = $job->getId();
                 $parameters["id_jobPosition"] = $job->getIdJobPosition();
+                $parameters["jobPosition"] = $job->getJobPosition();
                 $parameters["id_company"] = $job->getIdCompany();
+                $parameters["company"] = $job->getCompany();
+                $parameters["career"] = $job->getCareer();
                 $parameters["fecha"] = $job->getFecha();
                 $parameters["description"] = $job->getDescription();
 
