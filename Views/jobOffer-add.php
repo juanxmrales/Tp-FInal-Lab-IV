@@ -13,9 +13,9 @@
                                    <label for="">Compania</label>
                                    <select class="form-control" name="idCompany" id="idCompany">
                                         <?php  foreach($companyList as $company){
-                                                  if($company->getActive()){ ?>
+                                                   ?>
                                                        <option value=<?php echo $company->getId() ?>><?php echo $company->getName() ?></option>
-                                        <?php }} ?>
+                                        <?php } ?>
                                    </select>
                               </div>
                          </div>

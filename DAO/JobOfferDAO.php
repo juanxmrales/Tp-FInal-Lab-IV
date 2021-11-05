@@ -15,7 +15,7 @@
 
             try
             {
-                $query = "INSERT INTO ".$this->tableName." (id_jobPosition, jobPosition, career, id_company, company, fecha, description, active) VALUES (:id_jobPosition, :jobPosition, :career, :id_company, :company, :fecha, :description);";
+                $query = "INSERT INTO ".$this->tableName." (id_jobPosition, jobPosition, career, id_company, company, fecha, description) VALUES (:id_jobPosition, :jobPosition, :career, :id_company, :company, :fecha, :description);";
                 
                 $parameters["id_jobPosition"] = $job->getIdJobPosition();
                 $parameters["jobPosition"] = $job->getJobPosition();
