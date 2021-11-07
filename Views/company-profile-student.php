@@ -17,7 +17,8 @@ require_once('nav.php');
                          <th>Descripcion</th>
                     </thead>
                     <tbody>
-                         <tr>
+                         <tr> 
+
                               <td><?php echo $company->getName(); ?></td>
                               <td><?php echo $company->getStreet(); ?></td>
                               <td><?php echo $company->getNacionality(); ?></td>
@@ -31,6 +32,7 @@ require_once('nav.php');
           <h2 class="mb-4">Sus ofertas laborales</h2>
                <table class="table bg-light-alpha">
                     <thead>
+                         <td></td>
                          <th>Puesto</th>
                          <th>Carrera</th>
                          <th>Fecha</th>
@@ -44,6 +46,7 @@ require_once('nav.php');
                                    {
                                    ?>
                                         <tr>
+                                             <td><a href="<?php echo FRONT_ROOT; ?>JobOffer/ApplyJobOffer/<?php echo $jobOffer->getId();?>"><button class="btn btn-dark ml-auto d-block">Postularme</button></a></td>
                                              <td><?php echo $jobOffer->getJobPosition(); ?></td>
                                              <td><?php echo $jobOffer->getCareer(); ?></td>
                                              <td><?php echo $jobOffer->getFecha(); ?></td>

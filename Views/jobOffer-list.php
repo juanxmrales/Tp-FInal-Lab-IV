@@ -9,7 +9,12 @@ require_once('nav.php');
      <section id="listado" class="mb-5">
           <div class="container pt-5">
                <h2 class="mb-4">Listado de Ofertas</h2>
-
+               <form>
+                    <input type="text" name="position" placeholder="Posicion">
+                    <input type="text" name="career" placeholder="Carrera">               
+                    <button type="submit" value="Filtrar" class="btn btn-outline-dark">Filtrar</button>
+                    <br><br>
+               </form>
                <span class="badge badge-info" style="font-size: 15px;"><?php echo $message ?></span>
                <table class="table bg-light-alpha">
                     <thead>
@@ -26,6 +31,7 @@ require_once('nav.php');
                          	
                               foreach($jobOfferList as $jobOffer)
                               {    
+                                   if((!isset($_GET['position']) && !isset($_GET['career'])) || ($_GET['position'] == "" && $_GET['career'] == "")){
                                    ?>
                                         <tr>
                                              <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfileStudent/<?php echo $jobOffer->getIdCompany()?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
@@ -37,7 +43,7 @@ require_once('nav.php');
                                              <td><?php echo $jobOffer->getFecha(); ?></td>
                                              <td><?php echo $jobOffer->getDescription(); ?></td>
                                         </tr>
-                                   <?php
+                                   <?php }
                               }
                          ?>
                     </tbody>
