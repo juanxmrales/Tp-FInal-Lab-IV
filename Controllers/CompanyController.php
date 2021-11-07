@@ -16,7 +16,7 @@ use DAO\JobPositionDAO;
             $this->companyDAO = new CompanyDAO();
         }
 
-        public function ShowAddView()
+        public function ShowAddView($message = "")
         {
             require_once(VIEWS_PATH."company-add.php");
         }
@@ -75,11 +75,11 @@ use DAO\JobPositionDAO;
 
                 $this->companyDAO->Add($company);
 
-                $this->ShowAddView();
+                $this->ShowAddView("Registro exitoso");
             }
             else
             {
-                $this->ShowAddView();
+                $this->ShowAddView("El nombre de empresa ingresado ya existe");
             }
         }
 

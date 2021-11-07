@@ -18,12 +18,18 @@
             require_once(VIEWS_PATH."user-add.php");
         }
 
+        public function ShowAddViewAdmin($message = "")
+        {
+            require_once(VIEWS_PATH."user-add-admin.php");
+        }
+
         public function ShowListView()
         {
             $userList = $this->userDAO->GetAll();
 
             require_once(VIEWS_PATH."user-list.php");
         }
+
 
         public function Add($email, $password)
         {

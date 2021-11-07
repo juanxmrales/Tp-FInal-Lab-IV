@@ -64,13 +64,53 @@
 
         public function Register($email,$password)
         {
-            if(isset($_POST))
+    
+            $users = new UserDAO();
+            $students = new StudentDAO();
+        
+            if(!$users->searchUser($email))
             {
-                $users = new UserDAO();
-                $students = new StudentDAO();
-            
-                if(!$users->searchUser($email))
+                $student = $students->SearchStudentByEmail($email);
+
+                if($student!=null)
                 {
+                    if($student->getActive())
+                    {
+                        $users->Add(new User(0,$email,password_hash($password, PASSWORD_DEFAULT),0));
+
+                        $message = "Cuenta creada con exito, por favor inicie sesion";
+                        require_once(VIEWS_PATH."login.php");
+                    }
+                    else
+                    {
+                        $message = "Usted no tiene permisos para ingresar en el sistema. Verifique su estado con personal.";
+                        require_once(VIEWS_PATH."login.php");
+                    }
+                }
+                else
+                {
+                    $message = "Email inexistente en el sistema";
+                    require_once(VIEWS_PATH."user-add.php");
+                }
+            }
+            else
+                {
+                    $message = "El email ingresado ya fue utilizado";
+                    require_once(VIEWS_PATH."user-add.php");
+                }
+        }
+
+        public function RegisterAdmin($email,$password,$type)
+        {
+    
+            $users = new UserDAO();
+            $students = new StudentDAO();
+        
+            if(!$users->searchUser($email))
+            {
+                
+                if($type == 0){
+
                     $student = $students->SearchStudentByEmail($email);
 
                     if($student!=null)
@@ -79,30 +119,34 @@
                         {
                             $users->Add(new User(0,$email,password_hash($password, PASSWORD_DEFAULT),0));
 
-                            $message = "Cuenta creada con exito, por favor inicie sesion";
-                            require_once(VIEWS_PATH."login.php");
-                        }
+                            $message = "Cuenta estudiantil creada con exito";
+                         }
                         else
                         {
-                            $message = "Usted no tiene permisos para ingresar en el sistema. Verifique su estado con personal.";
-                            require_once(VIEWS_PATH."login.php");
+                            $message = "El email ingresado se encuentra en estado inactivo";
+
                         }
                     }
                     else
                     {
                         $message = "Email inexistente en el sistema";
-                        require_once(VIEWS_PATH."user-add.php");
                     }
                 }
-                else
-                    {
-                        $message = "El email ingresado ya fue utilizado";
-                        require_once(VIEWS_PATH."user-add.php");
-                    }
+                else{
 
-                
+                    $users->Add(new User(0,$email,password_hash($password, PASSWORD_DEFAULT),1));
+                    $message = "Cuenta administrativa creada con exito";
+                }
+         
             }
+            else
+                {
+                    $message = "El email ingresado ya fue utilizado";
+                }
+
+            require_once(VIEWS_PATH."user-add-admin.php");
         }
+        
 
         public function LogOut()
         {    

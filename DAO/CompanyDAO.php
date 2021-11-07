@@ -96,6 +96,9 @@
             }
         }
 
+
+        // Busca una compania en la base de datos a traves de su nombre,
+        // :$company si existe, :null si no existe
         public function SearchCompany($name)
         {
             $companyList = $this->GetAll();
@@ -111,6 +114,10 @@
 
             return $company;
         }
+
+
+
+
 
         public function SearchCompanyById($id)
         {

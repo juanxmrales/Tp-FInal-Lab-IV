@@ -4,31 +4,28 @@
 <main class="py-5"   style="margin: -5rem 0 10rem 0">
      <section id="listado" class="mb-5">
           <div class="container pt-5">
-               <h2 class="mb-4">Agregar Empresa</h2>
-               <form action="<?php echo FRONT_ROOT ?>Company/Add" method="post" class="bg-light-alpha p-5">
+               <h2 class="mb-4">Agregar Usuario</h2>
+               <form action="<?php echo FRONT_ROOT ?>LoginRegister/RegisterAdmin" method="post" class="bg-light-alpha p-5">
                     <div class="row">                         
                          <div class="col-lg-4">
                               <div class="form-group">
-                                   <label for="">Nombre</label>
-                                   <input type="text" name="name" value="" class="form-control">
+                                   <label for="">E-mail</label>
+                                   <input type="email" name="email" value="" class="form-control" required>
                               </div>
                          </div>
                          <div class="col-lg-4">
                               <div class="form-group">
-                                   <label for="">Calle</label>
-                                   <input type="text" name="street" value="" class="form-control">
+                                   <label for="">Contraseña</label>
+                                   <input type="password" name="password" value="" class="form-control" required>
                               </div>
                          </div>
                          <div class="col-lg-4">
                               <div class="form-group">
-                                   <label for="">Nacionalidad</label>
-                                   <input type="text" name="nacionality" value="" class="form-control">
-                              </div>
-                         </div>
-                         <div class="col-lg-4">
-                              <div class="form-group">
-                                   <label for="">Descripcion</label>
-                                   <input type="textarea" name="description" value="" class="form-control">
+                                   <label for="">Tipo</label>
+                                   <select class="form-control" name="type">
+                                        <option value=0>Estudiante</option>
+                                        <option value=1>Admin</option>
+                                   </select>
                               </div>
                          </div>
                     </div>
