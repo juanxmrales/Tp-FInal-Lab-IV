@@ -28,7 +28,7 @@ require_once('nav.php');
                                    ?>  
                                         <tr>
                                              <td><a href="<?php echo FRONT_ROOT; ?>Student/ShowStudentProfile/<?php echo $user->getEmail();?>"><button class="btn btn-dark ml-auto d-block">Ver Perfil</button></a></td>
-                                             <td><a href=""><button class="btn btn-dark ml-auto d-block">Contactar</button></a></td>
+                                             <td><a href="mailto:<?php echo $student->getEmail(); ?>"><button  class="btn btn-dark ml-auto d-block">Contactar</button></a></td>
                                              <td><?php echo $student->getFirstName(); ?></td>
                                              <td><?php echo $student->getLastName(); ?></td>
                                              <td><?php echo $student->getDni(); ?></td>
