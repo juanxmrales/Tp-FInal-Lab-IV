@@ -8,7 +8,7 @@ require_once('nav.php');
      <section id="listado" class="mb-5">
           <div class="container">
                <br>                  
-               <h2 class="mb-4">Perfil de Empresa</h2>
+               <h2 class="mb-4">Perfil de Empresa: <?php echo $company->getName(); ?></h2>
                <table class="table bg-light-alpha">
                     <thead>
                          <th>Nombre</th>
