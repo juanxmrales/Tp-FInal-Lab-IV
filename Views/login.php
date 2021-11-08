@@ -19,7 +19,7 @@
 
 </head>
 <body>
-    <div id="login" style="margin: -5rem 0 15rem 0">
+    <div id="login">
         <br>
         <br>
         <br>
