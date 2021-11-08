@@ -10,19 +10,19 @@
                          <div class="col-lg-4">
                               <div class="form-group">
                                    <label for="">ID</label>
-                                   <input type="number" name="idJob" class="form-control" value="<?php echo $idJob; ?>" readonly>
+                                   <input type="text" name="idJob" class="form-control" value="<?php echo $job->getDescription(); ?>" readonly>
                               </div>
                          </div>                         
                          <div class="col-lg-4">
                               <div class="form-group">
                                    <label for="">Empresa</label>
-                                   <input type="text" name="company" class="form-control" value="<?php echo $company; ?>" readonly>
+                                   <input type="text" name="company" class="form-control" value="<?php echo $job->getCompany(); ?>" readonly>
                               </div>
                          </div>
                          <div class="col-lg-4">
                               <div class="form-group">
                                    <label for="">Posicion</label>
-                                   <input type="text" name="jobPosition" class="form-control" value="<?php echo $jobPosition; ?>" readonly>
+                                   <input type="text" name="jobPosition" class="form-control" value="<?php echo $job->getJobPosition(); ?>" readonly>
                               </div>
                          </div>
                     </div>
