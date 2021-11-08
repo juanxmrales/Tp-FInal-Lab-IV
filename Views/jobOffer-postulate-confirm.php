@@ -10,25 +10,28 @@
                          <div class="col-lg-4">
                               <div class="form-group">
                                    <label for="">ID</label>
-                                   <input type="text" name="idJob" class="form-control" value="<?php echo $idJob ?>" readonly>
+                                   <input type="number" name="idJob" class="form-control" value="<?php echo $idJob ?>" readonly>
                               </div>
                          </div>                         
                          <div class="col-lg-4">
                               <div class="form-group">
                                    <label for="">Empresa</label>
-                                   <input type="text" class="form-control" value="<?php echo $company; ?>" readonly>
+                                   <input type="text" name="company" class="form-control" value="<?php echo $company; ?>" readonly>
                               </div>
                          </div>
                          <div class="col-lg-4">
                               <div class="form-group">
                                    <label for="">Posicion</label>
-                                   <input type="text" class="form-control" value="<?php echo $jobPosition; ?>" readonly>
+                                   <input type="text" name="jobPosition" class="form-control" value="<?php echo $jobPosition; ?>" readonly>
                               </div>
                          </div>
                     </div>
                     <button type="submit" class="btn btn-dark ml-auto d-block">Confirmar</button><br>
-                    <button action="<?php echo FRONT_ROOT ?>JobOffer/ShowListView" class="btn btn-dark ml-auto d-block">Cancelar</button>
-               </form>                   
+               <button action="<?php echo FRONT_ROOT ?>JobOffer/ShowListView" class="btn btn-dark ml-auto d-block">Cancelar</button>
+               </form> 
+          
+               
+               <span class="badge badge-info" style="font-size: 15px;"><?php echo $message ?></span>              
           </div>
      </section>
 </main>

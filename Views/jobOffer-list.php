@@ -88,6 +88,11 @@ require_once('nav.php');
                          ?>
                     </tbody>
                </table>
+
+
+               <?php if((!isset($_GET['position']) && !isset($_GET['career']))){ ?>
+                    <span class="badge badge-info" style="font-size: 15px;"><?php echo $message ?></span>                    
+               <?php } ?>
           </div>
      </section>
 </main>
