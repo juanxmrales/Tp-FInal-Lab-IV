@@ -10,7 +10,7 @@
                          <div class="col-lg-4">
                               <div class="form-group">
                                    <label for="">ID</label>
-                                   <input type="number" name="idJob" class="form-control" value="<?php echo $idJob ?>" readonly>
+                                   <input type="number" name="idJob" class="form-control" value="<?php echo $idJob; ?>" readonly>
                               </div>
                          </div>                         
                          <div class="col-lg-4">
