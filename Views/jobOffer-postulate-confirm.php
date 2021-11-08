@@ -26,7 +26,8 @@
                               </div>
                          </div>
                     </div>
-                    <button type="submit" class="btn btn-dark ml-auto d-block">Confirmar</button>
+                    <button type="submit" class="btn btn-dark ml-auto d-block">Confirmar</button><br>
+                    <button action="<?php echo FRONT_ROOT ?>JobOffer/ShowListView" class="btn btn-dark ml-auto d-block">Cancelar</button>
                </form>                   
           </div>
      </section>
