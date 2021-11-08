@@ -34,6 +34,7 @@ require_once('nav.php');
                                              <td><?php echo $student->getDni(); ?></td>
                                              <td><?php echo $student->getEmail(); ?></td>
                                              <td><?php echo $student->getPhoneNumber(); ?></td>
+                                        
                                         </tr>
                                    <?php
                               }
