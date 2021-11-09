@@ -103,7 +103,7 @@ class JobOfferController
 			require_once(VIEWS_PATH."jobOffer-postulate-confirm.php");
 		}
 
-		public function ApplyJobOffer($idJob,$company,$jobPosition){
+		public function ApplyJobOffer($idJob){
 
 			$userXJob = new UserXJobOffer($_SESSION['idUser'],$idJob);
 			$userXJobDAO = new UserXJobOfferDAO();

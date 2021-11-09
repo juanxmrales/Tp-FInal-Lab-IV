@@ -26,8 +26,10 @@
                 return "Postulacion exitosa";
             }
             catch(Exception $ex)
-            {
-                return "Usted ya se encontraba postulado anteriormente";
+            {   
+                echo var_dump($userXJob);
+                throw $ex;
+                //return "Usted ya se encontraba postulado anteriormente";
             }
         }
 
