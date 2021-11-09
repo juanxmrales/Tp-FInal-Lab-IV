@@ -3,7 +3,7 @@
 <script src="https://kit.fontawesome.com/b4c4dc37b0.js" crossorigin="anonymous"></script>
 
 
-<footer>
+<footer class=" color">
   	 <div class="container">
 			<div class="row">
 			<div class="col-md-3 col-sm-6">

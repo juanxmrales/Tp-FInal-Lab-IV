@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg  navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg  navbar-dark color fixed-top">
      <div class="container">
           <a class="navbar-brand" href="<?php echo FRONT_ROOT ?>Student/SearchStudent">
                <i class="fas fa-user-cog"></i>
@@ -38,7 +38,7 @@
           </div>
      </div>
 </nav>
-<nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg  navbar-dark color">
      <a class="navbar-brand" href="index.php">
           <img src= <?php echo FRONT_ROOT.VIEWS_PATH ?>img/admin.png ?>
      </a>

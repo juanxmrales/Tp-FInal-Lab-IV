@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg  navbar-dark color">
      <div class="container">
           <a class="navbar-brand" href="index.php">
                <i class="fas fa-user-graduate"></i>
