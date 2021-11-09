@@ -29,8 +29,8 @@ require_once('nav.php');
                                              <td><a href="<?php echo FRONT_ROOT; ?>JobOffer/ShowPostulates/<?php echo $jobOffer->getId();?>"><button class="btn btn-dark ml-auto d-block">Ver Postulantes</button></a></td>
 
                                              <td><?php echo $jobOffer->getJobPosition(); ?></td>
-                                             <td><?php echo $jobOffer->getCareer(); ?></td>
                                              <td><?php echo $jobOffer->getCompany(); ?></td>
+                                             <td><?php echo $jobOffer->getCareer(); ?></td>
                                              <td><?php echo $jobOffer->getFecha(); ?></td>
                                              <td><?php echo $jobOffer->getDescription(); ?></td>
                                         </tr>
