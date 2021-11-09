@@ -54,12 +54,12 @@
                         <form id="register-form" action="<?php echo FRONT_ROOT ?>User/ShowAddView" method="POST">
                             <input type="submit" class="btn btn-dark btn-lg btn-block" value="Registrarse">
                         </form>
-                        <br><br>
+                        
                         
                     </div>
                 </div>
             </div>
         </div><center><span class="badge badge-info" style="margin-top: 20px;font-size: 15px;"><?php echo $message ?></span></center>
-    </div>
+    </div><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
