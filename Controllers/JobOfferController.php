@@ -96,12 +96,14 @@ class JobOfferController
 		}
 
 		
-		public function ShowConfirmView($idJob, $jobPosition, $company, $message = ""){
+		public function ShowConfirmView($idJob,$message = ""){
+
+			$job = $this->jobOfferDAO->GetById($idJob);
 
 			require_once(VIEWS_PATH."jobOffer-postulate-confirm.php");
 		}
 
-		public function ApplyJobOffer($idJob){
+		public function ApplyJobOffer($idJob,$company,$jobPosition){
 
 			$userXJob = new UserXJobOffer($_SESSION['idUser'],$idJob);
 			$userXJobDAO = new UserXJobOfferDAO();
