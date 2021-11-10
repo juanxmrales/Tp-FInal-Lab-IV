@@ -22,7 +22,7 @@ use DAO\JobPositionDAO;
 
                 if($_SESSION['type'] == 0){
 
-                    require_once(VIEWS_PATH."denied-access.php");
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);
                 }
                 else{
 
@@ -41,7 +41,7 @@ use DAO\JobPositionDAO;
 
                 if($_SESSION['type'] == 0){
 
-                    require_once(VIEWS_PATH."denied-access.php");
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);
                 }
                 else{
 
@@ -62,7 +62,7 @@ use DAO\JobPositionDAO;
 
                 if($_SESSION['type'] == 0){
 
-                    require_once(VIEWS_PATH."denied-access.php");
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);
                 }
                 else{
 
@@ -83,7 +83,7 @@ use DAO\JobPositionDAO;
 
                 if($_SESSION['type'] == 0){
 
-                    require_once(VIEWS_PATH."denied-access.php");
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);
                 }
                 else{
 
@@ -129,7 +129,7 @@ use DAO\JobPositionDAO;
 
                 if($_SESSION['type'] == 0){
 
-                    require_once(VIEWS_PATH."denied-access.php");
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);
                 }
                 else{
 
@@ -160,7 +160,7 @@ use DAO\JobPositionDAO;
 
                 if($_SESSION['type'] == 0){
 
-                    require_once(VIEWS_PATH."denied-access.php");
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);
                 }
                 else{
 
@@ -182,7 +182,7 @@ use DAO\JobPositionDAO;
 
                 if($_SESSION['type'] == 0){
 
-                    require_once(VIEWS_PATH."denied-access.php");
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);
                 }
                 else{
 
