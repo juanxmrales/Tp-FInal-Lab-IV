@@ -7,9 +7,11 @@
           <div class="container pt-5">
                <h2 class="mb-4">Listado de Alumnos</h2>
                <form>
-                    <input type="text" name="filter" placeholder="DNI">
-                    <button type="submit" value="Filtrar" class="btn btn-outline-dark">Filtrar</button>
-                    <br><br>
+                    <div style="display: flex;width: 40%;">
+                         <input type="text" name="filter" placeholder="DNI" class="form-control">
+                         <button type="submit" value="Filtrar" class="btn btn-dark ">Filtrar</button>
+                    </div>
+                    <br>
                </form>
                </div>
                <div class="container">
