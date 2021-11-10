@@ -15,8 +15,8 @@
                          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                               <li><a class="dropdawn-item" href="<?php echo FRONT_ROOT ?>Company/ShowAddView">Agregar Empresa</a></li>
                               <li><hr class="dropdown-divider"></li>
-                              <li><a class="dropdawn-item" href="<?php echo FRONT_ROOT ?>JobOffer/ShowAddView">Agregar oferta</a></li>                     <li><hr class="dropdown-divider"></li>
-                              <li><a class="dropdawn-item" href="<?php echo FRONT_ROOT ?>User/ShowAddViewAdmin">Agregar usuario</a></li>
+                              <li><a class="dropdawn-item" href="<?php echo FRONT_ROOT ?>JobOffer/ShowAddView">Agregar Oferta</a></li>                     <li><hr class="dropdown-divider"></li>
+                              <li><a class="dropdawn-item" href="<?php echo FRONT_ROOT ?>User/ShowAddViewAdmin">Agregar Usuario</a></li>
                          </ul>
                     </li>
                     <li class="nav-item dropdown">
