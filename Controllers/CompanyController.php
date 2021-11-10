@@ -18,33 +18,89 @@ use DAO\JobPositionDAO;
 
         public function ShowAddView($message = "")
         {
-            require_once(VIEWS_PATH."company-add.php");
+            if(isset($_SESSION['type'])){
+
+                if($_SESSION['type'] == 0){
+
+                    require_once(VIEWS_PATH."denied-access.php");
+                }
+                else{
+
+                    require_once(VIEWS_PATH."company-add.php");
+                }         
+            }
+            else{
+                require_once(VIEWS_PATH."login.php");
+            }   
         }
 
         public function ShowModifyView($id)
         {
-            $companyList = $this->companyDAO->GetAll();
+        
+            if(isset($_SESSION['type'])){
 
-            require_once(VIEWS_PATH."company-modify.php");
+                if($_SESSION['type'] == 0){
+
+                    require_once(VIEWS_PATH."denied-access.php");
+                }
+                else{
+
+                    $companyList = $this->companyDAO->GetAll();
+                    require_once(VIEWS_PATH."company-modify.php");
+                }         
+            }
+            else{
+                require_once(VIEWS_PATH."login.php");
+            }
+            
         }
 
         public function ShowListView()
         {
-            $companyList = $this->companyDAO->GetAll();
+            
+            if(isset($_SESSION['type'])){
 
-            require_once(VIEWS_PATH."company-list.php");
+                if($_SESSION['type'] == 0){
+
+                    require_once(VIEWS_PATH."denied-access.php");
+                }
+                else{
+
+                    $companyList = $this->companyDAO->GetAll();
+                    require_once(VIEWS_PATH."company-list.php");                
+                }         
+            }
+            else{
+                require_once(VIEWS_PATH."login.php");
+            }
+
         }
 
         public function ShowCompanyProfile($id)
         {
-            $jobPositionDAO = new JobPositionDAO();
-            $careerDAO = new CareerDAO();
-            $jobOfferDAO = new JobOfferDAO();
 
-            $jobOfferList = $jobOfferDAO->GetAll();
-            $companyList = $this->companyDAO->GetAll();
+            if(isset($_SESSION['type'])){
 
-            require_once(VIEWS_PATH."company-profile.php");
+                if($_SESSION['type'] == 0){
+
+                    require_once(VIEWS_PATH."denied-access.php");
+                }
+                else{
+
+                    $jobPositionDAO = new JobPositionDAO();
+                    $careerDAO = new CareerDAO();
+                    $jobOfferDAO = new JobOfferDAO();
+
+                    $jobOfferList = $jobOfferDAO->GetAll();
+                    $companyList = $this->companyDAO->GetAll();
+
+                    require_once(VIEWS_PATH."company-profile.php");
+                }         
+            }
+            else{
+                require_once(VIEWS_PATH."login.php");
+            }
+
         }
 
         public function ShowListViewStudent()
@@ -68,33 +124,76 @@ use DAO\JobPositionDAO;
 
         public function Add($name, $street, $nacionality, $description)
         {
-            if($this->companyDAO->SearchCompany($name)==null)
-            {
+            
+            if(isset($_SESSION['type'])){
 
-                $company = new Company(0,$name, $street, $nacionality, $description);
+                if($_SESSION['type'] == 0){
 
-                $this->companyDAO->Add($company);
+                    require_once(VIEWS_PATH."denied-access.php");
+                }
+                else{
 
-                $this->ShowAddView("Registro exitoso");
+                    if($this->companyDAO->SearchCompany($name)==null)
+                    {
+
+                        $company = new Company(0,$name, $street, $nacionality, $description);
+
+                        $this->companyDAO->Add($company);
+
+                        $this->ShowAddView("Registro exitoso");
+                    }
+                    else
+                    {
+                        $this->ShowAddView("El nombre de empresa ingresado ya existe");
+                    }
+                }         
             }
-            else
-            {
-                $this->ShowAddView("El nombre de empresa ingresado ya existe");
+            else{
+                require_once(VIEWS_PATH."login.php");
             }
         }
 
         public function Delete($id)
         {
-            $this->companyDAO->Delete($id);
 
-            $this->ShowListView();
+            if(isset($_SESSION['type'])){
+
+                if($_SESSION['type'] == 0){
+
+                    require_once(VIEWS_PATH."denied-access.php");
+                }
+                else{
+
+                    $this->companyDAO->Delete($id);
+
+                    $this->ShowListView();
+                }         
+            }
+            else{
+                require_once(VIEWS_PATH."login.php");
+            }
+
         }
 
         public function Modify($id,$name,$street,$nacionality,$description)
         {
-            $this->companyDAO->Modify(new Company($id,$name, $street, $nacionality, $description));
+            
+            if(isset($_SESSION['type'])){
 
-            $this->ShowCompanyProfile($id);
+                if($_SESSION['type'] == 0){
+
+                    require_once(VIEWS_PATH."denied-access.php");
+                }
+                else{
+
+                    $this->companyDAO->Modify(new Company($id,$name, $street, $nacionality, $description));
+
+                    $this->ShowCompanyProfile($id);
+                }         
+            }
+            else{
+                require_once(VIEWS_PATH."login.php");
+            }
 
         }
     }

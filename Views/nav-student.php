@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg  navbar-dark color">
      <div class="container">
-          <a class="navbar-brand" href="index.php">
+          <a class="navbar-brand" href="<?php echo FRONT_ROOT ?>Student/ShowStudentProfile/<?php echo $_SESSION["email"];?>">
                <i class="fas fa-user-graduate"></i>
           </a>
 

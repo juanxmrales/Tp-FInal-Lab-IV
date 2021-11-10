@@ -1,9 +1,5 @@
 <?php
 
-    if(isset($_SESSION['logueado']))
-    {
-        header("location: " . FRONT_ROOT . "Student/ShowAddView");
-    }
     
 ?>
 <!DOCTYPE html>

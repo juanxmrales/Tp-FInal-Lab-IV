@@ -24,12 +24,26 @@ class JobOfferController
 
 		public function ShowAddView(){
 
-			$companyDAO = new CompanyDAO();
-			$companyList = $companyDAO->GetAll();
-			$jobPositionDAO = new JobPositionDAO();
-			$jobPositionList = $jobPositionDAO->getAll();
+			if(isset($_SESSION['type'])){
 
-			require_once(VIEWS_PATH."jobOffer-add.php");
+                if($_SESSION['type'] == 0){
+
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);
+                }
+                else{
+
+		            $companyDAO = new CompanyDAO();
+					$companyList = $companyDAO->GetAll();
+					$jobPositionDAO = new JobPositionDAO();
+					$jobPositionList = $jobPositionDAO->getAll();
+
+					require_once(VIEWS_PATH."jobOffer-add.php");
+                }         
+            }
+            else{
+                require_once(VIEWS_PATH."login.php");
+            } 
+	
 		}
 
 		public function ShowListView($message = ""){
@@ -43,13 +57,28 @@ class JobOfferController
 		}
 
 		public function ShowListViewAdmin(){
-			$companyDAO  = new CompanyDAO();
-			$careerDAO = new CareerDAO();
-			$jobPositionDAO = new JobPositionDAO();
+			
+			if(isset($_SESSION['type'])){
+
+                if($_SESSION['type'] == 0){
+
+                    require_once(VIEWS_PATH."denied-access.php");
+                }
+                else{
+
+		            $companyDAO  = new CompanyDAO();
+					$careerDAO = new CareerDAO();
+					$jobPositionDAO = new JobPositionDAO();
 
 
-			$jobOfferList = $this->jobOfferDAO->getAll();
-			require_once(VIEWS_PATH."jobOffer-list-admin.php");
+					$jobOfferList = $this->jobOfferDAO->getAll();
+					require_once(VIEWS_PATH."jobOffer-list-admin.php");
+                }         
+            }
+            else{
+                require_once(VIEWS_PATH."login.php");
+            }
+
 		}
 
 		public function ShowUserJobs()
@@ -64,35 +93,62 @@ class JobOfferController
 		
 		public function ShowPostulates($id)
 		{
-			$studentsDAO = new StudentDAO();
-			$userDAO = new UserDAO();
-			$jobOffer = (new JobOfferDAO)->getById($id);
-			$postulates = $jobOffer->getUsers();
+			if(isset($_SESSION['type'])){
 
-			require_once(VIEWS_PATH."jobOffer-postulates.php");
+                if($_SESSION['type'] == 0){
+
+                    require_once(VIEWS_PATH."denied-access.php");
+                }
+                else{
+
+		            $studentsDAO = new StudentDAO();
+					$userDAO = new UserDAO();
+					$jobOffer = (new JobOfferDAO)->getById($id);
+					$postulates = $jobOffer->getUsers();
+					require_once(VIEWS_PATH."jobOffer-postulates.php");
+                }         
+            }
+            else{
+                require_once(VIEWS_PATH."login.php");
+            }
+			
 		}
 
 		public function Add($idCompany,$idJobPosition,$description){
 
-			$date = getdate();
-			$fecha = $date["year"] . "-" . $date["mon"] . "-" . $date["mday"];
 
-			$companyDAO = new CompanyDAO();
-			$jobPositionDAO = new JobPositionDAO();
-			$careerDAO = new CareerDAO();
+			if(isset($_SESSION['type'])){
 
-			$company = ($companyDAO->SearchCompanyById($idCompany))->getName();
-			$job = $jobPositionDAO->SearchJobPositionById($idJobPosition);
+                if($_SESSION['type'] == 0){
 
-			$jobPosition = $job->getDescription();
-			$careerId = $job->getCareerId();
+                    require_once(VIEWS_PATH."denied-access.php");
+                }
+                else{
 
-			$career = ($careerDAO->SearchCareerById($careerId))->getDescription();
+		            $date = getdate();
+					$fecha = $date["year"] . "-" . $date["mon"] . "-" . $date["mday"];
 
-			$jobOffer = new JobOffer(0,$idJobPosition,$jobPosition,$idCompany,$company,$career,$fecha,$description);
+					$companyDAO = new CompanyDAO();
+					$jobPositionDAO = new JobPositionDAO();
+					$careerDAO = new CareerDAO();
 
-			$this->jobOfferDAO->add($jobOffer);
-			$this->ShowAddView();
+					$company = ($companyDAO->SearchCompanyById($idCompany))->getName();
+					$job = $jobPositionDAO->SearchJobPositionById($idJobPosition);
+
+					$jobPosition = $job->getDescription();
+					$careerId = $job->getCareerId();
+
+					$career = ($careerDAO->SearchCareerById($careerId))->getDescription();
+
+					$jobOffer = new JobOffer(0,$idJobPosition,$jobPosition,$idCompany,$company,$career,$fecha,$description);
+
+					$this->jobOfferDAO->add($jobOffer);
+					$this->ShowAddView();
+                }         
+            }
+            else{
+                require_once(VIEWS_PATH."login.php");
+            }	
 		}
 
 		
@@ -115,41 +171,82 @@ class JobOfferController
 
 		public function ShowModifyView($id)
 		{
-			$companyDAO = new CompanyDAO();
-			$companyList = $companyDAO->GetAll();
-			$jobPositionDAO = new JobPositionDAO();
-			$jobPositionList = $jobPositionDAO->getAll();
-			$job = $this->jobOfferDAO->GetById($id);
+			if(isset($_SESSION['type'])){
 
-			require_once(VIEWS_PATH."jobOffer-modify.php");
+                if($_SESSION['type'] == 0){
+
+                    require_once(VIEWS_PATH."denied-access.php");
+                }
+                else{
+
+		            $companyDAO = new CompanyDAO();
+					$companyList = $companyDAO->GetAll();
+					$jobPositionDAO = new JobPositionDAO();
+					$jobPositionList = $jobPositionDAO->getAll();
+					$job = $this->jobOfferDAO->GetById($id);
+
+					require_once(VIEWS_PATH."jobOffer-modify.php");
+                }         
+            }
+            else{
+                require_once(VIEWS_PATH."login.php");
+            }
 		}
 
 		public function Modify($id,$idCompany,$idJobPosition,$fecha,$description)
-		{
-			$companyDAO = new CompanyDAO();
-			$jobPositionDAO = new JobPositionDAO();
-			$careerDAO = new CareerDAO();
+		{	
+			if(isset($_SESSION['type'])){
 
-			$company = ($companyDAO->SearchCompanyById($idCompany))->getName();
-			$job = $jobPositionDAO->SearchJobPositionById($idJobPosition);
+                if($_SESSION['type'] == 0){
 
-			$jobPosition = $job->getDescription();
-			$careerId = $job->getCareerId();
+                    require_once(VIEWS_PATH."denied-access.php");
+                }
+                else{
 
-			$career = ($careerDAO->SearchCareerById($careerId))->getDescription();
+		           	$companyDAO = new CompanyDAO();
+					$jobPositionDAO = new JobPositionDAO();
+					$careerDAO = new CareerDAO();
 
-			$jobOffer = new JobOffer($id,$idJobPosition,$jobPosition,$idCompany,$company,$career,$fecha,$description);
+					$company = ($companyDAO->SearchCompanyById($idCompany))->getName();
+					$job = $jobPositionDAO->SearchJobPositionById($idJobPosition);
 
-			$this->jobOfferDAO->Modify($jobOffer);
+					$jobPosition = $job->getDescription();
+					$careerId = $job->getCareerId();
 
-			$this->ShowListViewAdmin();
+					$career = ($careerDAO->SearchCareerById($careerId))->getDescription();
+
+					$jobOffer = new JobOffer($id,$idJobPosition,$jobPosition,$idCompany,$company,$career,$fecha,$description);
+
+					$this->jobOfferDAO->Modify($jobOffer);
+
+					$this->ShowListViewAdmin();
+                }         
+            }
+            else{
+                require_once(VIEWS_PATH."login.php");
+            }
+			
 		}
 
 		public function Delete($id)
 		{
-			$this->jobOfferDAO->Delete($id);
 
-			$this->ShowListViewAdmin();
+			if(isset($_SESSION['type'])){
+
+                if($_SESSION['type'] == 0){
+
+                    require_once(VIEWS_PATH."denied-access.php");
+                }
+                else{
+
+		            $this->jobOfferDAO->Delete($id);
+					$this->ShowListViewAdmin();
+                }         
+            }
+            else{
+                require_once(VIEWS_PATH."login.php");
+            }
+			
 		}
 		
 	}
