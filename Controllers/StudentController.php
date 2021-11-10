@@ -14,26 +14,28 @@ use Models\Student as Student;
             $this->studentDAO = new StudentDAO();
         }
 
-        public function ShowAddView()
-        {
-            require_once(VIEWS_PATH."student-add.php");
-        }
-
-        public function ShowListView()
-        {
-            $studentList = $this->studentDAO->GetAll();
-
-            require_once(VIEWS_PATH."student-list.php");
-        }
-
         public function SearchStudent()
         {
-            $userDAO = new UserDAO();
+            if(isset($_SESSION['type']))
+            {
+                if($_SESSION['type'] == 0)
+                {
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);
+                }
+                else
+                {
+                    $userDAO = new UserDAO();
 
-            $userList = $userDAO->GetAll();
-            $studentList = $this->studentDAO->GetAll();
+                    $userList = $userDAO->GetAll();
+                    $studentList = $this->studentDAO->GetAll();
 
-            require_once(VIEWS_PATH."buscar-alumno.php");
+                    require_once(VIEWS_PATH."buscar-alumno.php");
+                }
+            }
+            else
+            {
+                require_once(VIEWS_PATH."login.php");
+            }
         }
 
         public function ShowStudentProfile($email)
