@@ -10,7 +10,7 @@ require_once('nav.php');
           <div class="container pt-5">
                <h2 class="mb-4">Listado de Ofertas</h2>
                <form>
-                    <div style="display: flex;width: 40%;">
+                    <div class="filtro">
                          <input type="text" name="position" id="position" placeholder="Posicion" class="form-control">
                          <input type="text" name="career" id="career" placeholder="Carrera" class="form-control">              
                          <button type="submit" value="Filtrar" class="btn btn-dark ">Filtrar</button>
