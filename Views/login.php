@@ -15,13 +15,7 @@
 
 </head>
 <body>
-    <div id="login">
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <h3 class="text-center display-4" style="margin-top: 70px">Bienvenidos!</h3>
+    <div id="login" style="margin: 120px 0 0 0;">
 
         <div class="container">
             <div id="login-row" class="row justify-content-center align-items-center">
