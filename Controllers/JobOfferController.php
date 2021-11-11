@@ -48,14 +48,22 @@ class JobOfferController
 
 		public function ShowListView($message = ""){
 	
-			$companyDAO  = new CompanyDAO();
-			$careerDAO = new CareerDAO();
-			$jobPositionDAO = new JobPositionDAO();
+			if(isset($_SESSION['type'])){
+
+                 $companyDAO  = new CompanyDAO();
+				$careerDAO = new CareerDAO();
+				$jobPositionDAO = new JobPositionDAO();
 
 
-			$jobOfferList = $this->jobOfferDAO->getAll();
-			require_once(VIEWS_PATH."jobOffer-list.php");
-		}
+				$jobOfferList = $this->jobOfferDAO->getAll();
+				require_once(VIEWS_PATH."jobOffer-list.php");        
+            }
+            else{
+                require_once(VIEWS_PATH."login.php");
+            }
+
+        }
+			
 
 		public function ShowListViewAdmin(){
 			
@@ -84,12 +92,21 @@ class JobOfferController
 
 		public function ShowUserJobs()
 		{
-			$jobPositionDAO = new JobPositionDAO;
-			$careerDAO = new CareerDAO();
-			$companyDAO  = new CompanyDAO();
-			$jobOfferList = $this->jobOfferDAO->getAll();
 
-			require_once(VIEWS_PATH."user-postulations.php");
+			if(isset($_SESSION['type'])){
+
+                $jobPositionDAO = new JobPositionDAO;
+				$careerDAO = new CareerDAO();
+				$companyDAO  = new CompanyDAO();
+				$jobOfferList = $this->jobOfferDAO->getAll();
+
+				require_once(VIEWS_PATH."user-postulations.php");
+        
+            }
+            else{
+                require_once(VIEWS_PATH."login.php");
+            }
+
 		}
 		
 		public function ShowPostulates($id)
@@ -155,19 +172,34 @@ class JobOfferController
 		
 		public function ShowConfirmView($idJob,$message = ""){
 
-			$job = $this->jobOfferDAO->GetById($idJob);
+			
+			if(isset($_SESSION['type'])){
 
-			require_once(VIEWS_PATH."jobOffer-postulate-confirm.php");
+              $job = $this->jobOfferDAO->GetById($idJob);
+
+				require_once(VIEWS_PATH."jobOffer-postulate-confirm.php");        
+            }
+            else{
+                require_once(VIEWS_PATH."login.php");
+            }
+			
 		}
 
 		public function ApplyJobOffer($idJob){
 
-			$userXJob = new UserXJobOffer($_SESSION['idUser'],$idJob);
-			$userXJobDAO = new UserXJobOfferDAO();
+			if(isset($_SESSION['type'])){
 
-			$message = $userXJobDAO->Add($userXJob);
+              	$userXJob = new UserXJobOffer($_SESSION['idUser'],$idJob);
+				$userXJobDAO = new UserXJobOfferDAO();
 
-			$this->ShowListView($message);
+				$message = $userXJobDAO->Add($userXJob);	
+
+				$this->ShowListView($message);   
+            }
+            else{
+                require_once(VIEWS_PATH."login.php");
+            }
+			
 		}
 
 		public function ShowModifyView($id)
