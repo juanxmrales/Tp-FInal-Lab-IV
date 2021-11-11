@@ -49,7 +49,7 @@
                     </div>
                 </div>
             </div>
-        </div><center><span class="badge badge-info" style="margin-top: 20px;font-size: 15px;"><?php echo $message ?></span></center>
+        </div><center><span class="badge badge-info" style="margin-top: 20px;font-size: 15px;"><?php if(isset($message)){echo $message;} ?></span></center>
     </div><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
