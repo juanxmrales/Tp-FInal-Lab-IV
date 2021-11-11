@@ -16,6 +16,7 @@ body {
     margin: 0;
     padding-bottom: 6rem;
     min-height: 100%;
+    
 }
 
 *{
@@ -67,6 +68,7 @@ body {
 
 .navbar {
     margin-bottom: 5rem;
+    color: white;
 }
 
 .dropdown-menu {
@@ -91,6 +93,14 @@ body {
   margin: 5rem 0 15rem 5rem;
 }
 
+.filtro{
+  display: flex;
+}
+
+.filtro input{
+  width: 200px;
+  margin: 0 10px 0 0;
+}
 
 /*------------------------footer-------------------------*/
 

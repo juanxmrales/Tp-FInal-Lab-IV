@@ -9,8 +9,8 @@
           <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                <ul class="navbar-nav">
                <li class="nav-item dropdown">
-                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                         Agregar
+                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
+                              Agregar
                          </a>
                          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                               <li><a class="dropdawn-item" href="<?php echo FRONT_ROOT ?>Company/ShowAddView">Agregar Empresa</a></li>
@@ -20,7 +20,7 @@
                          </ul>
                     </li>
                     <li class="nav-item dropdown">
-                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:white">
                          Listar
                          </a>
                          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -32,7 +32,7 @@
                          </ul>
                     </li>  
                     <li class="nav-item">
-                         <a class="nav-link" href="<?php echo FRONT_ROOT ?>LoginRegister/LogOut">Log out</a>
+                         <a class="nav-link" href="<?php echo FRONT_ROOT ?>LoginRegister/LogOut" style="color:white">Log out</a>
                     </li>   
                </ul>
           </div>

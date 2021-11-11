@@ -7,7 +7,7 @@
           <div class="container pt-5">
                <h2 class="mb-4">Listado de Empresas</h2>
                <form>
-                    <div style="display: flex;width: 40%;">
+                    <div class="filtro">
                          <input type="text" name="filter" placeholder="Nombre" class="form-control">
                          <button type="submit" value="Filtrar" class="btn btn-dark ">Filtrar</button>
                     </div>
