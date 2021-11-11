@@ -10,36 +10,28 @@
     {
         public function Login($email,$password)
         {
-            if(isset($_POST))
+            $users = new UserDAO();
+            $students = new StudentDAO();
+
+            if($users->exist($email,$password))
             {
-                $users = new UserDAO();
-                $students = new StudentDAO();
-    
-                if($users->exist($email,$password))
+                $user = $users->searchUser($email);
+
+                $_SESSION['email'] = $email;
+                $_SESSION['type'] = $user->getType();
+                $_SESSION['idUser'] = $user->getId();
+
+                $student = $students->SearchStudentByEmail($email);
+
+                if($_SESSION['type']==0)
                 {
-                    $user = $users->searchUser($email);
-
-                    $_SESSION['email'] = $email;
-                    $_SESSION['type'] = $user->getType();
-                    $_SESSION['idUser'] = $user->getId();
-
-                    $student = $students->SearchStudentByEmail($email);
-
-                    if($_SESSION['type']==0)
+                    if($student!=null)
                     {
-                        if($student!=null)
+                        if($student->getActive())
                         {
-                            if($student->getActive())
-                            {
-                                $_SESSION['logueado'] = 1;
+                            $_SESSION['logueado'] = 1;
 
-                                header("location:". FRONT_ROOT . "Student/ShowStudentProfile/" . $_SESSION["email"]);
-                            }
-                            else
-                            {
-                                $message = "Usted no tiene permisos para ingresar en el sistema. Verifique su estado con personal.";
-                                require_once(VIEWS_PATH."login.php");
-                            }
+                            header("location:". FRONT_ROOT . "Student/ShowStudentProfile/" . $_SESSION["email"]);
                         }
                         else
                         {
@@ -47,18 +39,23 @@
                             require_once(VIEWS_PATH."login.php");
                         }
                     }
-                    else if($_SESSION['type']==1)
+                    else
                     {
-                        $_SESSION['logueado'] = 1;
-
-                        header("location:". FRONT_ROOT . "Student/SearchStudent");
+                        $message = "Usted no tiene permisos para ingresar en el sistema. Verifique su estado con personal.";
+                        require_once(VIEWS_PATH."login.php");
                     }
                 }
-                else
+                else if($_SESSION['type']==1)
                 {
-                    $message = "Usuario o contraseña inválida";
-                    require_once(VIEWS_PATH."login.php");
+                    $_SESSION['logueado'] = 1;
+
+                    header("location:". FRONT_ROOT . "Student/SearchStudent");
                 }
+            }
+            else
+            {
+                $message = "Usuario o contraseña inválida";
+                require_once(VIEWS_PATH."login.php");
             }
         }
 

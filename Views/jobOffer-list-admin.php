@@ -20,6 +20,7 @@ require_once('nav.php');
                <table class="table bg-light-alpha">
                     <thead>
                          <th></th>
+                         <th></th>
                          <th>Posicion</th>
                          <th>Compania</th>
                          <th>Carrera</th>
@@ -34,6 +35,7 @@ require_once('nav.php');
                                    if((!isset($_GET['position']) && !isset($_GET['career'])) || (empty($_GET['position']) && empty($_GET['career']))){
                                    ?>
                                         <tr>
+                                             <td><a href="<?php echo FRONT_ROOT; ?>JobOffer/ShowPostulates/<?php echo $jobOffer->getId()?>"><button class="btn btn-dark ml-auto d-block">Ver Postulados</button></a></td>
                                              <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfile/<?php echo $jobOffer->getIdCompany()?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
                                              <td><?php echo $jobOffer->getJobPosition(); ?></td>
                                              <td><?php echo $jobOffer->getCompany(); ?></td>
@@ -48,6 +50,7 @@ require_once('nav.php');
                                         ?>
                                         
                                         <tr>
+                                             <td><a href="<?php echo FRONT_ROOT; ?>JobOffer/ShowPostulates/<?php echo $jobOffer->getId()?>"><button class="btn btn-dark ml-auto d-block">Ver Postulados</button></a></td>
                                              <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfile/<?php echo $jobOffer->getIdCompany()?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
                                              <td><?php echo $jobOffer->getJobPosition(); ?></td>
                                              <td><?php echo $jobOffer->getCompany(); ?></td>
@@ -60,6 +63,7 @@ require_once('nav.php');
                                         ?>
                                         
                                         <tr>
+                                             <td><a href="<?php echo FRONT_ROOT; ?>JobOffer/ShowPostulates/<?php echo $jobOffer->getId()?>"><button class="btn btn-dark ml-auto d-block">Ver Postulados</button></a></td>
                                              <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfile/<?php echo $jobOffer->getIdCompany()?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
                                              <td><?php echo $jobOffer->getJobPosition(); ?></td>
                                              <td><?php echo $jobOffer->getCompany(); ?></td>
@@ -72,6 +76,7 @@ require_once('nav.php');
                                         ?>
                                         
                                         <tr>
+                                             <td><a href="<?php echo FRONT_ROOT; ?>JobOffer/ShowPostulates/<?php echo $jobOffer->getId()?>"><button class="btn btn-dark ml-auto d-block">Ver Postulados</button></a></td>
                                              <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfile/<?php echo $jobOffer->getIdCompany()?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
                                              <td><?php echo $jobOffer->getJobPosition(); ?></td>
                                              <td><?php echo $jobOffer->getCompany(); ?></td>
