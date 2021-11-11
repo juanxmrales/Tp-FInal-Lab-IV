@@ -14,6 +14,7 @@ use Models\Student as Student;
             $this->studentDAO = new StudentDAO();
         }
 
+        //Muestra la lista de alumnos para admin
         public function SearchStudent()
         {
             if(isset($_SESSION['type']))
@@ -38,11 +39,19 @@ use Models\Student as Student;
             }
         }
 
+        //Muestra el perfil de un alumno
         public function ShowStudentProfile($email)
         {
-            $studentList = $this->studentDAO->GetAll();
+            if(isset($_SESSION['logueado']))
+            {
+                $studentList = $this->studentDAO->GetAll();
 
-            require_once(VIEWS_PATH."student-profile.php");
+                require_once(VIEWS_PATH."student-profile.php");
+            }
+            else
+            {
+                require_once(VIEWS_PATH."login.php");
+            }
         }
     }
 ?>
