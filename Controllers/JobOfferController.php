@@ -50,12 +50,23 @@ class JobOfferController
 	
 			if(isset($_SESSION['type'])){
 
-                 $companyDAO  = new CompanyDAO();
+                $companyDAO  = new CompanyDAO();
 				$careerDAO = new CareerDAO();
 				$jobPositionDAO = new JobPositionDAO();
 
 
 				$jobOfferList = $this->jobOfferDAO->getAll();
+
+				if(isset($_GET['position']) && $_GET['position'] != ""){
+
+					$jobOfferList = array_filter($jobOfferList, function($var){return $var->getJobPosition() == $_GET['position'];});
+				}
+
+				if(isset($_GET['career']) && $_GET['career'] != ""){
+
+					$jobOfferList = array_filter($jobOfferList, function($var){return $var->getCareer() == $_GET['career'];});
+				}
+
 				require_once(VIEWS_PATH."jobOffer-list.php");        
             }
             else{
@@ -81,6 +92,17 @@ class JobOfferController
 
 
 					$jobOfferList = $this->jobOfferDAO->getAll();
+
+					if(isset($_GET['position']) && $_GET['position'] != ""){
+
+						$jobOfferList = array_filter($jobOfferList, function($var){return $var->getJobPosition() == $_GET['position'];});
+					}
+
+					if(isset($_GET['career']) && $_GET['career'] != ""){
+
+						$jobOfferList = array_filter($jobOfferList, function($var){return $var->getCareer() == $_GET['career'];});
+					}	
+					
 					require_once(VIEWS_PATH."jobOffer-list-admin.php");
                 }         
             }

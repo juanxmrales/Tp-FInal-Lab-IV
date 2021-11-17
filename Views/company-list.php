@@ -25,46 +25,29 @@
                     </thead>
                     <tbody>
                          <?php
+                              if($companyList){
 
-                         if(!isset($_GET["filter"]) || $_GET['filter'] == ""){
-
-
-                              foreach($companyList as $company)
-                              {
-                                   ?>
-                                        <tr>
-                                             <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfile/<?php echo $company->getId();?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
-                                             <td><?php echo $company->getId(); ?></td>
-                                             <td><?php echo $company->getName(); ?></td>
-                                             <td><?php echo $company->getStreet(); ?></td>
-                                             <td><?php echo $company->getNacionality(); ?></td>
-                                             <td><?php echo $company->getDescription(); ?></td>
-
-                                        </tr>
-                                   <?php
-                                   
-                              }
-                         }
-                         else{
-                              $companyDAO = new CompanyDAO();
-                              $filtred = $companyDAO->searchCompany($_GET['filter']);
-
-                              if($filtred){
+                                   foreach($companyList as $company)
+                                   {
                                         ?>
-                                        <tr>
-                                             <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfile/<?php echo $filtred->getId();?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
-                                             <td><?php echo $filtred->getId(); ?></td>
-                                             <td><?php echo $filtred->getName(); ?></td>
-                                             <td><?php echo $filtred->getStreet(); ?></td>
-                                             <td><?php echo $filtred->getNacionality(); ?></td>
-                                             <td><?php echo $filtred->getDescription(); ?></td>
-                                        </tr>
-                                   <?php
-                                   
+                                             <tr>
+                                                  <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfile/<?php echo $company->getId();?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
+                                                  
+                                                  <td><?php echo $company->getId(); ?></td>
+                                                  <td><?php echo $company->getName(); ?></td>
+                                                  <td><?php echo $company->getStreet(); ?></td>
+                                                  <td><?php echo $company->getNacionality(); ?></td>
+                                                  <td><?php echo $company->getDescription(); ?></td>
+
+                                             </tr>
+                                        
+                                   <?php }
                               }
-                         }
+                              else{
+                                   echo "<tr><td>No se encontraron resultados</td></tr>";
+                              }
                          ?>
-                         </tr>
+                        
                     </tbody>
                </table>
           </div>

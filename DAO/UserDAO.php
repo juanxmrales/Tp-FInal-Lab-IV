@@ -30,6 +30,22 @@
             }
         }
 
+        public function Delete($id)
+        {
+            try
+            {
+                $query = "DELETE FROM $this->tableName WHERE id = $id";
+                
+                $this->connection = Connection::GetInstance();
+
+                $this->connection->ExecuteNonQuery($query);
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
+        }
+
         public function GetAll()
         {
             try

@@ -30,71 +30,30 @@ require_once('nav.php');
                     <tbody>
                          <?php
                          	
-                              foreach($jobOfferList as $jobOffer)
-                              {    
-                                   if((!isset($_GET['position']) && !isset($_GET['career'])) || (empty($_GET['position']) && empty($_GET['career']))){
-                                   ?>
-                                        <tr>
-                                             <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfileStudent/<?php echo $jobOffer->getIdCompany()?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
-                                             <td><a href="<?php echo FRONT_ROOT; ?>JobOffer/ShowConfirmView/<?php echo $jobOffer->getId();?>"><button class="btn btn-dark ml-auto d-block">Postularme</button></a></td>
+                              if($jobOfferList){
 
-                                             <td><?php echo $jobOffer->getJobPosition(); ?></td>
-                                             <td><?php echo $jobOffer->getCompany(); ?></td>
-                                             <td><?php echo $jobOffer->getCareer(); ?></td>
-                                             <td><?php echo $jobOffer->getFecha(); ?></td>
-                                             <td><?php echo $jobOffer->getDescription(); ?></td>
-                                        </tr>
-                                   <?php 
-                                   
-                                   }
-                                   elseif($_GET['position'] == $jobOffer->getJobPosition() && $_GET['career'] == $jobOffer->getCareer()){
-                                        ?>
+                                   foreach($jobOfferList as $jobOffer)
+                                   {    ?>
                                         
                                         <tr>
-                                             <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfileStudent/<?php echo $jobOffer->getIdCompany()?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
-                                             <td><a href="<?php echo FRONT_ROOT; ?>JobOffer/ShowConfirmView/<?php echo $jobOffer->getId();?>"><button class="btn btn-dark ml-auto d-block">Postularme</button></a></td>
-                                             <td><?php echo $jobOffer->getJobPosition(); ?></td>
-                                             <td><?php echo $jobOffer->getCompany(); ?></td>
-                                             <td><?php echo $jobOffer->getCareer(); ?></td>
-                                             <td><?php echo $jobOffer->getFecha(); ?></td>
-                                             <td><?php echo $jobOffer->getDescription(); ?></td>
-                                        </tr>
+                                                  <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfileStudent/<?php echo $jobOffer->getIdCompany()?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
+                                                  <td><a href="<?php echo FRONT_ROOT; ?>JobOffer/ShowConfirmView/<?php echo $jobOffer->getId();?>"><button class="btn btn-dark ml-auto d-block">Postularme</button></a></td>
+
+                                                  <td><?php echo $jobOffer->getJobPosition(); ?></td>
+                                                  <td><?php echo $jobOffer->getCompany(); ?></td>
+                                                  <td><?php echo $jobOffer->getCareer(); ?></td>
+                                                  <td><?php echo $jobOffer->getFecha(); ?></td>
+                                                  <td><?php echo $jobOffer->getDescription(); ?></td>
+                                             </tr>
                                    <?php }
-                                   elseif($_GET['position'] == $jobOffer->getJobPosition() && empty($_GET['career'])){
-                                        ?>
-                                        
-                                        <tr>
-                                             <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfileStudent/<?php echo $jobOffer->getIdCompany()?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
-                                             <td><a href="<?php echo FRONT_ROOT; ?>JobOffer/ShowConfirmView/<?php echo $jobOffer->getId();?>"><button class="btn btn-dark ml-auto d-block">Postularme</button></a></td>
-                                             <td><?php echo $jobOffer->getJobPosition(); ?></td>
-                                             <td><?php echo $jobOffer->getCompany(); ?></td>
-                                             <td><?php echo $jobOffer->getCareer(); ?></td>
-                                             <td><?php echo $jobOffer->getFecha(); ?></td>
-                                             <td><?php echo $jobOffer->getDescription(); ?></td>
-                                        </tr>
-                                   <?php }
-                                   elseif($_GET['career'] == $jobOffer->getCareer() && empty($_GET['position'])){
-                                        ?>
-                                        
-                                        <tr>
-                                             <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfileStudent/<?php echo $jobOffer->getIdCompany()?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
-                                             <td><a href="<?php echo FRONT_ROOT; ?>JobOffer/ShowConfirmView/<?php echo $jobOffer->getId();?>"><button class="btn btn-dark ml-auto d-block">Postularme</button></a></td>
-                                             <td><?php echo $jobOffer->getJobPosition(); ?></td>
-                                             <td><?php echo $jobOffer->getCompany(); ?></td>
-                                             <td><?php echo $jobOffer->getCareer(); ?></td>
-                                             <td><?php echo $jobOffer->getFecha(); ?></td>
-                                             <td><?php echo $jobOffer->getDescription(); ?></td>
-                                        </tr>
-                                   <?php }
+                              }
+                              else
+                              {
+                                   echo "<tr><td>No se encontraron resultados</td></tr>";
                               }
                          ?>
                     </tbody>
                </table>
-
-
-               <?php if((!isset($_GET['position']) && !isset($_GET['career']))){ ?>
-                    <span class="badge badge-info" style="font-size: 15px;"><?php echo $message ?></span>                    
-               <?php } ?>
           </div>
      </section>
 </main>

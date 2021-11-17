@@ -67,6 +67,12 @@ use DAO\JobPositionDAO;
                 else{
 
                     $companyList = $this->companyDAO->GetAll();
+
+                    if(isset($_GET['filter']) && $_GET['filter'] != ""){
+
+                        $companyList = array_filter($companyList, function($var){return $var->getName() == $_GET['filter'];});
+                    }
+
                     require_once(VIEWS_PATH."company-list.php");                
                 }         
             }
@@ -106,6 +112,11 @@ use DAO\JobPositionDAO;
         public function ShowListViewStudent()
         {
             $companyList = $this->companyDAO->GetAll();
+
+            if(isset($_GET['filter']) && $_GET['filter'] != ""){
+
+                $companyList = array_filter($companyList, function($var){return $var->getName() == $_GET['filter'];});
+            }
 
             require_once(VIEWS_PATH."company-list-student.php");
         }
