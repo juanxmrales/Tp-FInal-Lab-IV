@@ -20,6 +20,14 @@
 
 	require_once(VIEWS_PATH."header.php");
 
+	use Models\Mail as Mail;
+
+	use Controllers\MailController as MailController;
+
+	$var = new MailController();
+
+	$var->SendDeclineInfo("julmdq@live.com.ar", "Muchisimo texto");
+
 	Router::Route(new Request());
 
 	require_once(VIEWS_PATH."footer.php");
