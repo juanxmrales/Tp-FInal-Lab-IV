@@ -12,7 +12,7 @@
 					<p>La publicacion a la que se encontraba postulado ha finalizado, muchas gracias por su participacion <p>
 					<b>-Equipo UTN Bolsa Laboral-</b>";
 			
-			$email = new Mail("julmdq@live.com.ar", "Finalizacion de oferta", $text);
+			$email = new Mail($to, "Finalizacion de oferta", $text);
 			$email->send();
 		}
 
@@ -22,7 +22,7 @@
 					<p> $info </p>
 					<b>-Equipo UTN Bolsa Laboral-</b>";
 			
-			$email = new Mail("julmdq@live.com.ar", "Lo lamentamos, su postulacion fue rechazada", $text);
+			$email = new Mail($to, "Lo lamentamos, su postulacion fue rechazada", $text);
 			$email->send();
 		}
 	}

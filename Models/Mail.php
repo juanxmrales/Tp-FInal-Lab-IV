@@ -42,7 +42,7 @@
 		    $this->mail->Body    = $text;
 		    $this->mail->AltBody = $text;
 
-	    	echo 'Mensaje construido';
+	    	
 			} catch (Exception $e) {
 		    	echo "Error al construir el mail";
 			}
@@ -50,7 +50,14 @@
 
 		public function send(){
 
-			$this->mail->send();
+			try{
+				$this->mail->send();
+				return true;
+			}
+			catch(Exception $e){
+
+				return false;
+			}
 		}
 
 		
