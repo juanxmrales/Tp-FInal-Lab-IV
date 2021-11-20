@@ -6,6 +6,7 @@ use DAO\CompanyDAO as CompanyDAO;
 use DAO\JobOfferDAO;
 use Models\Company as Company;
 use DAO\JobPositionDAO;
+use DAO\UserType;
 
     class CompanyController
     {
@@ -20,14 +21,18 @@ use DAO\JobPositionDAO;
         {
             if(isset($_SESSION['type'])){
 
-                if($_SESSION['type'] == 0){
-
-                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);
-                }
-                else{
+                if($_SESSION['type'] == UserType::Admin){
 
                     require_once(VIEWS_PATH."company-add.php");
-                }         
+                }
+                elseif($_SESSION['type'] == UserType::Student){
+
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);   
+                } 
+                elseif($_SESSION['type'] == UserType::Company){
+
+                    require_once(VIEWS_PATH."denied-access.php");
+                }        
             }
             else{
                 require_once(VIEWS_PATH."login.php");
@@ -36,18 +41,22 @@ use DAO\JobPositionDAO;
 
         public function ShowModifyView($id)
         {
-        
+            
             if(isset($_SESSION['type'])){
 
-                if($_SESSION['type'] == 0){
-
-                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);
-                }
-                else{
+                if($_SESSION['type'] == UserType::Admin){
 
                     $companyList = $this->companyDAO->GetAll();
                     require_once(VIEWS_PATH."company-modify.php");
-                }         
+                }
+                elseif($_SESSION['type'] == UserType::Student){
+
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);   
+                } 
+                elseif($_SESSION['type'] == UserType::Company){
+
+                    require_once(VIEWS_PATH."denied-access.php");
+                }        
             }
             else{
                 require_once(VIEWS_PATH."login.php");
@@ -60,11 +69,7 @@ use DAO\JobPositionDAO;
             
             if(isset($_SESSION['type'])){
 
-                if($_SESSION['type'] == 0){
-
-                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);
-                }
-                else{
+                if($_SESSION['type'] == UserType::Admin){
 
                     $companyList = $this->companyDAO->GetAll();
 
@@ -73,8 +78,16 @@ use DAO\JobPositionDAO;
                         $companyList = array_filter($companyList, function($var){return $var->getName() == $_GET['filter'];});
                     }
 
-                    require_once(VIEWS_PATH."company-list.php");                
-                }         
+                    require_once(VIEWS_PATH."company-list.php");
+                }
+                elseif($_SESSION['type'] == UserType::Student){
+
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);   
+                } 
+                elseif($_SESSION['type'] == UserType::Company){
+
+                    require_once(VIEWS_PATH."denied-access.php");
+                }        
             }
             else{
                 require_once(VIEWS_PATH."login.php");
@@ -87,11 +100,7 @@ use DAO\JobPositionDAO;
 
             if(isset($_SESSION['type'])){
 
-                if($_SESSION['type'] == 0){
-
-                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);
-                }
-                else{
+                if($_SESSION['type'] == UserType::Admin){
 
                     $jobPositionDAO = new JobPositionDAO();
                     $careerDAO = new CareerDAO();
@@ -101,7 +110,15 @@ use DAO\JobPositionDAO;
                     $companyList = $this->companyDAO->GetAll();
 
                     require_once(VIEWS_PATH."company-profile.php");
-                }         
+                }
+                elseif($_SESSION['type'] == UserType::Student){
+
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);   
+                } 
+                elseif($_SESSION['type'] == UserType::Company){
+
+                    require_once(VIEWS_PATH."denied-access.php");
+                }        
             }
             else{
                 require_once(VIEWS_PATH."login.php");
@@ -111,26 +128,63 @@ use DAO\JobPositionDAO;
 
         public function ShowListViewStudent()
         {
-            $companyList = $this->companyDAO->GetAll();
+            
+            if(isset($_SESSION['type'])){
 
-            if(isset($_GET['filter']) && $_GET['filter'] != ""){
+                if($_SESSION['type'] == UserType::Admin){
 
-                $companyList = array_filter($companyList, function($var){return $var->getName() == $_GET['filter'];});
+                    $this->ShowListView();
+                }
+                elseif($_SESSION['type'] == UserType::Student){
+
+                    $companyList = $this->companyDAO->GetAll();
+
+                    if(isset($_GET['filter']) && $_GET['filter'] != ""){
+
+                        $companyList = array_filter($companyList, function($var){return $var->getName() == $_GET['filter'];});
+                    }
+
+                    require_once(VIEWS_PATH."company-list-student.php");  
+                } 
+                elseif($_SESSION['type'] == UserType::Company){
+
+                    require_once(VIEWS_PATH."denied-access.php");
+                }        
             }
-
-            require_once(VIEWS_PATH."company-list-student.php");
+            else{
+                require_once(VIEWS_PATH."login.php");
+            }
+            
         }
 
         public function ShowCompanyProfileStudent($id)
         {
-            $jobPositionDAO = new JobPositionDAO();
-            $careerDAO = new CareerDAO();
-            $jobOfferDAO = new JobOfferDAO();
+            if(isset($_SESSION['type'])){
 
-            $jobOfferList = $jobOfferDAO->GetAll();
-            $company = $this->companyDAO->SearchCompanyById($id);
+                if($_SESSION['type'] == UserType::Admin){
 
-            require_once(VIEWS_PATH."company-profile-student.php");
+                    $jobPositionDAO = new JobPositionDAO();
+                    $careerDAO = new CareerDAO();
+                    $jobOfferDAO = new JobOfferDAO();
+
+                    $jobOfferList = $jobOfferDAO->GetAll();
+                    $company = $this->companyDAO->SearchCompanyById($id);
+
+                    require_once(VIEWS_PATH."company-profile-student.php");
+                }
+                elseif($_SESSION['type'] == UserType::Student){
+
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);   
+                } 
+                elseif($_SESSION['type'] == UserType::Company){
+
+                    require_once(VIEWS_PATH."denied-access.php");
+                }        
+            }
+            else{
+                require_once(VIEWS_PATH."login.php");
+            }
+            
         }
 
         public function Add($name, $street, $nacionality, $description)
@@ -138,11 +192,7 @@ use DAO\JobPositionDAO;
             
             if(isset($_SESSION['type'])){
 
-                if($_SESSION['type'] == 0){
-
-                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);
-                }
-                else{
+                if($_SESSION['type'] == UserType::Admin){
 
                     if($this->companyDAO->SearchCompany($name)==null)
                     {
@@ -157,11 +207,20 @@ use DAO\JobPositionDAO;
                     {
                         $this->ShowAddView("El nombre de empresa ingresado ya existe");
                     }
-                }         
+                }
+                elseif($_SESSION['type'] == UserType::Student){
+
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);   
+                } 
+                elseif($_SESSION['type'] == UserType::Company){
+
+                    require_once(VIEWS_PATH."denied-access.php");
+                }        
             }
             else{
                 require_once(VIEWS_PATH."login.php");
             }
+            
         }
 
         public function Delete($id)
@@ -169,16 +228,28 @@ use DAO\JobPositionDAO;
 
             if(isset($_SESSION['type'])){
 
-                if($_SESSION['type'] == 0){
+                if($_SESSION['type'] == UserType::Admin){
 
-                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);
+                    if($this->companyDAO->SearchCompany($name)==null)
+                    {
+
+                        $this->companyDAO->Delete($id);
+
+                        $this->ShowListView();
+                    }
+                    else
+                    {
+                        $this->ShowAddView("El nombre de empresa ingresado ya existe");
+                    }
                 }
-                else{
+                elseif($_SESSION['type'] == UserType::Student){
 
-                    $this->companyDAO->Delete($id);
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);   
+                } 
+                elseif($_SESSION['type'] == UserType::Company){
 
-                    $this->ShowListView();
-                }         
+                    require_once(VIEWS_PATH."denied-access.php");
+                }        
             }
             else{
                 require_once(VIEWS_PATH."login.php");
@@ -191,16 +262,28 @@ use DAO\JobPositionDAO;
             
             if(isset($_SESSION['type'])){
 
-                if($_SESSION['type'] == 0){
+                if($_SESSION['type'] == UserType::Admin){
 
-                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);
+                    if($this->companyDAO->SearchCompany($name)==null)
+                    {
+
+                        $this->companyDAO->Modify(new Company($id,$name, $street, $nacionality, $description));
+
+                        $this->ShowCompanyProfile($id);
+                    }
+                    else
+                    {
+                        $this->ShowAddView("El nombre de empresa ingresado ya existe");
+                    }
                 }
-                else{
+                elseif($_SESSION['type'] == UserType::Student){
 
-                    $this->companyDAO->Modify(new Company($id,$name, $street, $nacionality, $description));
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);   
+                } 
+                elseif($_SESSION['type'] == UserType::Company){
 
-                    $this->ShowCompanyProfile($id);
-                }         
+                    require_once(VIEWS_PATH."denied-access.php");
+                }        
             }
             else{
                 require_once(VIEWS_PATH."login.php");
