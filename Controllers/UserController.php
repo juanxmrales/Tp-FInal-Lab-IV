@@ -63,6 +63,21 @@
                 {               
                     $userList = $this->userDAO->GetAll();
 
+                    if(isset($_GET['filter'])){
+
+                        if($_GET['filter'] == 0){
+
+                            $userList = array_filter($userList, function($var){return $var->getType() == 0;});
+                        }
+                        elseif($_GET['filter'] == 1){
+                            $userList = array_filter($userList, function($var){return $var->getType() == 1;});      
+                        }
+                        elseif($_GET['filter'] == 2){
+                            $userList = array_filter($userList, function($var){return $var->getType() == 2;});
+                        }
+
+                    }
+
                     require_once(VIEWS_PATH."user-list.php");
                 }
             }
@@ -71,6 +86,8 @@
                 require_once(VIEWS_PATH."login.php");
             }
         }
+
+
 
         public function Add($email, $password)
         {
@@ -88,6 +105,29 @@
                     $this->userDAO->Add($user);
 
                     $this->ShowAddView();
+                }
+            }
+            else
+            {
+                require_once(VIEWS_PATH."login.php");
+            }
+        }
+
+        public function Delete($id)
+        {
+
+            if(isset($_SESSION['type']))
+            {
+                if($_SESSION['type'] == 0)
+                {
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);
+                }
+                else
+                {               
+
+                    $this->userDAO->Delete($id);
+
+                    $this->ShowListView();
                 }
             }
             else

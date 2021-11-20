@@ -12,6 +12,7 @@
 	use Models\Company as Company;
 	use Models\UserXJobOffer;
 	use DAO\UserDAO;
+	use DAO\UserType as UserType;
 
 class JobOfferController
 	{
@@ -26,37 +27,60 @@ class JobOfferController
 
 			if(isset($_SESSION['type'])){
 
-                if($_SESSION['type'] == 0){
+                if($_SESSION['type'] == UserType::Admin || $_SESSION['type'] == UserType::Company){
 
-                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);
-                }
-                else{
-
-		            $companyDAO = new CompanyDAO();
+                    $companyDAO = new CompanyDAO();
 					$companyList = $companyDAO->GetAll();
 					$jobPositionDAO = new JobPositionDAO();
 					$jobPositionList = $jobPositionDAO->getAll();
 
 					require_once(VIEWS_PATH."jobOffer-add.php");
-                }         
+                }
+                elseif($_SESSION['type'] == UserType::Student){
+
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);   
+                } 
+       
             }
             else{
                 require_once(VIEWS_PATH."login.php");
-            } 
+            }
 	
 		}
 
 		public function ShowListView($message = ""){
-	
+			
 			if(isset($_SESSION['type'])){
 
-                 $companyDAO  = new CompanyDAO();
-				$careerDAO = new CareerDAO();
-				$jobPositionDAO = new JobPositionDAO();
+                if($_SESSION['type'] == UserType::Admin){
+
+                    $this->ShowListViewAdmin();
+                }
+                elseif($_SESSION['type'] == UserType::Student){
+
+                    $companyDAO  = new CompanyDAO();
+					$careerDAO = new CareerDAO();
+					$jobPositionDAO = new JobPositionDAO();
 
 
-				$jobOfferList = $this->jobOfferDAO->getAll();
-				require_once(VIEWS_PATH."jobOffer-list.php");        
+					$jobOfferList = $this->jobOfferDAO->getAll();
+
+					if(isset($_GET['position']) && $_GET['position'] != ""){
+
+						$jobOfferList = array_filter($jobOfferList, function($var){return $var->getJobPosition() == $_GET['position'];});
+					}
+
+					if(isset($_GET['career']) && $_GET['career'] != ""){
+
+						$jobOfferList = array_filter($jobOfferList, function($var){return $var->getCareer() == $_GET['career'];});
+					}
+
+					require_once(VIEWS_PATH."jobOffer-list.php");  
+                } 
+                elseif($_SESSION['type'] == UserType::Company){
+
+                    require_once(VIEWS_PATH."denied-access.php");
+                }        
             }
             else{
                 require_once(VIEWS_PATH."login.php");
@@ -69,20 +93,35 @@ class JobOfferController
 			
 			if(isset($_SESSION['type'])){
 
-                if($_SESSION['type'] == 0){
+                if($_SESSION['type'] == UserType::Admin){
 
-                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);
-                }
-                else{
-
-		            $companyDAO  = new CompanyDAO();
+                    $companyDAO  = new CompanyDAO();
 					$careerDAO = new CareerDAO();
 					$jobPositionDAO = new JobPositionDAO();
 
 
 					$jobOfferList = $this->jobOfferDAO->getAll();
+
+					if(isset($_GET['position']) && $_GET['position'] != ""){
+
+						$jobOfferList = array_filter($jobOfferList, function($var){return $var->getJobPosition() == $_GET['position'];});
+					}
+
+					if(isset($_GET['career']) && $_GET['career'] != ""){
+
+						$jobOfferList = array_filter($jobOfferList, function($var){return $var->getCareer() == $_GET['career'];});
+					}	
+					
 					require_once(VIEWS_PATH."jobOffer-list-admin.php");
-                }         
+                }
+                elseif($_SESSION['type'] == UserType::Student){
+
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);   
+                } 
+                elseif($_SESSION['type'] == UserType::Company){
+
+                    require_once(VIEWS_PATH."denied-access.php");
+                }        
             }
             else{
                 require_once(VIEWS_PATH."login.php");
@@ -92,16 +131,25 @@ class JobOfferController
 
 		public function ShowUserJobs()
 		{
-
 			if(isset($_SESSION['type'])){
 
-                $jobPositionDAO = new JobPositionDAO;
-				$careerDAO = new CareerDAO();
-				$companyDAO  = new CompanyDAO();
-				$jobOfferList = $this->jobOfferDAO->getAll();
+                if($_SESSION['type'] == UserType::Admin){
 
-				require_once(VIEWS_PATH."user-postulations.php");
-        
+                    require_once(VIEWS_PATH."denied-access.php");
+                }
+                elseif($_SESSION['type'] == UserType::Student){
+
+                    $jobPositionDAO = new JobPositionDAO;
+					$careerDAO = new CareerDAO();
+					$companyDAO  = new CompanyDAO();
+					$jobOfferList = $this->jobOfferDAO->getAll();
+
+					require_once(VIEWS_PATH."user-postulations.php");   
+                } 
+                elseif($_SESSION['type'] == UserType::Company){
+
+                    require_once(VIEWS_PATH."denied-access.php");
+                }        
             }
             else{
                 require_once(VIEWS_PATH."login.php");
@@ -113,18 +161,18 @@ class JobOfferController
 		{
 			if(isset($_SESSION['type'])){
 
-                if($_SESSION['type'] == 0){
+                if($_SESSION['type'] == UserType::Admin || $_SESSION['type'] == UserType::Company){
 
-                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);
-                }
-                else{
-
-		            $studentsDAO = new StudentDAO();
+                    $studentsDAO = new StudentDAO();
 					$userDAO = new UserDAO();
 					$jobOffer = (new JobOfferDAO)->getById($id);
 					$postulates = $jobOffer->getUsers();
 					require_once(VIEWS_PATH."jobOffer-postulates.php");
-                }         
+                }
+                elseif($_SESSION['type'] == UserType::Student){
+
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);   
+                }        
             }
             else{
                 require_once(VIEWS_PATH."login.php");
@@ -134,16 +182,11 @@ class JobOfferController
 
 		public function Add($idCompany,$idJobPosition,$description){
 
-
 			if(isset($_SESSION['type'])){
 
-                if($_SESSION['type'] == 0){
+                if($_SESSION['type'] == UserType::Admin || $_SESSION['type'] == UserType::Company){
 
-                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);
-                }
-                else{
-
-		            $date = getdate();
+                    $date = getdate();
 					$fecha = $date["year"] . "-" . $date["mon"] . "-" . $date["mday"];
 
 					$companyDAO = new CompanyDAO();
@@ -162,22 +205,36 @@ class JobOfferController
 
 					$this->jobOfferDAO->add($jobOffer);
 					$this->ShowAddView();
-                }         
+                }
+                elseif($_SESSION['type'] == UserType::Student){
+
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);   
+                }        
             }
             else{
                 require_once(VIEWS_PATH."login.php");
-            }	
+            }
 		}
 
 		
 		public function ShowConfirmView($idJob,$message = ""){
 
-			
 			if(isset($_SESSION['type'])){
 
-              $job = $this->jobOfferDAO->GetById($idJob);
+                if($_SESSION['type'] == UserType::Admin){
 
-				require_once(VIEWS_PATH."jobOffer-postulate-confirm.php");        
+                    require_once(VIEWS_PATH."denied-access.php");
+                }
+                elseif($_SESSION['type'] == UserType::Student){
+
+                    $job = $this->jobOfferDAO->GetById($idJob);
+
+					require_once(VIEWS_PATH."jobOffer-postulate-confirm.php");   
+                } 
+                elseif($_SESSION['type'] == UserType::Company){
+
+                    require_once(VIEWS_PATH."denied-access.php");
+                }        
             }
             else{
                 require_once(VIEWS_PATH."login.php");
@@ -189,12 +246,23 @@ class JobOfferController
 
 			if(isset($_SESSION['type'])){
 
-              	$userXJob = new UserXJobOffer($_SESSION['idUser'],$idJob);
-				$userXJobDAO = new UserXJobOfferDAO();
+                if($_SESSION['type'] == UserType::Admin){
 
-				$message = $userXJobDAO->Add($userXJob);	
+                    require_once(VIEWS_PATH."denied-access.php");
+                }
+                elseif($_SESSION['type'] == UserType::Student){
 
-				$this->ShowListView($message);   
+                    $userXJob = new UserXJobOffer($_SESSION['idUser'],$idJob);
+					$userXJobDAO = new UserXJobOfferDAO();
+
+					$message = $userXJobDAO->Add($userXJob);	
+
+					$this->ShowListView($message);  
+                } 
+                elseif($_SESSION['type'] == UserType::Company){
+
+                    require_once(VIEWS_PATH."denied-access.php");
+                }        
             }
             else{
                 require_once(VIEWS_PATH."login.php");
@@ -206,20 +274,20 @@ class JobOfferController
 		{
 			if(isset($_SESSION['type'])){
 
-                if($_SESSION['type'] == 0){
+                if($_SESSION['type'] == UserType::Admin || $_SESSION['type'] == UserType::Company){
 
-                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);
-                }
-                else{
-
-		            $companyDAO = new CompanyDAO();
+                    $companyDAO = new CompanyDAO();
 					$companyList = $companyDAO->GetAll();
 					$jobPositionDAO = new JobPositionDAO();
 					$jobPositionList = $jobPositionDAO->getAll();
 					$job = $this->jobOfferDAO->GetById($id);
 
 					require_once(VIEWS_PATH."jobOffer-modify.php");
-                }         
+                }
+                elseif($_SESSION['type'] == UserType::Student){
+
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);   
+                }        
             }
             else{
                 require_once(VIEWS_PATH."login.php");
@@ -230,13 +298,9 @@ class JobOfferController
 		{	
 			if(isset($_SESSION['type'])){
 
-                if($_SESSION['type'] == 0){
+                if($_SESSION['type'] == UserType::Admin || $_SESSION['type'] == UserType::Company){
 
-                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);
-                }
-                else{
-
-		           	$companyDAO = new CompanyDAO();
+                    $companyDAO = new CompanyDAO();
 					$jobPositionDAO = new JobPositionDAO();
 					$careerDAO = new CareerDAO();
 
@@ -253,7 +317,11 @@ class JobOfferController
 					$this->jobOfferDAO->Modify($jobOffer);
 
 					$this->ShowListViewAdmin();
-                }         
+                }
+                elseif($_SESSION['type'] == UserType::Student){
+
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);   
+                }        
             }
             else{
                 require_once(VIEWS_PATH."login.php");
@@ -263,18 +331,17 @@ class JobOfferController
 
 		public function Delete($id)
 		{
-
 			if(isset($_SESSION['type'])){
 
-                if($_SESSION['type'] == 0){
+                if($_SESSION['type'] == UserType::Admin || $_SESSION['type'] == UserType::Company){
 
-                    
-                }
-                else{
-
-		            $this->jobOfferDAO->Delete($id);
+                    $this->jobOfferDAO->Delete($id);
 					$this->ShowListViewAdmin();
-                }         
+                }
+                elseif($_SESSION['type'] == UserType::Student){
+
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);   
+                }        
             }
             else{
                 require_once(VIEWS_PATH."login.php");
