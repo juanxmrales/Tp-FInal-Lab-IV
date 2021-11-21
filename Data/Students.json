@@ -1,0 +1,29 @@
+[
+	{
+		"studentId" : "0",
+		"firstName" : "Gabriel",
+		"lastName" : "Chaldu",
+		"careerId" : "0",
+		"dni" : "1234",
+		"fileNumber" : "12345",
+		"gender" : "Machomen",
+		"email" : "youtics@gmail.com",
+		"birthDate" : "11-11-1990",
+		"phoneNumber" : "223223232",
+		"active" : 1
+	},
+	{
+		"studentId" : "2",
+		"firstName" : "Mariano",
+		"lastName" : "Copola",
+		"careerId" : "0",
+		"dni" : "1234",
+		"fileNumber" : "1233",
+		"gender" : "Machomen",
+		"email" : "marian@gmail.com",
+		"birthDate" : "11-11-1990",
+		"phoneNumber" : "223223232",
+		"active" : 1
+	}
+]
+

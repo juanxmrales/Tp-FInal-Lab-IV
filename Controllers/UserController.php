@@ -153,5 +153,11 @@
                 require_once(VIEWS_PATH."login.php");
             }
         }
+
+        public function ShowListViewPdf(){
+
+            $userList = $this->userDAO->GetAll();
+            require_once(VIEWS_PATH."user-list-pdf.php");
+        }
     }
 ?>

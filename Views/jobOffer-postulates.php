@@ -25,6 +25,8 @@ require_once('nav.php');
                                    
                                    $user = $userDAO->GetById($userId);     
                                    $student = $studentsDAO->SearchStudentByEmail($user->getEmail());
+
+                                   if($student != null && $student->getActive()){
                                    ?>  
                                         <tr>
                                              <td><a href="<?php echo FRONT_ROOT; ?>Student/ShowStudentProfile/<?php echo $user->getEmail();?>"><button class="btn btn-dark ml-auto d-block">Ver Perfil</button></a></td>
@@ -36,11 +38,12 @@ require_once('nav.php');
                                              <td><?php echo $student->getPhoneNumber(); ?></td>
                                         
                                         </tr>
-                                   <?php
+                                   <?php }
                               }
                          ?>
                     </tbody>
                </table>
+               <a href="ShowPostulatesPdf">Descargar</a>
           </div>
      </section>
 </main>

@@ -180,6 +180,38 @@ class JobOfferController
 			
 		}
 
+		public function ShowPostulatesPdf($id)
+		{
+			if(isset($_SESSION['type'])){
+
+                if($_SESSION['type'] == UserType::Admin || $_SESSION['type'] == UserType::Company){
+
+                    $studentsDAO = new StudentDAO();
+					$userDAO = new UserDAO();
+					$jobOffer = (new JobOfferDAO)->getById($id);
+					$postulates = $jobOffer->getUsers();
+					$list = array();
+
+					foreach($postulates as $userId){    
+	                       
+                       $user = $userDAO->GetById($userId);     
+                       $student = $studentsDAO->SearchStudentByEmail($user->getEmail());
+                       array_push($list, $student);
+	                }
+
+					require_once(VIEWS_PATH."jobOffer-postulates-pdf.php");
+                }
+                elseif($_SESSION['type'] == UserType::Student){
+
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);   
+                }        
+            }
+            else{
+                require_once(VIEWS_PATH."login.php");
+            }
+			
+		}
+
 		public function Add($idCompany,$idJobPosition,$description){
 
 			if(isset($_SESSION['type'])){

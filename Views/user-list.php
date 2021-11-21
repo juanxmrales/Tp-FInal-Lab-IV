@@ -19,7 +19,7 @@
                          <th></th>
                          <th>ID</th>
                          <th>Email</th>
-                         <th>Email</th>
+                         <th>Tipo</th>
  
                     </thead>
                     <tbody>
@@ -44,6 +44,7 @@
                          </tr>
                     </tbody>
                </table>
+               <a style="color: white;" href="ShowListViewPdf">Descargar</a>
           </div>
      </section>
 </main>

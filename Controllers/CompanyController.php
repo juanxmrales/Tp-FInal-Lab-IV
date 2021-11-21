@@ -161,7 +161,7 @@ use DAO\UserType;
         {
             if(isset($_SESSION['type'])){
 
-                if($_SESSION['type'] == UserType::Admin){
+                if($_SESSION['type'] == UserType::Student){
 
                     $jobPositionDAO = new JobPositionDAO();
                     $careerDAO = new CareerDAO();
@@ -172,9 +172,16 @@ use DAO\UserType;
 
                     require_once(VIEWS_PATH."company-profile-student.php");
                 }
-                elseif($_SESSION['type'] == UserType::Student){
+                elseif($_SESSION['type'] == UserType::Admin){
 
-                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);   
+                    $jobPositionDAO = new JobPositionDAO();
+                    $careerDAO = new CareerDAO();
+                    $jobOfferDAO = new JobOfferDAO();
+
+                    $jobOfferList = $jobOfferDAO->GetAll();
+                    $companyList = $this->companyDAO->GetAll();
+
+                    require_once(VIEWS_PATH."company-profile.php"); 
                 } 
                 elseif($_SESSION['type'] == UserType::Company){
 
