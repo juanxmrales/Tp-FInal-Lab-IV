@@ -40,7 +40,7 @@ class JobOfferController
 
                     header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);   
                 } 
-       
+     
             }
             else{
                 require_once(VIEWS_PATH."login.php");
@@ -87,7 +87,7 @@ class JobOfferController
             }
 
         }
-			
+		
 
 		public function ShowListViewAdmin(){
 			

@@ -3,6 +3,7 @@
 
     use DAO\UserDAO as UserDAO;
     use Models\User as User;
+    use DAO\UserType as UserType;
 
     class UserController
     {
@@ -15,52 +16,56 @@
 
         public function ShowAddView($message = "") // REGISTRO COMUN
         {
-            if(isset($_SESSION['logueado'])&&$_SESSION['logueado']==1)
-            {
-                if($_SESSION['type']==0)
-                {
-                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);
-                }
-                else
-                {
+            if(isset($_SESSION['type'])){
+
+                if($_SESSION['type'] == UserType::Admin){
+
                     require_once(VIEWS_PATH."user-add-admin.php");
                 }
+                elseif($_SESSION['type'] == UserType::Student){
+
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);   
+                } 
+                elseif($_SESSION['type'] == UserType::Company){
+
+                    require_once(VIEWS_PATH."denied-access.php");
+                }        
             }
-            else
-            {
+            else{
                 require_once(VIEWS_PATH."user-add.php");
             }
         }
 
         public function ShowAddViewAdmin($message = "") // AGREGADO DE USUARIO DE ADMIN
         {
-            if(isset($_SESSION['type']))
-            {
-                if($_SESSION['type'] == 0)
-                {
-                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);
-                }
-                else
-                {
+
+            if(isset($_SESSION['type'])){
+
+                if($_SESSION['type'] == UserType::Admin){
+
                     require_once(VIEWS_PATH."user-add-admin.php");
                 }
+                elseif($_SESSION['type'] == UserType::Student){
+
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);   
+                } 
+                elseif($_SESSION['type'] == UserType::Company){
+
+                    require_once(VIEWS_PATH."denied-access.php");
+                }        
             }
-            else
-            {
+            else{
                 require_once(VIEWS_PATH."login.php");
             }
         }
 
         public function ShowListView()
         {
-            if(isset($_SESSION['type']))
-            {
-                if($_SESSION['type'] == 0)
-                {
-                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);
-                }
-                else
-                {               
+            
+            if(isset($_SESSION['type'])){
+
+                if($_SESSION['type'] == UserType::Admin){
+
                     $userList = $this->userDAO->GetAll();
 
                     if(isset($_GET['filter'])){
@@ -80,9 +85,16 @@
 
                     require_once(VIEWS_PATH."user-list.php");
                 }
+                elseif($_SESSION['type'] == UserType::Student){
+
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);   
+                } 
+                elseif($_SESSION['type'] == UserType::Company){
+
+                    require_once(VIEWS_PATH."denied-access.php");
+                }        
             }
-            else
-            {
+            else{
                 require_once(VIEWS_PATH."login.php");
             }
         }
@@ -92,46 +104,52 @@
         public function Add($email, $password)
         {
 
-            if(isset($_SESSION['type']))
-            {
-                if($_SESSION['type'] == 0)
-                {
-                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);
-                }
-                else
-                {               
+            if(isset($_SESSION['type'])){
+
+                if($_SESSION['type'] == UserType::Admin){
+
                     $user = new User(0,$email,$password, 0);
 
                     $this->userDAO->Add($user);
 
                     $this->ShowAddView();
                 }
+                elseif($_SESSION['type'] == UserType::Student){
+
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);   
+                } 
+                elseif($_SESSION['type'] == UserType::Company){
+
+                    require_once(VIEWS_PATH."denied-access.php");
+                }        
             }
-            else
-            {
+            else{
                 require_once(VIEWS_PATH."login.php");
             }
+
         }
 
         public function Delete($id)
         {
 
-            if(isset($_SESSION['type']))
-            {
-                if($_SESSION['type'] == 0)
-                {
-                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);
-                }
-                else
-                {               
+            if(isset($_SESSION['type'])){
+
+                if($_SESSION['type'] == UserType::Admin){
 
                     $this->userDAO->Delete($id);
 
                     $this->ShowListView();
                 }
+                elseif($_SESSION['type'] == UserType::Student){
+
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);   
+                } 
+                elseif($_SESSION['type'] == UserType::Company){
+
+                    require_once(VIEWS_PATH."denied-access.php");
+                }        
             }
-            else
-            {
+            else{
                 require_once(VIEWS_PATH."login.php");
             }
         }
