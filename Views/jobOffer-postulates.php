@@ -43,7 +43,7 @@ require_once('nav.php');
                          ?>
                     </tbody>
                </table>
-               <a href="ShowPostulatesPdf">Descargar</a>
+               <a href="../ShowPostulatesPdf/<?php echo $id?>" style="color: white">Descargar</a>
           </div>
      </section>
 </main>

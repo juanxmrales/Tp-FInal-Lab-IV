@@ -2,8 +2,6 @@
 	ob_start ();
 	require_once("FPDF/fpdf.php");
 
-
-	$data = $lista;
 	$header = array("Nombre", "Apellido", "DNI", "Email", "Telefono");
 
 	$pdf = new FPDF();
@@ -31,15 +29,19 @@
     $pdf->SetFont('');
     // Datos
     $fill = false;
-    foreach($data as $row)
-    {
-        $pdf->Cell($w[0],6,$row->getFirstName(),'LR',0,'L',$fill);
-        $pdf->Cell($w[1],6,$row->getLastName(),'LR', 0, 'L',$fill);
-        $pdf->Cell($w[2],6,$row->getDni(),'LR',0,'L',$fill);
-        $pdf->Cell($w[3],6,$row->getEmail(),'LR',0,'L',$fill);
-        $pdf->Cell($w[4],6,$row->getPhoneNumber(),'LR',0,'L',$fill);
-        $pdf->Ln();
-        $fill = !$fill;
+    
+    foreach($list as $row)
+    {   
+        if($row != null){
+            $pdf->Cell($w[0],6,$row->getFirstName(),'LR',0,'L',$fill);
+            $pdf->Cell($w[1],6,$row->getLastName(),'LR', 0, 'L',$fill);
+            $pdf->Cell($w[2],6,$row->getDni(),'LR',0,'L',$fill);
+            $pdf->Cell($w[3],6,$row->getEmail(),'LR',0,'L',$fill);
+            $pdf->Cell($w[4],6,$row->getPhoneNumber(),'LR',0,'L',$fill);
+            $pdf->Ln();
+            $fill = !$fill;   
+        }
+        
     }
     // Línea de cierre
     $pdf->Cell(array_sum($w),0,'','T');
