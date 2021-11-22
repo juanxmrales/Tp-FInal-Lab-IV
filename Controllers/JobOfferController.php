@@ -274,7 +274,7 @@ class JobOfferController
 			
 		}
 
-		public function ApplyJobOffer($idJob){
+		public function ApplyJobOffer($idJob,$image,$submit){
 
 			if(isset($_SESSION['type'])){
 
@@ -284,12 +284,19 @@ class JobOfferController
                 }
                 elseif($_SESSION['type'] == UserType::Student){
 
-                    $userXJob = new UserXJobOffer($_SESSION['idUser'],$idJob);
-					$userXJobDAO = new UserXJobOfferDAO();
+                    if($submit == 1)
+                    {
+                        $userXJob = new UserXJobOffer($_SESSION['idUser'],$idJob);
+                        $userXJobDAO = new UserXJobOfferDAO();
 
-					$message = $userXJobDAO->Add($userXJob);	
+                        $message = $userXJobDAO->Add($userXJob);	
 
-					$this->ShowListView($message);  
+                        $this->ShowListView($message);
+                    }
+                    else
+                    {
+                        $this->ShowListView();
+                    }
                 } 
                 elseif($_SESSION['type'] == UserType::Company){
 

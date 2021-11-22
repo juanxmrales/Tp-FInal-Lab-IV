@@ -5,7 +5,7 @@
      <section id="listado" class="mb-5">
           <div class="container pt-5">
                <h2 class="mb-4">Postulandose a la oferta:</h2>
-               <form action="<?php echo FRONT_ROOT ?>JobOffer/ApplyJobOffer" method="post" class="bg-light-alpha p-5">
+               <form action="<?php echo FRONT_ROOT ?>JobOffer/ApplyJobOffer" method="post" class="bg-light-alpha p-5" enctype="multipart/form-data">
                     <div class="row">
                          <div class="col-lg-4">
                               <div class="form-group">
@@ -31,9 +31,15 @@
                                    <input type="text" class="form-control" value="<?php echo $job->getJobPosition(); ?>" readonly>
                               </div>
                          </div>
+                         <div class="col-lg-4">
+                              <div class="form-group">
+                                   <label for="">Curriculum Vitae</label>
+                                   <input type="file" name="image" class="form-control">
+                              </div>
+                         </div>
                     </div>
-                    <button type="submit" class="btn btn-dark ml-auto d-block">Confirmar</button><br>
-                    <button action="<?php echo FRONT_ROOT ?>JobOffer/ShowListView" class="btn btn-dark ml-auto d-block">Cancelar</button>
+                    <button type="submit" name="submit" value="1" class="btn btn-dark ml-auto d-block">Confirmar</button><br>
+                    <button type="submit" name="submit" value="2" class="btn btn-dark ml-auto d-block">Cancelar</button>
                </form> 
           
                
