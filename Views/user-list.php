@@ -44,7 +44,7 @@
                          </tr>
                     </tbody>
                </table>
-               <a style="color: white;" href="ShowListViewPdf">Descargar</a>
+               <a style="color: white;" href="ShowListViewPdf">Descargar lista completa</a>
           </div>
      </section>
 </main>

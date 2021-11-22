@@ -21,7 +21,7 @@
     $pdf->SetLineWidth(.1);
     $pdf->SetFont('','B');
     // Cabecera
-    $w = array(20, 50, 20);
+    $w = array(20, 50, 30);
     for($i=0;$i<count($header);$i++)
         $pdf->Cell($w[$i],7,$header[$i],1,0,'A',true);
     $pdf->Ln();
@@ -35,14 +35,23 @@
     {
         $pdf->Cell($w[0],6,$row->getId(),'LR',0,'L',$fill);
         $pdf->Cell($w[1],6,$row->getEmail(),'LR', 0, 'L',$fill);
-        $pdf->Cell($w[2],6,$row->getType(),'LR',0,'L',$fill);
+        if($row->getType() == 0){
+            $type = "Estudiante";
+        }
+        elseif($row->getType() == 1){
+            $type = "Administrador";
+        }
+        else{
+            $type = "Empresa";
+        }
+        $pdf->Cell($w[2],6,$type,'LR',0,'L',$fill);
         $pdf->Ln();
         $fill = !$fill;
     }
     // Línea de cierre
     $pdf->Cell(array_sum($w),0,'','T');
 	
-	$pdf->Output();
+	$pdf->Output("I", "User list");
 	ob_end_flush();
 
 
