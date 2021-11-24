@@ -10,8 +10,8 @@
                     <h4>Ingrese justificativo</h4>
                     <div class="row">                       
                          
-                         <input name="idUser" value="<?php echo $idUser; ?>" readonly>
-                         <input name="idJob" value="<?php echo $idJob; ?>" readonly>
+                         <input type="hidden" class="form-control"name="idUser" value="<?php echo $idUser; ?>" readonly>
+                         <input type="hidden" class="form-control"name="idJob" value="<?php echo $idJob; ?>" readonly>
                          <textarea placeholder="Informacion acerca de la declinacion" rows="10" name="info" class="form-control">
                               
                          </textarea>

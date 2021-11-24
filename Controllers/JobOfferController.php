@@ -221,7 +221,11 @@ class JobOfferController
 
 		public function DeclinePostulate($idJobX, $idUserX, $info){
 
-			MailController::SendDeclineInfo("julmdq@live.com.ar", $info);
+			$userDAO = new UserDAO();
+
+        	$user = $userDAO->GetById($idUser);
+
+			MailController::SendDeclineInfo($user->getEmail(), $info);
 
 			$userXJobDAO = new userXJobOfferDAO();
 
