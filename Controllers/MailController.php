@@ -6,7 +6,7 @@
 
 	class MailController{
 
-		public function SendGreatings($to){
+		public static function SendGreatings($to){
 
 			$text = "<h3>Oferta finalizada</h3>
 					<p>La publicacion a la que se encontraba postulado ha finalizado, muchas gracias por su participacion <p>
@@ -16,7 +16,7 @@
 			$email->send();
 		}
 
-		public function SendDeclineInfo($to, $info){
+		public static function SendDeclineInfo($to, $info){
 
 			$text = "<h3>Postulacion rechazada</h3>
 					<p> $info </p>

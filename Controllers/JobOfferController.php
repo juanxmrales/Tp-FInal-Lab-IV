@@ -13,6 +13,7 @@
 	use Models\UserXJobOffer;
 	use DAO\UserDAO;
 	use DAO\UserType as UserType;
+	use Controllers\MailController as MailController;
 
 class JobOfferController
 	{
@@ -212,6 +213,20 @@ class JobOfferController
 			
 		}
 
+		public function ShowDeclineForm($idJob, $idUser){
+
+			require_once(VIEWS_PATH."jobOffer-decline-postulate.php");
+		}
+
+
+		public function DeclinePostulate($idJobX, $idUserX, $info){
+
+			MailController::SendDeclineInfo("julmdq@live.com.ar", $info);
+
+			$userXJobDAO = new userXJobOfferDAO();
+
+		}
+
 		public function Add($idCompany,$idJobPosition,$description){
 
 			if(isset($_SESSION['type'])){
@@ -373,6 +388,17 @@ class JobOfferController
 			if(isset($_SESSION['type'])){
 
                 if($_SESSION['type'] == UserType::Admin || $_SESSION['type'] == UserType::Company){
+
+                	$jobOffer = $this->jobOfferDAO->GetById($id);
+                	$postulates = $jobOffer->getUsers();
+
+                	$userDAO = new UserDAO();
+
+                	foreach($postulates as $userId){
+
+                		$user = $userDAO->GetById($userId);
+                		Mail::SendGreatings($user->getEmail());
+                	}
 
                     $this->jobOfferDAO->Delete($id);
 					$this->ShowListViewAdmin();

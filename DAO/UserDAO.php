@@ -78,7 +78,6 @@
         {
             try
             {
-                $userList = array();
 
                 $query = "SELECT * FROM $this->tableName WHERE id = $id";
 
@@ -89,11 +88,9 @@
                 foreach ($resultSet as $row)
                 {                
                     $user = new User($row["id"], $row["email"],$row["password"],$row["type"]);
-
-                    array_push($userList, $user);
                 }
 
-                return $userList[0];
+                return $user;
             }
             catch(Exception $ex)
             {

@@ -112,5 +112,25 @@
             }
         }
 
+        public function Delete($idUser, $idJob)
+        {
+            try
+            {
+                $query = "DELETE FROM $this->tableName WHERE id_usuario = :idUser and id_jobOffer = :idJob";
+                
+                $parameters["idUser"] = $idUser;
+                $parameters["idJob"] = $idJob;
+
+                $this->connection = Connection::GetInstance();
+
+                $this->connection->ExecuteNonQuery($query, $parameters);
+
+            }
+            catch(Exception $ex)
+            {   
+                throw $ex;
+            }
+        }
+
     }
 ?>
