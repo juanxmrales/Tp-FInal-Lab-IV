@@ -6,11 +6,13 @@
     {
         private $userId;
         private $jobOfferId;
+        private $cv; //URL
 
-        public function __construct($userId,$jobOfferId)
+        public function __construct($userId,$jobOfferId,$cv)
         {
             $this->userId = $userId;
             $this->jobOfferId = $jobOfferId;
+            $this->cv = $cv;
         }
 
         /**
@@ -54,6 +56,26 @@
         }
 
 
+
+        /**
+         * Get the value of imagen
+         */ 
+        public function getCv()
+        {
+                return $this->cv;
+        }
+
+        /**
+         * Set the value of imagen
+         *
+         * @return  self
+         */ 
+        public function setCv($cv)
+        {
+                $this->cv = $cv;
+
+                return $this;
+        }
 }
 
 ?>

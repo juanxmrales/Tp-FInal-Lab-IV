@@ -289,7 +289,7 @@ class JobOfferController
 			
 		}
 
-		public function ApplyJobOffer($idJob,$image,$submit){
+		public function ApplyJobOffer($idJob,$cv,$submit){
 
 			if(isset($_SESSION['type'])){
 
@@ -301,12 +301,22 @@ class JobOfferController
 
                     if($submit == 1)
                     {
-                        $userXJob = new UserXJobOffer($_SESSION['idUser'],$idJob);
-                        $userXJobDAO = new UserXJobOfferDAO();
+                        $directorio = "Archivos/images/";
+                        $archivo = $directorio . basename($image['name']);
+                        $tipoArchivo = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
 
-                        $message = $userXJobDAO->Add($userXJob);	
+                        if($tipoArchivo == "jpg" || $tipoArchivo == "png" || $tipoArchivo == "jpeg")
+                        {
+                            if(!file_exists($archivo)&&move_uploaded_file($image['tmp_name'],$archivo))
+                            {
+                                $userXJob = new UserXJobOffer($_SESSION['idUser'],$idJob,$archivo);
+                                $userXJobDAO = new UserXJobOfferDAO();
 
-                        $this->ShowListView($message);
+                                $message = $userXJobDAO->Add($userXJob);	
+
+                                $this->ShowListView($message);
+                            }
+                        }
                     }
                     else
                     {

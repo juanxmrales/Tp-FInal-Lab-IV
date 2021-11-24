@@ -7,12 +7,7 @@
                <h2 class="mb-4">Postulandose a la oferta:</h2>
                <form action="<?php echo FRONT_ROOT ?>JobOffer/ApplyJobOffer" method="post" class="bg-light-alpha p-5" enctype="multipart/form-data">
                     <div class="row">
-                         <div class="col-lg-4">
-                              <div class="form-group">
-                                   <label for="">ID</label>
-                                   <input type="text" name="idJob" class="form-control" value="<?php echo $job->getId(); ?>" readonly>
-                              </div>
-                         </div>  
+                         <input type="hidden" name="idJob" class="form-control" value="<?php echo $job->getId(); ?>" readonly>
                          <div class="col-lg-4">
                               <div class="form-group">
                                    <label for="">Descripcion</label>
@@ -34,7 +29,7 @@
                          <div class="col-lg-4">
                               <div class="form-group">
                                    <label for="">Curriculum Vitae</label>
-                                   <input type="file" name="image" class="form-control">
+                                   <input type="file" name="cv" class="form-control">
                               </div>
                          </div>
                     </div>
@@ -43,7 +38,7 @@
                </form> 
           
                
-               <span class="badge badge-info" style="font-size: 15px;"><?php echo $message ?></span>              
+               <span class="badge badge-info" style="font-size: 15px;"><?php echo $message; ?></span>              
           </div>
      </section>
 </main>

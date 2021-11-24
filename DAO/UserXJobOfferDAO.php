@@ -14,10 +14,11 @@
         {
             try
             {
-                $query = "INSERT INTO ".$this->tableName." (id_usuario, id_jobOffer) VALUES (:id_usuario, :id_jobOffer)";
+                $query = "INSERT INTO ".$this->tableName." (id_usuario, id_jobOffer, cv) VALUES (:id_usuario, :id_jobOffer, :cv)";
                 
                 $parameters["id_usuario"] = $userXJob->getUserId();
                 $parameters["id_jobOffer"] = $userXJob->getJobOfferId();
+                $parameters["cv"] = $userXJob->getCv();
 
                 $this->connection = Connection::GetInstance();
 
@@ -45,7 +46,7 @@
                 
                 foreach($resultSet as $row)
                 {                
-                    $userXJob = new UserXJobOffer($row["id_usuario"],$row["id_jobOffer"]);
+                    $userXJob = new UserXJobOffer($row["id_usuario"],$row["id_jobOffer"],$row['cv']);
 
                     array_push($list, $userXJob);
                 }
@@ -72,7 +73,7 @@
                 
                 foreach($resultSet as $row)
                 {                
-                    $userXJob = new UserXJobOffer($row["id_usuario"],$row["id_jobOffer"]);
+                    $userXJob = new UserXJobOffer($row["id_usuario"],$row["id_jobOffer"],$row['cv']);
 
                     array_push($list, $userXJob);
                 }
@@ -99,7 +100,7 @@
                 
                 foreach($resultSet as $row)
                 {                
-                    $userXJob = new UserXJobOffer($row["id_usuario"],$row["id_jobOffer"]);
+                    $userXJob = new UserXJobOffer($row["id_usuario"],$row["id_jobOffer"],$row['cv']);
 
                     array_push($list, $userXJob);
                 }
