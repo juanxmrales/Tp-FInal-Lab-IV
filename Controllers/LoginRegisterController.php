@@ -5,6 +5,9 @@
     use DAO\StudentDAO;
     use DAO\UserDAO as UserDAO;
     use Models\User;
+    use DAO\UserType;
+    use DAO\CompanyDAO;
+    use Models\Company;
 
     class LoginRegisterController
     {
@@ -23,7 +26,7 @@
 
                 $student = $students->SearchStudentByEmail($email);
 
-                if($_SESSION['type']==0)
+                if($_SESSION['type'] == UserType::Student)
                 {
                     if($student!=null)
                     {
@@ -45,11 +48,19 @@
                         require_once(VIEWS_PATH."login.php");
                     }
                 }
-                else if($_SESSION['type']==1)
+                else if($_SESSION['type'] == UserType::Admin)
                 {
                     $_SESSION['logueado'] = 1;
 
                     header("location:". FRONT_ROOT . "Student/SearchStudent");
+                }
+                else if($_SESSION['type'] == UserType::Company)
+                {
+                    $_SESSION['logueado'] = 1;
+                    $companyDAO  = new CompanyDAO();
+                    $_SESSION['idComp'] = $companyDAO->SearchByUserId($_SESSION['idUser']);
+
+                    header("location:". FRONT_ROOT . "JobOffer/ShowListViewAdmin");
                 }
             }
             else

@@ -7,8 +7,6 @@
 <main class="py-5" style="margin: 0 0 10rem 0">
      <section id="listado" class="mb-5">
           <div class="container">
-               <a href="<?php echo FRONT_ROOT; ?>Company/ShowModifyView/<?php echo $company->getId();?>"><button class="btn btn-dark ">Modificar Informacion</button></a>
-               <a href="<?php echo FRONT_ROOT; ?>Company/Delete/<?php echo $company->getId();?>"><button class="btn btn-dark">Eliminar Empresa</button></a>
                <br>
                <br>                  
                <h2 class="mb-4">Perfil de Empresa: <?php echo $company->getName(); ?></h2>
@@ -45,7 +43,7 @@
                          <?php
                               foreach($jobOfferList as $jobOffer)
                               {
-                                   if($jobOffer->getIdCompany()==$id)
+                                   if($jobOffer->getIdCompany()== $_SESSION['idComp'])
                                    {
                                         ?>
                                              <tr>

@@ -11,7 +11,6 @@ require_once('nav.php');
                     <thead>
                          <th></th>
                          <th></th>
-                         <th></th>
                          <th>Nombre</th>
                          <th>Apellido</th>
                          <th>DNI</th>
@@ -33,7 +32,6 @@ require_once('nav.php');
                                         <tr>
                                              <td><a href="<?php echo FRONT_ROOT; ?>Student/ShowStudentProfile/<?php echo $user->getEmail();?>"><button class="btn btn-dark ml-auto d-block">Ver Perfil</button></a></td>
                                              <td><a href="mailto:<?php echo $student->getEmail(); ?>"><button  class="btn btn-dark ml-auto d-block">Contactar</button></a></td>
-                                             <td><a href="<?php echo FRONT_ROOT; ?>JobOffer/ShowDeclineForm/<?php echo $user->getId();?>/<?php echo $id;?>"><button  class="btn btn-dark ml-auto d-block">Declinar</button></a></td>
                                              <td><?php echo $student->getFirstName(); ?></td>
                                              <td><?php echo $student->getLastName(); ?></td>
                                              <td><?php echo $student->getDni(); ?></td>

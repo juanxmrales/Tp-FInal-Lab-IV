@@ -21,6 +21,7 @@ require_once('nav.php');
                     <thead>
                          <th></th>
                          <th></th>
+                         <th></th>
                          <th>Posicion</th>
                          <th>Compania</th>
                          <th>Carrera</th>
@@ -30,22 +31,22 @@ require_once('nav.php');
                     </thead>
                     <tbody>
                          <?php
-                         	
                               if($jobOfferList){
 
                                    foreach($jobOfferList as $jobOffer)
-                                   {    ?>
-                                        
-                                        <tr>
-                                                  <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfileStudent/<?php echo $jobOffer->getIdCompany()?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
-                                                  <td><a href="<?php echo FRONT_ROOT; ?>JobOffer/ShowConfirmView/<?php echo $jobOffer->getId();?>"><button class="btn btn-dark ml-auto d-block">Postularme</button></a></td>
+                                   {    
+                                        ?>
 
-                                                  <td><?php echo $jobOffer->getJobPosition(); ?></td>
-                                                  <td><?php echo $jobOffer->getCompany(); ?></td>
-                                                  <td><?php echo $jobOffer->getCareer(); ?></td>
-                                                  <td><?php echo $jobOffer->getFecha(); ?></td>
-                                                  <td><?php echo $jobOffer->getDescription(); ?></td>
-                                                  <?php
+                                        <tr>
+                                             <td><a href="<?php echo FRONT_ROOT; ?>JobOffer/ShowAddImageView/<?php echo $jobOffer->getId();?>"><button class="btn btn-dark ml-auto d-block" <?php if($jobOffer->getImagen()!=null){ echo "disabled";}?>>Agregar Imagen</button></a></td>
+                                             <td><a href="<?php echo FRONT_ROOT; ?>JobOffer/ShowPostulates/<?php echo $jobOffer->getId();?>"><button class="btn btn-dark ml-auto d-block">Ver Postulados</button></a></td>
+                                             <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfile/<?php echo $jobOffer->getIdCompany();?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
+                                             <td><?php echo $jobOffer->getJobPosition(); ?></td>
+                                             <td><?php echo $jobOffer->getCompany(); ?></td>
+                                             <td><?php echo $jobOffer->getCareer(); ?></td>
+                                             <td><?php echo $jobOffer->getFecha(); ?></td>
+                                             <td><?php echo $jobOffer->getDescription(); ?></td>
+                                             <?php
                                                   if($jobOffer->getImagen()!=null)
                                                   {
                                                        ?>
@@ -59,13 +60,13 @@ require_once('nav.php');
                                                        <?php
                                                   }
                                              ?>
-                                             </tr>
-                                   <?php }
-                              }
-                              else
-                              {
-                                   echo "<tr><td>No se encontraron resultados</td></tr>";
-                              }
+                                        </tr>
+
+                                        <?php
+                                   }
+                         }
+                         else
+                              echo "<tr><td>No se encontraron resultados</td></tr>";
                          ?>
                     </tbody>
                </table>
