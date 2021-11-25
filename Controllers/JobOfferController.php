@@ -219,11 +219,19 @@ class JobOfferController
 		}
 
 
-		public function DeclinePostulate($idJobX, $idUserX, $info){
+		public function DeclinePostulate($idJob, $idUser, $info){
 
-			MailController::SendDeclineInfo("julmdq@live.com.ar", $info);
+			$userDAO = new UserDAO();
+
+        	$user = $userDAO->GetById($idUser);
+
+			MailController::SendDeclineInfo($user->getEmail(), $info);
 
 			$userXJobDAO = new userXJobOfferDAO();
+
+			$userXJobDAO->Delete($idUser, $idJob);
+
+			$this->ShowListViewAdmin();
 
 		}
 
@@ -404,7 +412,7 @@ class JobOfferController
                 	foreach($postulates as $userId){
 
                 		$user = $userDAO->GetById($userId);
-                		Mail::SendGreatings($user->getEmail());
+                		MailController::SendGreatings($user->getEmail());
                 	}
 
                     $this->jobOfferDAO->Delete($id);
