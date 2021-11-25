@@ -17,6 +17,7 @@ require_once('nav.php');
                          <th>DNI</th>
                          <th>Email</th>
                          <th>Telefono</th>
+                         <th>URL</th>
                     </thead>
                     <tbody>
                          <?php
@@ -38,7 +39,17 @@ require_once('nav.php');
                                              <td><?php echo $student->getDni(); ?></td>
                                              <td><?php echo $student->getEmail(); ?></td>
                                              <td><?php echo $student->getPhoneNumber(); ?></td>
-                                        
+                                             <?php 
+                                                  foreach($userXjobOfferList as $value)
+                                                  {
+                                                       if($value->getUserId()==$userId && $value->getJobOfferId()==$id)
+                                                       {
+                                                            ?>
+                                                                 <td><a href="<?php echo FRONT_ROOT . $value->getCv();?>"><?php echo $value->getCv(); ?></a></td>
+                                                            <?php
+                                                       }
+                                                  }
+                                             ?>
                                         </tr>
                                    <?php }
                               }

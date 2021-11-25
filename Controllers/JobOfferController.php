@@ -166,6 +166,8 @@ class JobOfferController
 
                     $studentsDAO = new StudentDAO();
 					$userDAO = new UserDAO();
+                    $userXjobOfferDAO = new UserXJobOfferDAO();
+                    $userXjobOfferList = $userXjobOfferDAO->GetAll();
 					$jobOffer = (new JobOfferDAO)->getById($id);
 					$postulates = $jobOffer->getUsers();
 					require_once(VIEWS_PATH."jobOffer-postulates.php");
@@ -307,11 +309,11 @@ class JobOfferController
                 }
                 elseif($_SESSION['type'] == UserType::Student){
 
-                    $directorio = "Archivos/images/";
+                    $directorio = "Archivos/cv/";
                     $archivo = $directorio . basename($cv['name']);
                     $tipoArchivo = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
 
-                    if($tipoArchivo == "jpg" || $tipoArchivo == "png" || $tipoArchivo == "jpeg")
+                    if($tipoArchivo == "pdf")
                     {
                         if(!file_exists($archivo)&&move_uploaded_file($cv['tmp_name'],$archivo))
                         {
