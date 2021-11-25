@@ -78,13 +78,14 @@
         {
             try
             {
+                $query = "SELECT * FROM $this->tableName WHERE id = :id";
 
-
-                $query = "SELECT * FROM $this->tableName WHERE id = $id";
-
+                $parameters['id'] = $id;
                 $this->connection = Connection::GetInstance();
 
-                $resultSet = $this->connection->Execute($query);
+                $resultSet = $this->connection->Execute($query,$parameters);
+
+                $user = null;
                 
                 foreach ($resultSet as $row)
                 {                
