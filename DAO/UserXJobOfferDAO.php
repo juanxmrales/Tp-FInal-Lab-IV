@@ -23,12 +23,10 @@
                 $this->connection = Connection::GetInstance();
 
                 $this->connection->ExecuteNonQuery($query, $parameters);
-
-                return "Postulacion exitosa";
             }
             catch(Exception $ex)
             {   
-                return "Usted ya se encontraba postulado anteriormente";
+                throw $ex;
             }
         }
 
@@ -132,6 +130,8 @@
                 throw $ex;
             }
         }
+
+        
 
     }
 ?>

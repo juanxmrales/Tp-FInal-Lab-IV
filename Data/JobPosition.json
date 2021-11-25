@@ -1,117 +1,117 @@
 [
     {
-        "JobPositionId": 1,
+        "jobPositionId": 1,
         "careerId": 1,
-        "Description": "Jr naval engineer"
+        "description": "Jr naval engineer"
     },
     {
-        "JobPositionId": 2,
+        "jobPositionId": 2,
         "careerId": 1,
-        "Description": "Ssr naval engineer"
+        "description": "Ssr naval engineer"
     },
     {
-        "JobPositionId": 3,
+        "jobPositionId": 3,
         "careerId": 1,
-        "Description": "Sr naval engineer"
+        "description": "Sr naval engineer"
     },
     {
-        "JobPositionId": 4,
+        "jobPositionId": 4,
         "careerId": 2,
-        "Description": "Jr fisheries engineer"
+        "description": "Jr fisheries engineer"
     },
     {
-        "JobPositionId": 5,
+        "jobPositionId": 5,
         "careerId": 2,
-        "Description": "Ssr fisheries engineer"
+        "description": "Ssr fisheries engineer"
     },
     {
-        "JobPositionId": 6,
+        "jobPositionId": 6,
         "careerId": 2,
-        "Description": "Sr fisheries engineer"
+        "description": "Sr fisheries engineer"
     },
     {
-      "JobPositionId": 7,
+      "jobPositionId": 7,
       "careerId": 3,
-      "Description": "Java Jr developer"
+      "description": "Java Jr developer"
     },
     {
-        "JobPositionId": 8,
+        "jobPositionId": 8,
         "careerId": 3,
-        "Description": "PHP Jr developer"
+        "description": "PHP Jr developer"
     },
     {
-        "JobPositionId": 9,
+        "jobPositionId": 9,
         "careerId": 3,
-        "Description": "Ssr developer"
+        "description": "Ssr developer"
     },
     {
-        "JobPositionId": 10,
+        "jobPositionId": 10,
         "careerId": 4,
-        "Description": "Full Stack developer"
+        "description": "Full Stack developer"
     },
     {
-        "JobPositionId": 11,
+        "jobPositionId": 11,
         "careerId": 4,
-        "Description": "Sr developer"
+        "description": "Sr developer"
     },
     {
-        "JobPositionId": 12,
+        "jobPositionId": 12,
         "careerId": 4,
-        "Description": "Project manager"
+        "description": "Project manager"
     },
     {
-        "JobPositionId": 13,
+        "jobPositionId": 13,
         "careerId": 4,
-        "Description": "Scrum Master"
+        "description": "Scrum Master"
     },
     {
-        "JobPositionId": 14,
+        "jobPositionId": 14,
         "careerId": 5,
-        "Description": "Jr textile operator"
+        "description": "Jr textile operator"
     },
     {
-        "JobPositionId": 15,
+        "jobPositionId": 15,
         "careerId": 5,
-        "Description": "Textile production assistant manager"
+        "description": "Textile production assistant manager"
     },
     {
-        "JobPositionId": 16,
+        "jobPositionId": 16,
         "careerId": 5,
-        "Description": "Textile design assistant"
+        "description": "Textile design assistant"
     },
     {
-        "JobPositionId": 17,
+        "jobPositionId": 17,
         "careerId": 5,
-        "Description": "Textile production supervisor"
+        "description": "Textile production supervisor"
     },
     {
-        "JobPositionId": 18,
+        "jobPositionId": 18,
         "careerId": 6,
-        "Description": "Head of administration"
+        "description": "Head of administration"
     },
     {
-        "JobPositionId": 19,
+        "jobPositionId": 19,
         "careerId": 6,
-        "Description": "Management analyst"
+        "description": "Management analyst"
     },
     {
-        "JobPositionId": 20,
+        "jobPositionId": 20,
         "careerId": 6,
-        "Description": "Administration intern"
+        "description": "Administration intern"
     },
     {
-        "JobPositionId": 21,
+        "jobPositionId": 21,
         "careerId": 7,
-        "Description": "Environmental management specialist"
+        "description": "Environmental management specialist"
     },
     {
-        "JobPositionId": 22,
+        "jobPositionId": 22,
         "careerId": 7,
-        "Description": "Environmental management coordinator"
+        "description": "Environmental management coordinator"
     },
     {
-        "JobPositionId": 23,
+        "jobPositionId": 23,
         "careerId": 8,
-        "Description": "Received technician"
+        "description": "Received technician"
     }
 ]

@@ -50,7 +50,7 @@ require_once('nav.php');
                                                   if($jobOffer->getImagen()!=null)
                                                   {
                                                        ?>
-                                                            <td><img src="<?php echo FRONT_ROOT . $jobOffer->getImagen();?>" alt="" style="width: 100px;"></td>
+                                                            <td><a href="<?php echo FRONT_ROOT . $jobOffer->getImagen();?>" target="_blank"><img src="<?php echo FRONT_ROOT . $jobOffer->getImagen();?>" alt="" style="width: 100px;"></a></td>
                                                        <?php
                                                   }
                                                   else

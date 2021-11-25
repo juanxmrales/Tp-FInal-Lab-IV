@@ -118,9 +118,6 @@
         }
 
 
-
-
-
         public function SearchCompanyById($id)
         {
             $companyList = $this->GetAll();
@@ -135,6 +132,30 @@
             }
 
             return $company;
+        }
+
+        public function SearchByUserId($id){
+
+            try
+            {
+                $companyList = array();
+
+                $query = "SELECT * FROM $this->tableName WHERE id_usuario = $id";
+
+                $this->connection = Connection::GetInstance();
+
+                $resultSet = $this->connection->Execute($query);
+                                      
+                $row = $resultSet[0];
+                
+                $company = new Company($row["id"],$row["name"],$row["street"],$row["nationality"],$row["description"], $row["id_usuario"]);
+
+                return $company->getId();
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
         }
         
     }
