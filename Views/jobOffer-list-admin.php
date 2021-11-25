@@ -21,11 +21,13 @@ require_once('nav.php');
                     <thead>
                          <th></th>
                          <th></th>
+                         <th></th>
                          <th>Posicion</th>
                          <th>Compania</th>
                          <th>Carrera</th>
                          <th>Fecha</th>
                          <th>Descripcion</th>
+                         <th>Imagen</th>
                     </thead>
                     <tbody>
                          <?php
@@ -36,13 +38,28 @@ require_once('nav.php');
                                         ?>
 
                                         <tr>
-                                             <td><a href="<?php echo FRONT_ROOT; ?>JobOffer/ShowPostulates/<?php echo $jobOffer->getId()?>"><button class="btn btn-dark ml-auto d-block">Ver Postulados</button></a></td>
-                                             <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfile/<?php echo $jobOffer->getIdCompany()?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
+                                             <td><a href="<?php echo FRONT_ROOT; ?>JobOffer/ShowAddImageView/<?php echo $jobOffer->getId();?>"><button class="btn btn-dark ml-auto d-block" <?php if($jobOffer->getImagen()!=null){ echo "disabled";}?>>Agregar Imagen</button></a></td>
+                                             <td><a href="<?php echo FRONT_ROOT; ?>JobOffer/ShowPostulates/<?php echo $jobOffer->getId();?>"><button class="btn btn-dark ml-auto d-block">Ver Postulados</button></a></td>
+                                             <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfile/<?php echo $jobOffer->getIdCompany();?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
                                              <td><?php echo $jobOffer->getJobPosition(); ?></td>
                                              <td><?php echo $jobOffer->getCompany(); ?></td>
                                              <td><?php echo $jobOffer->getCareer(); ?></td>
                                              <td><?php echo $jobOffer->getFecha(); ?></td>
                                              <td><?php echo $jobOffer->getDescription(); ?></td>
+                                             <?php
+                                                  if($jobOffer->getImagen()!=null)
+                                                  {
+                                                       ?>
+                                                            <td><img src="<?php echo FRONT_ROOT . $jobOffer->getImagen();?>" alt="" style="width: 100px;"></td>
+                                                       <?php
+                                                  }
+                                                  else
+                                                  {
+                                                       ?>
+                                                            <td>Imagen no disponible</td>
+                                                       <?php
+                                                  }
+                                             ?>
                                         </tr>
 
                                         <?php

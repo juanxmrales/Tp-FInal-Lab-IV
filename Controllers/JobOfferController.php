@@ -317,7 +317,7 @@ class JobOfferController
                     {
                         if(!file_exists($archivo)&&move_uploaded_file($cv['tmp_name'],$archivo))
                         {
-                            $userXJob = new UserXJobOffer($_SESSION['idUser'],$_SESSION['jobId'],$archivo);
+                            $userXJob = new UserXJobOffer($_SESSION['idUser'],$_SESSION['jobIdCv'],$archivo);
                             $userXJobDAO = new UserXJobOfferDAO();
 
                             $message = $userXJobDAO->Add($userXJob);	
@@ -430,6 +430,58 @@ class JobOfferController
             }
 			
 		}
+
+        public function ShowAddImageView($idJob)
+        {
+            if(isset($_SESSION['type'])){
+
+                if($_SESSION['type'] == UserType::Admin || $_SESSION['type'] == UserType::Company)
+                {
+                    require_once(VIEWS_PATH."choose-image.php");
+                }
+                elseif($_SESSION['type'] == UserType::Student){
+
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);   
+                }        
+            }
+            else{
+                require_once(VIEWS_PATH."login.php");
+            }
+        }
+
+        public function AddImage($image)
+        {
+            if(isset($_SESSION['type'])){
+
+                if($_SESSION['type'] == UserType::Admin || $_SESSION['type'] == UserType::Company)
+                {
+                    $directorio = "Archivos/images/";
+                    $archivo = $directorio . basename($image['name']);
+                    $tipoArchivo = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
+
+                    if($tipoArchivo == "png" || $tipoArchivo == "jpg" || $tipoArchivo == "jpeg")
+                    {
+                        if(!file_exists($archivo)&&move_uploaded_file($image['tmp_name'],$archivo))
+                        {
+                            $this->jobOfferDAO->AddImage($_SESSION['idJobImagen'],$archivo);	
+
+                            $this->ShowListViewAdmin();
+                        }
+                    }
+                    else
+                    {
+                        $this->ShowListViewAdmin();
+                    }
+                }
+                elseif($_SESSION['type'] == UserType::Student){
+
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);   
+                }        
+            }
+            else{
+                require_once(VIEWS_PATH."login.php");
+            }
+        }
 		
 	}
 

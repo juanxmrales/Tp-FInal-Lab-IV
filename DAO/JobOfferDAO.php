@@ -62,7 +62,7 @@
                         }
                     }
 
-                    $job = new JobOffer($row["id"],$row["id_jobPosition"],$row["jobPosition"],$row["id_company"],$row["company"],$row["career"],$row["fecha"],$row["description"],$userList);
+                    $job = new JobOffer($row["id"],$row["id_jobPosition"],$row["jobPosition"],$row["id_company"],$row["company"],$row["career"],$row["fecha"],$row["description"],$row["imagen"],$userList);
 
                     $userList = null;
 
@@ -104,7 +104,7 @@
                         }
                     }
 
-                    $job = new JobOffer($row["id"],$row["id_jobPosition"],$row["jobPosition"],$row["id_company"],$row["company"],$row["career"],$row["fecha"],$row["description"],$userList);
+                    $job = new JobOffer($row["id"],$row["id_jobPosition"],$row["jobPosition"],$row["id_company"],$row["company"],$row["career"],$row["fecha"],$row["description"],$row["imagen"],$userList);
 
                     $userList = null;
                 }
@@ -157,7 +157,23 @@
             }
         }
 
-        
+        public function AddImage($id,$imagen)
+        {
+            try{
+
+                $query = "UPDATE $this->tableName SET imagen = :imagen WHERE id = :id;";
+
+                $parameters["id"] = $id;
+                $parameters["imagen"] = $imagen;
+
+                $this->connection = Connection::GetInstance();
+                $this->connection->ExecuteNonQuery($query,$parameters);
+            }
+            catch(Exception $ex){
+
+                throw $ex;
+            }
+        }
 
     }
 

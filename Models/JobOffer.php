@@ -12,6 +12,7 @@
         private $career;
         private $fecha;
         private $description;
+		private $imagen;
         private $users;
 
 
@@ -27,7 +28,7 @@
 		 * @param    $description   
 		 * @param    $users   
 		 */
-		public function __construct($id, $idJobPosition, $jobPosition, $idCompany, $company, $career, $fecha, $description, $users = array())
+		public function __construct($id, $idJobPosition, $jobPosition, $idCompany, $company, $career, $fecha, $description, $imagen = null, $users = array())
 		{
 			$this->id = $id;
 			$this->idJobPosition = $idJobPosition;
@@ -37,6 +38,7 @@
 			$this->career = $career;
 			$this->fecha = $fecha;
 			$this->description = $description;
+			$this->imagen = $imagen;
 			$this->users = $users;
 		}
 
@@ -227,6 +229,26 @@
 
                 return in_array($id, $list);
         }
+
+		/**
+		 * Get the value of imagen
+		 */ 
+		public function getImagen()
+		{
+				return $this->imagen;
+		}
+
+		/**
+		 * Set the value of imagen
+		 *
+		 * @return  self
+		 */ 
+		public function setImagen($imagen)
+		{
+				$this->imagen = $imagen;
+
+				return $this;
+		}
 }
 
  ?>
