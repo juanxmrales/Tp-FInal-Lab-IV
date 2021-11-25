@@ -7,6 +7,8 @@ use DAO\JobOfferDAO;
 use Models\Company as Company;
 use DAO\JobPositionDAO;
 use DAO\UserType;
+Use Models\user as User;
+use DAO\UserDAO;
 
     class CompanyController
     {
@@ -194,7 +196,7 @@ use DAO\UserType;
             
         }
 
-        public function Add($name, $street, $nacionality, $description)
+        public function Add($name, $street, $nacionality, $email, $password, $description)
         {
             
             if(isset($_SESSION['type'])){
@@ -204,8 +206,14 @@ use DAO\UserType;
                     if($this->companyDAO->SearchCompany($name)==null)
                     {
 
-                        $company = new Company(0,$name, $street, $nacionality, $description);
+                        $user = new User(0,$email,password_hash($password,PASSWORD_DEFAULT), 2);
+                        $userDAO = new UserDAO();
 
+                        $userDAO->Add($user);
+
+                        $usuario = $userDAO->searchUser($email);
+
+                        $company = new Company(0,$name, $street, $nacionality, $description, $usuario->getId());
                         $this->companyDAO->Add($company);
 
                         $this->ShowAddView("Registro exitoso");

@@ -13,13 +13,15 @@
         {
             try
             {
-                $query = "INSERT INTO ".$this->tableName." (id,name,street,nationality,description) VALUES (:id,:name,:street,:nationality,:description);";
+                $query = "INSERT INTO ".$this->tableName." (id,name,street,nationality,description, id_usuario) VALUES (:id,:name,:street,:nationality,:description, :id_usuario);";
                 
                 $parameters["id"] = $company->getId();
                 $parameters["name"] = $company->getName();
                 $parameters["street"] = $company->getStreet();
                 $parameters["nationality"] = $company->getNacionality();
                 $parameters["description"] = $company->getDescription();
+                $parameters["id_usuario"] = $company->getIdusuario();
+
 
                 $this->connection = Connection::GetInstance();
 
@@ -45,7 +47,7 @@
                 
                 foreach ($resultSet as $row)
                 {                
-                    $company = new Company($row["id"],$row["name"],$row["street"],$row["nationality"],$row["description"]);
+                    $company = new Company($row["id"],$row["name"],$row["street"],$row["nationality"],$row["description"], $row["id_usuario"]);
 
                     array_push($companyList, $company);
                 }
