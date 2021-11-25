@@ -324,6 +324,15 @@ class JobOfferController
 
                             $this->ShowListView($message);
                         }
+                        else if(file_exists($archivo))
+                        {
+                            $userXJob = new UserXJobOffer($_SESSION['idUser'],$_SESSION['jobIdCv'],$archivo);
+                            $userXJobDAO = new UserXJobOfferDAO();
+
+                            $message = $userXJobDAO->Add($userXJob);	
+
+                            $this->ShowListView($message);
+                        }
                     }
                     else
                     {
@@ -463,7 +472,13 @@ class JobOfferController
                     {
                         if(!file_exists($archivo)&&move_uploaded_file($image['tmp_name'],$archivo))
                         {
-                            $this->jobOfferDAO->AddImage($_SESSION['idJobImagen'],$archivo);	
+                            $this->jobOfferDAO->AddImage($_SESSION['idJobImagen'],$archivo);
+
+                            $this->ShowListViewAdmin();
+                        }
+                        else if(file_exists($archivo))
+                        {
+                            $this->jobOfferDAO->AddImage($_SESSION['idJobImagen'],$archivo);
 
                             $this->ShowListViewAdmin();
                         }
