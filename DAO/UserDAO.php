@@ -79,6 +79,7 @@
             try
             {
 
+
                 $query = "SELECT * FROM $this->tableName WHERE id = $id";
 
                 $this->connection = Connection::GetInstance();
@@ -98,6 +99,25 @@
             }
         }
         
+        public function GetIdByEmail($email)
+        {
+            try
+            {
+
+                $query = "SELECT id FROM $this->tableName WHERE email = :email";
+
+                $parameters['email'] = $email;
+                $this->connection = Connection::GetInstance();
+
+                $id = $this->connection->Execute($query, $parameters);
+
+                return $id;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
+        }
 
         public function exist($email,$password)
         {

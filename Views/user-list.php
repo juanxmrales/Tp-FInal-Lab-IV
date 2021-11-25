@@ -33,7 +33,8 @@
                                              <td><?php echo $user->getId(); ?></td>
                                              <td><?php echo $user->getEmail(); ?></td>
                                              <td><?php if($user->getType() == 0) echo "Estudiante";
-                                                       else echo "Administrador" ; ?></td>
+                                                       elseif($user->getType() == 0) echo "Administrador";
+                                                       else echo "Empresa";; ?></td>
 
                                         </tr>
                                    <?php

@@ -8,6 +8,7 @@
         private $street;
         private $nacionality;
         private $description;
+        private $idusuario;
         
         /**
 		 * Class Constructor
@@ -18,13 +19,14 @@
                  * @param    $description
                  * @param    $active
 		 */
-        public function __construct($id, $name, $street, $nacionality, $description)
+        public function __construct($id, $name, $street, $nacionality, $description, $idusuario)
         {
                 $this->id = $id;
                 $this->name = $name;
                 $this->street = $street;
                 $this->nacionality = $nacionality;
                 $this->description = $description;
+                $this->idusuario = $idusuario;
         }
 
         public function getId()
@@ -87,5 +89,27 @@
                 return $this;
         }
 
-    }
+        
+
+    
+            /**
+             * @return mixed
+             */
+            public function getIdusuario()
+            {
+                return $this->idusuario;
+            }
+
+            /**
+             * @param mixed $idusuario
+             *
+             * @return self
+             */
+            public function setIdusuario($idusuario)
+            {
+                $this->idusuario = $idusuario;
+
+                return $this;
+            }
+}
 ?>
