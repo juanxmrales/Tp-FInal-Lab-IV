@@ -289,7 +289,7 @@ class JobOfferController
 			
 		}
 
-		public function ApplyJobOffer($idJob,$cv,$submit){
+		public function ApplyJobOffer($cv){
 
 			if(isset($_SESSION['type'])){
 
@@ -299,23 +299,20 @@ class JobOfferController
                 }
                 elseif($_SESSION['type'] == UserType::Student){
 
-                    if($submit == 1)
+                    $directorio = "Archivos/images/";
+                    $archivo = $directorio . basename($cv['name']);
+                    $tipoArchivo = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
+
+                    if($tipoArchivo == "jpg" || $tipoArchivo == "png" || $tipoArchivo == "jpeg")
                     {
-                        $directorio = "Archivos/images/";
-                        $archivo = $directorio . basename($image['name']);
-                        $tipoArchivo = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
-
-                        if($tipoArchivo == "jpg" || $tipoArchivo == "png" || $tipoArchivo == "jpeg")
+                        if(!file_exists($archivo)&&move_uploaded_file($cv['tmp_name'],$archivo))
                         {
-                            if(!file_exists($archivo)&&move_uploaded_file($image['tmp_name'],$archivo))
-                            {
-                                $userXJob = new UserXJobOffer($_SESSION['idUser'],$idJob,$archivo);
-                                $userXJobDAO = new UserXJobOfferDAO();
+                            $userXJob = new UserXJobOffer($_SESSION['idUser'],$_SESSION['jobId'],$archivo);
+                            $userXJobDAO = new UserXJobOfferDAO();
 
-                                $message = $userXJobDAO->Add($userXJob);	
+                            $message = $userXJobDAO->Add($userXJob);	
 
-                                $this->ShowListView($message);
-                            }
+                            $this->ShowListView($message);
                         }
                     }
                     else

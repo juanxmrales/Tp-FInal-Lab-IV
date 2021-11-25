@@ -7,7 +7,7 @@
                <h2 class="mb-4">Postulandose a la oferta:</h2>
                <form action="<?php echo FRONT_ROOT ?>JobOffer/ApplyJobOffer" method="post" class="bg-light-alpha p-5" enctype="multipart/form-data">
                     <div class="row">
-                         <input type="hidden" name="idJob" class="form-control" value="<?php echo $job->getId(); ?>" readonly>
+                         <?php $_SESSION['jobId'] = $job->getId(); ?>
                          <div class="col-lg-4">
                               <div class="form-group">
                                    <label for="">Descripcion</label>
@@ -33,8 +33,7 @@
                               </div>
                          </div>
                     </div>
-                    <button type="submit" name="submit" value="1" class="btn btn-dark ml-auto d-block">Confirmar</button><br>
-                    <button type="submit" name="submit" value="2" class="btn btn-dark ml-auto d-block">Cancelar</button>
+                    <button type="submit" class="btn btn-dark ml-auto d-block">Confirmar</button><br>
                </form> 
           
                
