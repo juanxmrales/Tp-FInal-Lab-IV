@@ -587,7 +587,14 @@ class JobOfferController
                     }
                     else
                     {
-                        $this->ShowListViewAdmin();
+                        if($_SESSION['type'] == UserType::Admin)
+                            {
+                                $this->ShowListViewAdmin();
+                            }
+                            else
+                            {
+                                $this->ShowListViewCompany();
+                            }
                     }
                 }
                 elseif($_SESSION['type'] == UserType::Student){
