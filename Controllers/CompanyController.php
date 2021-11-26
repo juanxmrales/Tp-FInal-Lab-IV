@@ -251,18 +251,24 @@ use DAO\UserDAO;
 
                     if($this->companyDAO->SearchCompany($name)==null)
                     {
-                        
-                        $user = new User(0,$email,password_hash($password,PASSWORD_DEFAULT), 2);
                         $userDAO = new UserDAO();
+                        if(!$userDAO->searchUser($email))
+                        {
+                            $user = new User(0,$email,password_hash($password,PASSWORD_DEFAULT), 2);
 
-                        $userDAO->Add($user);
+                            $userDAO->Add($user);
+                            $usuario = $userDAO->searchUser($email);
+    
+                            $company = new Company(0,$name, $street, $nacionality, $description, $usuario->getId());
+                            $this->companyDAO->Add($company);
+    
+                            $this->ShowAddView("Registro exitoso");
+                        }
+                        else
+                        {
+                            $this->ShowAddView("El email ingresado ya existe");
+                        }
 
-                        $usuario = $userDAO->searchUser($email);
-
-                        $company = new Company(0,$name, $street, $nacionality, $description, $usuario->getId());
-                        $this->companyDAO->Add($company);
-
-                        $this->ShowAddView("Registro exitoso");
                     }
                     else
                     {
