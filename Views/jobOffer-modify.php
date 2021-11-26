@@ -36,7 +36,7 @@
                          </div>               
                          <div class="col-lg-4">
                               <div class="form-group">
-                                   <label for="">Compania</label>
+                                   <label for="">Compañía</label>
                                    <select class="form-control" name="idCompany" id="idCompany" defa>
                                    <option value="<?php echo $comp->getId();?>" selected><?php echo $comp->getName();?></option>
                                         <?php  foreach($companyList as $company){
@@ -48,7 +48,7 @@
                          </div>
                          <div class="col-lg-4">
                               <div class="form-group">
-                                   <label for="">Posicion</label>
+                                   <label for="">Posición</label>
                                    <select class="form-control" name="idJobPosition" id="idJobPosition" value="<?php echo $jobPos->getDescription();?>">>
                                    <option value="<?php echo $jobPos->getId();?>" selected><?php echo $jobPos->getDescription();?></option>
                                         <?php  foreach($jobPositionList as $jobPosition){
@@ -66,7 +66,7 @@
                          </div>
                          <div class="col-lg-4">
                               <div class="form-group">
-                                   <label for="">Descripcion</label>
+                                   <label for="">Descripción</label>
                                    <input type="text" name="description" id="description" class="form-control" required="" value="<?php echo $job->getDescription();?>">
                               </div>
                          </div>

@@ -16,7 +16,7 @@ require_once('nav.php');
                          <th>Apellido</th>
                          <th>DNI</th>
                          <th>Email</th>
-                         <th>Telefono</th>
+                         <th>Teléfono</th>
                          <th>URL</th>
                     </thead>
                     <tbody>

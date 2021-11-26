@@ -53,7 +53,7 @@
                     </div>
                     <div style="margin-top: 10px">
                         
-                        <span class="badge badge-info" style="font-size: 15px;"><a style="color: white" href="<?php echo FRONT_ROOT ?>Home">Ya tiene cuenta? Inicie sesion</a>  </span>
+                        <span class="badge badge-info" style="font-size: 15px;"><a style="color: white" href="<?php echo FRONT_ROOT ?>Home">Ya tiene cuenta? Inicie sesión</a>  </span>
                     </div>
                             
                 </div>

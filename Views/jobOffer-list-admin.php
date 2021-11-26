@@ -22,11 +22,11 @@ require_once('nav.php');
                          <th></th>
                          <th></th>
                          <th></th>
-                         <th>Posicion</th>
-                         <th>Compania</th>
+                         <th>Posición</th>
+                         <th>Compañía</th>
                          <th>Carrera</th>
                          <th>Fecha</th>
-                         <th>Descripcion</th>
+                         <th>Descripción</th>
                          <th>Imagen</th>
                     </thead>
                     <tbody>

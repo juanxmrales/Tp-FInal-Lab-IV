@@ -10,7 +10,7 @@
                     <div class="row">                       
                          <div class="col-lg-4">
                               <div class="form-group">
-                                   <label for="">Compania</label>
+                                   <label for="">Compañía</label>
                                    <select class="form-control" name="idCompany" id="idCompany">
                                         <?php  foreach($companyList as $company){
                                                    ?>
@@ -21,7 +21,7 @@
                          </div>
                          <div class="col-lg-4">
                               <div class="form-group">
-                                   <label for="">Posicion</label>
+                                   <label for="">Posición</label>
                                    <select class="form-control" name="idJobPosition" id="idJobPosition">
                                         <?php  foreach($jobPositionList as $jobPosition){
                                                   ?>
@@ -32,7 +32,7 @@
                          </div>
                          <div class="col-lg-4">
                               <div class="form-group">
-                                   <label for="">Descripcion</label>
+                                   <label for="">Descripción</label>
                                    <input type="text" name="description" id="description" class="form-control" required="">
                               </div>
                          </div>

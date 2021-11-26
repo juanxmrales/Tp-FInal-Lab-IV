@@ -10,11 +10,11 @@ require_once('nav.php');
                <table class="table bg-light-alpha">
                     <thead>
                          <th></th>
-                         <th>Posicion</th>
-                         <th>Compania</th>
+                         <th>Posición</th>
+                         <th>Compañía</th>
                          <th>Carrera</th>
                          <th>Fecha</th>
-                         <th>Descripcion</th>
+                         <th>Descripción</th>
                     </thead>
                     <tbody>
                          <?php

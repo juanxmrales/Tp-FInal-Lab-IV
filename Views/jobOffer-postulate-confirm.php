@@ -10,7 +10,7 @@
                          <?php $_SESSION['jobIdCv'] = $job->getId(); ?>
                          <div class="col-lg-4">
                               <div class="form-group">
-                                   <label for="">Descripcion</label>
+                                   <label for="">Descripción</label>
                                    <input type="text" class="form-control" value="<?php echo $job->getDescription(); ?>" readonly>
                               </div>
                          </div>                         
@@ -22,7 +22,7 @@
                          </div>
                          <div class="col-lg-4">
                               <div class="form-group">
-                                   <label for="">Posicion</label>
+                                   <label for="">Posición</label>
                                    <input type="text" class="form-control" value="<?php echo $job->getJobPosition(); ?>" readonly>
                               </div>
                          </div>

@@ -13,7 +13,7 @@
                          <th>Nombre</th>
                          <th>Calle</th>
                          <th>Nacionalidad</th>
-                         <th>Descripcion</th>
+                         <th>Descripción</th>
                     </thead>
                     <tbody>
                          <tr>
@@ -35,7 +35,7 @@
                          <th>Puesto</th>
                          <th>Carrera</th>
                          <th>Fecha</th>
-                         <th>Descripcion</th>
+                         <th>Descripción</th>
                     </thead>
                     <tbody>
                          <?php

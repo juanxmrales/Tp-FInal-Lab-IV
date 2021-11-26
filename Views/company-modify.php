@@ -30,7 +30,7 @@
                          </div>
                          <div class="col-lg-4">
                               <div class="form-group">
-                                   <label for="">Descripcion</label>
+                                   <label for="">Descripción</label>
                                    <input type="textarea" name="description" value="<?php echo $company->getDescription()?>" class="form-control">
                               </div>
                          </div>

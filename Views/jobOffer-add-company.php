@@ -22,7 +22,7 @@
                          </div>
                          <div class="col-lg-4">
                               <div class="form-group">
-                                   <label for="">Descripcion</label>
+                                   <label for="">Descripción</label>
                                    <input type="text" name="description" id="description" class="form-control" required="">
                               </div>
                          </div>

@@ -6,7 +6,7 @@
 <div class="card">
   <img src= <?php echo FRONT_ROOT.VIEWS_PATH ?>img/user.png ?>
   <div class="card-body">
-    <h5 class="card-title">Informacion del Alumno</h5>
+    <h5 class="card-title">Información del Alumno</h5>
   </div>
   <ul class="list-group list-group-flush">
     <?php
@@ -19,10 +19,10 @@
           <li class="list-group-item">Apellido: <?php echo $student->getLastName(); ?></li>
           <li class="list-group-item">DNI: <?php echo $student->getDni(); ?></li>
           <li class="list-group-item">Legajo: <?php echo $student->getFileNumber(); ?></li>
-          <li class="list-group-item">Genero: <?php echo $student->getGender(); ?></li>
+          <li class="list-group-item">Género: <?php echo $student->getGender(); ?></li>
           <li class="list-group-item">Fecha de Nacimiento: <?php echo $student->getBirthDate(); ?></li>
           <li class="list-group-item">Email: <?php echo $student->getEmail(); ?></li>
-          <li class="list-group-item">Telefono: <?php echo $student->getPhoneNumber(); ?></li>
+          <li class="list-group-item">Teléfono: <?php echo $student->getPhoneNumber(); ?></li>
 
           <?php
         }

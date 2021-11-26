@@ -20,7 +20,7 @@
                          <th>Nombre</th>
                          <th>Calle</th>
                          <th>Nacionalidad</th>
-                         <th>Descripcion</th>
+                         <th>Descripción</th>
  
                     </thead>
                     <tbody>

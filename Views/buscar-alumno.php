@@ -21,11 +21,11 @@
                          <th>Apellido</th>
                          <th>Nombre</th>
                          <th>DNI</th>
-                         <th>Numero de Archivo</th>
-                         <th>Genero</th>
+                         <th>Número de Archivo</th>
+                         <th>Género</th>
                          <th>Fecha de Nacimiento</th>
                          <th>Email</th>
-                         <th>Telefono</th>
+                         <th>Teléfono</th>
                          <th>Activo</th>
                     </thead>
 
