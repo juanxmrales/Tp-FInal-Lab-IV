@@ -1,8 +1,6 @@
 <?php
     require_once('nav.php');
-
-     
-                         
+            
 ?>
 <main class="py-5" style="margin: 0 0 10rem 0">
      <section id="listado" class="mb-5">

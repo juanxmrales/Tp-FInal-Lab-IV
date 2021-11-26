@@ -6,13 +6,13 @@
 
           <ul class="navbar-nav ml-auto"> 
                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo FRONT_ROOT ?>JobOffer/ShowListViewAdmin">Agregar ofertas</a>
-               </li> 
+                    <a class="nav-link" href="<?php echo FRONT_ROOT ?>JobOffer/ShowAddViewCompany">Agregar ofertas</a>
+               </li>
                <li class="nav-item">
                     <a class="nav-link" href="<?php echo FRONT_ROOT ?>JobOffer/ShowListViewCompany">Ver ofertas</a>
                </li> 
                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo FRONT_ROOT ?>Company/ShowCompanyProfile/<?php echo $_SESSION['idComp'] ?>">Ver perfil</a>
+                    <a class="nav-link" href="<?php echo FRONT_ROOT ?>Company/ShowCompanyProfileCompany">Ver perfil</a>
                </li>
                <li class="nav-item">
                     <a class="nav-link" href="<?php echo FRONT_ROOT ?>LoginRegister/LogOut">Log out</a>

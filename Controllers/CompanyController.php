@@ -148,7 +148,7 @@ use DAO\UserDAO;
 
                 if($_SESSION['type'] == UserType::Admin){
 
-                    $this->ShowCompanyProfile();
+                    $this->ShowCompanyProfile($_SESSION['idComp']);
                 }
                 elseif($_SESSION['type'] == UserType::Student){
 
@@ -164,7 +164,7 @@ use DAO\UserDAO;
                     $companyList = $this->companyDAO->GetAll();
 
                     $company = $this->companyDAO->SearchCompanyById($_SESSION['idComp']);
-
+                    
                     require_once(VIEWS_PATH."company-profile-company.php");
                 }        
             }

@@ -38,7 +38,7 @@ require_once('nav.php');
                                         
                                         <tr>
                                                   <td><a href="<?php echo FRONT_ROOT; ?>Company/ShowCompanyProfileStudent/<?php echo $jobOffer->getIdCompany()?>"><button class="btn btn-dark ml-auto d-block">Ver Mas</button></a></td>
-                                                  <td><a href="<?php echo FRONT_ROOT; ?>JobOffer/ShowConfirmView/<?php echo $jobOffer->getId();?>"><button class="btn btn-dark ml-auto d-block">Postularme</button></a></td>
+                                                  <td><a href="<?php echo FRONT_ROOT; ?>JobOffer/ShowConfirmView/<?php echo $jobOffer->getId();?>"><button <?php if($jobOffer->ExistPostulation($_SESSION['idUser'])){ echo "disabled";} ?> class="btn btn-dark ml-auto d-block">Postularme</button></a></td>
 
                                                   <td><?php echo $jobOffer->getJobPosition(); ?></td>
                                                   <td><?php echo $jobOffer->getCompany(); ?></td>

@@ -250,18 +250,24 @@ class JobOfferController
 			
 		}
 
-		public function ShowDeclineForm($idJob, $idUser){
+		public function ShowDeclineForm($idUser,$idJob){
 
 			require_once(VIEWS_PATH."jobOffer-decline-postulate.php");
 		}
 
 
-		public function DeclinePostulate($idJob, $idUser, $info){
+		public function DeclinePostulate($idUser, $idJob, $info){
+
+            echo $idJob;
+            echo $idUser;
 
 			$userDAO = new UserDAO();
 
         	$user = $userDAO->GetById($idUser);
 
+            var_dump($user);
+
+            
 			MailController::SendDeclineInfo($user->getEmail(), $info);
 
 			$userXJobDAO = new userXJobOfferDAO();
@@ -271,6 +277,31 @@ class JobOfferController
 			$this->ShowListViewAdmin();
 
 		}
+
+        public function ShowAddViewCompany()
+        {
+            if(isset($_SESSION['type'])){
+
+                if($_SESSION['type'] == UserType::Admin){
+
+                    require_once(VIEWS_PATH."denied-access.php");
+                }
+                elseif($_SESSION['type'] == UserType::Student){
+
+                    header("location:../Student/ShowStudentProfile/" . $_SESSION["email"]);     
+                } 
+                elseif($_SESSION['type'] == UserType::Company){
+
+                    $jobPositionDAO = new JobPositionDAO();
+					$jobPositionList = $jobPositionDAO->getAll();
+
+                    require_once(VIEWS_PATH."jobOffer-add-company.php");
+                }        
+            }
+            else{
+                require_once(VIEWS_PATH."login.php");
+            }
+        }
 
 		public function Add($idCompany,$idJobPosition,$description){
 
@@ -296,7 +327,15 @@ class JobOfferController
 					$jobOffer = new JobOffer(0,$idJobPosition,$jobPosition,$idCompany,$company,$career,$fecha,$description);
 
 					$this->jobOfferDAO->add($jobOffer);
-					$this->ShowAddView();
+                    if($_SESSION['type'] == UserType::Admin)
+                    {
+                        $this->ShowAddView();
+                    }
+                    else if($_SESSION['type'] == UserType::Company)
+                    {
+                        $this->ShowAddViewCompany();
+                    }
+					
                 }
                 elseif($_SESSION['type'] == UserType::Student){
 
@@ -522,13 +561,28 @@ class JobOfferController
                         {
                             $this->jobOfferDAO->AddImage($_SESSION['idJobImagen'],$archivo);
 
-                            $this->ShowListViewAdmin();
+                            if($_SESSION['type'] == UserType::Admin)
+                            {
+                                $this->ShowListViewAdmin();
+                            }
+                            else
+                            {
+                                $this->ShowListViewCompany();
+                            }
+                            
                         }
                         else if(file_exists($archivo))
                         {
                             $this->jobOfferDAO->AddImage($_SESSION['idJobImagen'],$archivo);
 
-                            $this->ShowListViewAdmin();
+                            if($_SESSION['type'] == UserType::Admin)
+                            {
+                                $this->ShowListViewAdmin();
+                            }
+                            else
+                            {
+                                $this->ShowListViewCompany();
+                            }
                         }
                     }
                     else

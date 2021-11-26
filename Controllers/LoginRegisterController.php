@@ -60,7 +60,7 @@
                     $companyDAO  = new CompanyDAO();
                     $_SESSION['idComp'] = $companyDAO->SearchByUserId($_SESSION['idUser']);
 
-                    header("location:". FRONT_ROOT . "JobOffer/ShowListViewAdmin");
+                    header("location:". FRONT_ROOT . "Company/ShowCompanyProfileCompany");
                 }
             }
             else
