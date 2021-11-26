@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg  navbar-dark color">
      <div class="container">
           <a class="navbar-brand" href="<?php echo FRONT_ROOT ?>Company/ShowCompanyProfile/<?php echo $_SESSION['idComp'] ?>">
-               <i class="fas fa-user-graduate"></i>
+               <i class="fas fa-user-astronaut"></i>
           </a>
 
           <ul class="navbar-nav ml-auto"> 
